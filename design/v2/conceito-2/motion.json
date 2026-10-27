@@ -1,0 +1,32 @@
+{
+  "versao": 2,
+  "animacoes": [
+    {
+      "alvo": "Título e informações da capa",
+      "efeito": "opacity 0→1, translateY 6px→0",
+      "duracao_ms": 420,
+      "delay_ms": 0,
+      "easing": "cubic-bezier(0.22,1,0.36,1)",
+      "repeticao": "uma vez, sem bloquear leitura"
+    },
+    {
+      "alvo": "Primeira entrada das janelinhas de animais",
+      "efeito": "opacity 0→1, scale 0.98→1",
+      "duracao_ms": 450,
+      "delay_ms": 80,
+      "easing": "ease-out",
+      "repeticao": "uma vez; sem loop"
+    }
+  ],
+  "formulario": {
+    "enviando": "Rótulo Enviando… imediato, controles temporariamente indisponíveis e aria-busy=true. Sem spinner necessário.",
+    "sucesso": "Mensagem estática, exibida só após resposta que confirme gravação persistida. role=status / aria-live=polite.",
+    "erro": "Mensagem estática; manter valores e permitir nova tentativa. role=alert.",
+    "invalido": "Erro textual junto ao campo + aria-invalid e aria-describedby. Levar foco ao primeiro erro; sem tremor."
+  },
+  "prefers_reduced_motion": {
+    "media": "(prefers-reduced-motion: reduce)",
+    "estado": "Tudo aparece imediatamente no estado final: opacity 1 e transform none; sem transição de entrada, escala, rotação ou translação. Feedback textual do formulário continua imediato."
+  },
+  "restricoes": "Sem loop, parallax, flash, confete, áudio ou animação de campos. Hover opcional só cor até 120ms; foco imediato."
+}

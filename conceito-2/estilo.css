@@ -1,0 +1,26 @@
+/* Conceito 2 v2 — Retalhos de carinho (Deidara): colcha pastel, janelinhas e costuras.
+   Paleta/contraste: design/v2/conceito-2/contraste.json. Motion: design/v2/conceito-2/motion.json. */
+@font-face{font-family:"Noto Sans";src:url(fontes/NotoSans-Regular.ttf) format("truetype");font-weight:400;font-display:swap}
+@font-face{font-family:"Noto Sans";src:url(fontes/NotoSans-Bold.ttf) format("truetype");font-weight:700;font-display:swap}
+:root{--fundo:#FFF9F4;--texto:#513F58;--acento:#755080;--sec:#66566D;--apoio:#EEE2F2;--titulo:"Noto Sans",system-ui,sans-serif;--entrada-ms:420ms}
+/* costuras coloridas nas laterais (padrão original) */
+body{position:relative;min-height:100vh}
+body::before,body::after{content:"";position:absolute;top:0;bottom:0;width:10px;background:url(assets/padrao.svg) repeat-y 0 0/10px auto;pointer-events:none}
+body::before{left:0}body::after{right:0}
+.capa{margin-top:24px}
+.arte{max-width:390px;margin:0 auto}
+.capa-texto{margin-top:30px}
+.capa h1{margin-bottom:24px}
+@media (prefers-reduced-motion: no-preference){
+  .cena{animation:janelas 450ms ease-out 80ms both}
+}
+@keyframes janelas{from{opacity:0;transform:scale(.98)}to{opacity:1;transform:none}}
+@media (min-width:900px){
+  body::before,body::after{display:none}
+  .capa{display:grid;grid-template-columns:1.1fr 1fr;align-items:center;gap:50px;margin-top:40px}
+  .arte{max-width:none;margin:0}
+  .capa-texto{margin:0;background:var(--apoio);border-radius:56px;padding:90px 30px 110px;position:relative}
+  .capa-texto::before,.capa-texto::after{content:"";position:absolute;left:30px;right:30px;border-top:2px dashed var(--acento);opacity:.7}
+  .capa-texto::before{top:30px}.capa-texto::after{bottom:30px}
+  .capa h1{font-size:96px;margin-bottom:34px}
+}

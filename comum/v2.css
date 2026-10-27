@@ -1,0 +1,108 @@
+/* Layout comum dos 3 conceitos v2 (fazendinha infantil, Deidara). Cada conceito define as variáveis em estilo.css:
+   --fundo --texto --acento --sec --apoio --campo (fundo dos campos) --titulo (fonte do nome e títulos).
+   Pastéis só em fundos e ilustração; erros #A1273A sobre #FFF2F2 ou fundo da página (contraste.json de cada conceito). */
+:root{--erro:#A1273A;--erro-fundo:#FFF2F2;--campo:#FFFFFF;--sans:"Noto Sans",system-ui,sans-serif}
+body{background:var(--fundo);color:var(--texto);font-family:var(--sans);font-size:16px}
+:focus-visible{outline:2px solid var(--acento);outline-offset:3px}
+.pular{background:var(--acento);color:var(--fundo)}
+.so-desktop{display:none}
+.pagina{max-width:1440px;margin:0 auto;padding:0 24px;position:relative}
+.rotulo-topo{text-align:center;font-weight:700;font-size:11px;letter-spacing:.06em;text-transform:uppercase;margin:0;padding:30px 0 0}
+
+h1{font-family:var(--titulo);font-weight:700;font-size:clamp(68px,19vw,150px);line-height:1;margin:0;letter-spacing:-.01em}
+.pilula{display:inline-block;background:var(--acento);color:var(--fundo);font-weight:700;font-size:17px;border-radius:999px;padding:10px 30px;margin:0}
+.capa{text-align:center}
+.arte svg{display:block;width:100%;height:auto}
+
+/* Data, horário e local */
+.info{background:var(--apoio);border-radius:28px;padding:26px 30px 30px;text-align:center;margin-top:34px}
+.info-item p{margin:0}
+.info .rotulo{font-size:15px}
+.info .dia{font-weight:700;font-size:24px;margin-top:12px !important}
+.info .ano{font-size:18px;margin-top:6px !important}
+.info-hora{display:none}
+.info-local{border-top:1px solid var(--acento);margin-top:24px;padding-top:22px}
+.info-local .rotulo{font-weight:700;font-size:10px;text-transform:uppercase;letter-spacing:.06em}
+.info .local{font-weight:700;font-size:19px;margin-top:12px !important}
+.info .endereco{font-size:15px;line-height:1.45;margin-top:6px !important}
+
+/* Tema */
+.tema{display:flex;align-items:center;gap:28px;margin:44px 6px 0}
+.tema .bicho{width:64px;flex:none}
+.tema p{margin:0}
+.tema-chamada{font-weight:700;font-size:15px}
+.tema-nome{font-family:var(--titulo);font-weight:700;font-size:22px;line-height:1.25;margin-top:12px !important}
+
+/* RSVP */
+.rsvp{margin-top:54px}
+.rsvp h2{font-family:var(--titulo);font-weight:700;font-size:34px;line-height:1.1;margin:0}
+.rsvp-sub{color:var(--sec);font-size:16px;margin:14px 0 26px}
+.rsvp-bicho{display:none}
+.rsvp-form{display:grid}
+.rsvp-form fieldset{border:0;margin:0;padding:0;min-width:0;display:grid;gap:4px}
+.rsvp-sem-js{font-weight:700;margin:0 0 10px}
+.campo{display:grid;gap:8px}
+.campos-2{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:10px}
+label{font-weight:700;font-size:14px}
+input{font:inherit;font-size:16px;height:54px;padding:0 14px;border:1px solid var(--acento);border-radius:16px;background:var(--campo);color:var(--texto);width:100%}
+input::placeholder{color:var(--sec);opacity:1}
+input[readonly]{background:var(--fundo)}
+input[aria-invalid=true]{border:2px solid var(--erro)}
+.erro{color:var(--erro);font-size:12px;font-weight:700;margin:0}
+.erro:not(:empty){margin-top:2px}
+.erro:not(:empty)::before{content:"! "}
+.botao{height:56px;border:0;border-radius:999px;background:var(--acento);color:var(--fundo);font:inherit;font-weight:700;font-size:16px;cursor:pointer;margin-top:16px;transition:background-color 120ms}
+.botao:hover:not(:disabled){background:var(--texto)}
+.botao:disabled{cursor:default}
+.botao.confirmado{background:var(--apoio);color:var(--texto)}
+.rsvp-nota{color:var(--sec);font-size:13px;margin:14px 0 0}
+.erro-geral p{color:var(--erro);font-size:13px;margin:0}
+.erro-geral:not(:empty){margin-top:12px}
+.caixa{border-radius:16px;padding:16px 18px;margin-top:16px}
+.caixa-sucesso{background:var(--apoio);border:1px solid var(--acento)}
+.caixa-sucesso strong{display:block;font-size:17px}
+.caixa-sucesso p{margin:10px 0 0;color:var(--sec);font-size:14px}
+.caixa-sucesso strong::before{content:"✓ "}
+.caixa-erro{background:var(--erro-fundo);border:1px solid var(--erro);color:var(--erro);font-weight:700;font-size:16px}
+.caixa-erro::before{content:"! "}
+.isca{position:absolute !important;left:-10000px !important;top:auto;width:1px;height:1px;overflow:hidden}
+
+/* Rodapé */
+.rodape{text-align:center;border-top:1px solid var(--acento);margin:60px 0 0;padding:26px 0 30px}
+.rodape p{margin:0}
+.rodape-nome{font-weight:700;font-size:17px}
+.rodape-data{color:var(--sec);font-size:12px;margin-top:10px !important}
+
+/* Entrada (motion.json de cada conceito define duração/alvo da ilustração). Movimento reduzido: estado final já. */
+@media (prefers-reduced-motion: no-preference){
+  .js [data-entrada]{opacity:0;transform:translateY(6px)}
+  .js [data-entrada].visto{animation:entrada var(--entrada-ms,480ms) cubic-bezier(0.22,1,0.36,1) forwards}
+}
+@keyframes entrada{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+@media print{[data-entrada]{opacity:1 !important;transform:none !important;animation:none !important}}
+
+@media (min-width:900px){
+  .so-desktop{display:inline}.so-movel{display:none}
+  .pagina{padding:0 112px}
+  .rotulo-topo{padding-top:40px}
+  .info{display:grid;grid-template-columns:repeat(3,1fr);padding:32px 0 34px;margin-top:50px}
+  .info-item{padding:0 20px}
+  .info-item+.info-item{border-left:1px solid var(--acento)}
+  .info .rotulo{font-weight:700;font-size:10px;text-transform:uppercase;letter-spacing:.06em}
+  .info .dia{font-size:26px;margin-top:16px !important}
+  .info .hora-movel{display:none}
+  .info-hora{display:block}
+  .info .hora{font-weight:700;font-size:26px;margin-top:16px !important}
+  .info-local{border-top:0;margin:0;padding-top:0}
+  .info .local{font-size:26px;margin-top:16px !important}
+  .info .endereco{font-size:16px;margin-top:8px !important}
+  .tema{margin:44px 0 0 96px;gap:60px}
+  .tema .bicho{width:72px}
+  .tema-chamada{font-weight:400;font-size:18px}
+  .tema-nome{font-size:32px}
+  .rsvp{display:grid;grid-template-columns:1fr 1fr;gap:60px;margin-top:80px;padding:0 74px}
+  .rsvp h2{font-size:46px;margin-top:20px}
+  .rsvp-sub{font-size:19px;line-height:1.55;margin-bottom:40px}
+  .rsvp-bicho{display:block;width:140px;margin-left:44px}
+  .rodape{margin-top:50px}
+}
