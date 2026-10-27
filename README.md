@@ -16,7 +16,7 @@ Páginas estáticas (HTML, CSS e JS, sem dependências externas) com os 3 concei
 
 ## Dados do convite
 
-Arthur, 1 ano ("1 aninho" na capa) · **domingo, 29/11/2026, 15h** · venha caracterizado: **country/fazendinha** · **Local a confirmar** (endereço ainda não definido) · sem foto.
+Arthur, 1 ano ("1 aninho" na capa) · **domingo, 29/11/2026, 15h** · venha caracterizado: **country/fazendinha** · **Casa da Árvore — Rua Castelo Branco, nº 31, Cidade Nova, Santana do Paraíso** · sem foto.
 
 ## Prévia local
 
@@ -107,7 +107,6 @@ Cobre:
 
 ## Pendências
 
-- Local do evento (hoje "Local a confirmar").
 - Conceitos v2 (fazendinha) da Deidara: implementar quando o Woody avisar.
 - Ativar o endpoint (Web App do Apps Script): só com aprovação do Yan (`INTEGRACAO-PLANILHA.md`).
 - Escolha do conceito (Yan).

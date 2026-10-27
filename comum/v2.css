@@ -24,6 +24,7 @@ h1{font-family:var(--titulo);font-weight:700;font-size:clamp(68px,19vw,150px);li
 .info-local{border-top:1px solid var(--acento);margin-top:24px;padding-top:22px}
 .info-local .rotulo{font-weight:700;font-size:10px;text-transform:uppercase;letter-spacing:.06em}
 .info .local{font-weight:700;font-size:19px;margin-top:12px !important}
+.info .endereco{font-size:15px;line-height:1.45;margin-top:6px !important}
 
 /* Tema */
 .tema{display:flex;align-items:center;gap:28px;margin:44px 6px 0}
@@ -94,6 +95,7 @@ input[aria-invalid=true]{border:2px solid var(--erro)}
   .info .hora{font-weight:700;font-size:26px;margin-top:16px !important}
   .info-local{border-top:0;margin:0;padding-top:0}
   .info .local{font-size:26px;margin-top:16px !important}
+  .info .endereco{font-size:16px;margin-top:8px !important}
   .tema{margin:44px 0 0 96px;gap:60px}
   .tema .bicho{width:72px}
   .tema-chamada{font-weight:400;font-size:18px}

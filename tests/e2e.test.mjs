@@ -95,7 +95,7 @@ for (const c of CONCEITOS) {
     for (const w of LARGURAS) {
       const { p, fim } = await abrir(`${BASE}/${c}/`, { largura: w });
       const txt = (await p.textContent("body")).replace(/\s+/g, " ");
-      for (const s of ["Arthur", "1 ano", "15h", "Local a confirmar"]) assert.ok(txt.includes(s), `${c} ${w}: falta "${s}"`);
+      for (const s of ["Arthur", "1 ano", "15h", "Casa da Árvore", "Rua Castelo Branco, nº 31", "Cidade Nova, Santana do Paraíso"]) assert.ok(txt.includes(s), `${c} ${w}: falta "${s}"`);
       assert.match(txt, /29 de novembro de 2026/, "data por extenso");
       assert.match(txt, /domingo/i, "dia da semana");
       assert.match(txt, /country/i, "tema country");
