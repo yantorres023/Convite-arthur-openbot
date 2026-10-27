@@ -11,3 +11,13 @@ Inicial: cinco animais dormindo no 4; cinco ovos inteiros no 5; suporte vazio no
 A sequência é a do `motion.json` e README atualizados. Dados/resumo sempre disponíveis por Pular brincadeira e Ver convite completo. Som começa desligado; só ligar com gesto e escolha explícita. Redução de movimento mantém revelação instantânea, sem loop/voos/confete.
 
 A arte pode ser reposicionada olhando a página rodando, sem manter coordenadas cegamente. Manter Arthur e o primeiro toque visíveis nos primeiros 3 segundos. Sem esconder informações essenciais atrás de progresso.
+
+## Passe de arte sobre a página publicada
+
+Manter Lilita One + Fredoka da implementação publicada. O cenário ganhou árvores, cerca, balões, presentes e flores. Bolo SVG permanece separado por camadas, topo, vela numeral 1 e chama.
+
+Esta seção substitui a sugestão tipográfica inicial do README. Não colocar texto visual dentro do SVG. Fonte, título, instrução, progressos e botões são HTML.
+
+## Ganchos do estado inicial
+
+`#artpass-silhueta-bolo` é a sugestão pontilhada inicial; ocultar ao montar a primeira camada. `#artpass-bichinhos-convidando` são convidados laterais iniciais; ocultar quando o topo com animais entrar. Os grupos do bolo foram reposicionados abaixo da faixa do título, mantendo ids. Recalcular áreas se alterar o enquadramento; `hotspots.json` antigo é referência, não posição final obrigatória.

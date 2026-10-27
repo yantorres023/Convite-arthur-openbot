@@ -11,3 +11,9 @@ Inicial: cinco animais dormindo no 4; cinco ovos inteiros no 5; suporte vazio no
 A sequência é a do `motion.json` e README atualizados. Dados/resumo sempre disponíveis por Pular brincadeira e Ver convite completo. Som começa desligado; só ligar com gesto e escolha explícita. Redução de movimento mantém revelação instantânea, sem loop/voos/confete.
 
 A arte pode ser reposicionada olhando a página rodando, sem manter coordenadas cegamente. Manter Arthur e o primeiro toque visíveis nos primeiros 3 segundos. Sem esconder informações essenciais atrás de progresso.
+
+## Passe de arte sobre a página publicada
+
+Manter Chewy + Fredoka da implementação publicada. A cena ganhou cerca, fardos de feno, ninho com palha, galinha maior e flores. Cinco ovos coloridos, cascas e pintinho original já estão no SVG.
+
+Esta seção substitui a sugestão tipográfica inicial do README. Não colocar texto visual dentro do SVG. Fonte, título, instrução, progressos e botões são HTML.

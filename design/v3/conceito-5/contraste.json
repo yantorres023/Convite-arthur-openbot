@@ -33,5 +33,19 @@
     "bg": "#FCE5CB",
     "ratio": 8.59,
     "AA": true
+  },
+  {
+    "uso": "Céu passe de arte",
+    "fg": "#54392F",
+    "bg": "#D0ECFF",
+    "ratio": 8.55,
+    "AA": true
+  },
+  {
+    "uso": "Céu passe de arte",
+    "fg": "#54392F",
+    "bg": "#FFF2C7",
+    "ratio": 9.37,
+    "AA": true
   }
 ]
