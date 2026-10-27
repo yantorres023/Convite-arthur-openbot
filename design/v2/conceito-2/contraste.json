@@ -1,0 +1,65 @@
+[
+  {
+    "uso": "Texto principal",
+    "texto": "#513F58",
+    "fundo": "#FFF9F4",
+    "contraste": 9.13,
+    "AA_texto_normal": true
+  },
+  {
+    "uso": "Texto secundário",
+    "texto": "#66566D",
+    "fundo": "#FFF9F4",
+    "contraste": 6.45,
+    "AA_texto_normal": true
+  },
+  {
+    "uso": "Acento",
+    "texto": "#755080",
+    "fundo": "#FFF9F4",
+    "contraste": 6.25,
+    "AA_texto_normal": true
+  },
+  {
+    "uso": "Botão",
+    "texto": "#FFF9F4",
+    "fundo": "#755080",
+    "contraste": 6.25,
+    "AA_texto_normal": true
+  },
+  {
+    "uso": "Texto em apoio",
+    "texto": "#513F58",
+    "fundo": "#EEE2F2",
+    "contraste": 7.63,
+    "AA_texto_normal": true
+  },
+  {
+    "uso": "Secundário em apoio",
+    "texto": "#66566D",
+    "fundo": "#EEE2F2",
+    "contraste": 5.39,
+    "AA_texto_normal": true
+  },
+  {
+    "uso": "Texto nos campos",
+    "texto": "#66566D",
+    "fundo": "#FFFFFF",
+    "contraste": 6.74,
+    "AA_texto_normal": true
+  },
+  {
+    "uso": "Erro",
+    "texto": "#A1273A",
+    "fundo": "#FFF2F2",
+    "contraste": 6.71,
+    "AA_texto_normal": true
+  },
+  {
+    "uso": "Erro junto ao campo",
+    "texto": "#A1273A",
+    "fundo": "#FFF9F4",
+    "contraste": 7.01,
+    "AA_texto_normal": true
+  }
+]

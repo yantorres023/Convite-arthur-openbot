@@ -1,0 +1,56 @@
+[
+  {
+    "conceito": 1,
+    "arquivo": "celular-390.png",
+    "dimensoes": [
+      390,
+      1589
+    ],
+    "overflow": []
+  },
+  {
+    "conceito": 1,
+    "arquivo": "desktop-1440.png",
+    "dimensoes": [
+      1440,
+      1569
+    ],
+    "overflow": []
+  },
+  {
+    "conceito": 2,
+    "arquivo": "celular-390.png",
+    "dimensoes": [
+      390,
+      1587
+    ],
+    "overflow": []
+  },
+  {
+    "conceito": 2,
+    "arquivo": "desktop-1440.png",
+    "dimensoes": [
+      1440,
+      1562
+    ],
+    "overflow": []
+  },
+  {
+    "conceito": 3,
+    "arquivo": "celular-390.png",
+    "dimensoes": [
+      390,
+      1577
+    ],
+    "overflow": []
+  },
+  {
+    "conceito": 3,
+    "arquivo": "desktop-1440.png",
+    "dimensoes": [
+      1440,
+      1660
+    ],
+    "overflow": []
+  }
+]

@@ -1,0 +1,28 @@
+/* Conceito 3 v2 — Piquenique dos bichinhos (Deidara): xadrez de morango, flores e cercadinho.
+   Paleta/contraste: design/v2/conceito-3/contraste.json. Motion: design/v2/conceito-3/motion.json. */
+@font-face{font-family:"Noto Serif";src:url(fontes/NotoSerif-Bold.ttf) format("truetype");font-weight:700;font-display:swap}
+@font-face{font-family:"Noto Sans";src:url(fontes/NotoSans-Regular.ttf) format("truetype");font-weight:400;font-display:swap}
+@font-face{font-family:"Noto Sans";src:url(fontes/NotoSans-Bold.ttf) format("truetype");font-weight:700;font-display:swap}
+:root{--fundo:#FFFAF2;--texto:#583A35;--acento:#9A3F47;--sec:#6F524C;--apoio:#F7E1DC;--titulo:"Noto Serif",Georgia,serif;--entrada-ms:460ms}
+/* xadrez de morango nas laterais (padrão original) */
+body{position:relative;min-height:100vh}
+body::before,body::after{content:"";position:absolute;top:0;bottom:0;width:18px;background:url(assets/padrao.svg) repeat-y 0 0/36px auto;pointer-events:none}
+body::before{left:0}body::after{right:0}
+.pagina{padding:0 30px}
+.capa{margin-top:36px}
+.capa h1{margin-bottom:22px}
+.arte{margin-top:20px}
+.lateral{display:none}
+@media (prefers-reduced-motion: no-preference){
+  .cena #faz-flores{transform-box:fill-box;transform-origin:center;animation:flores 600ms ease-out 80ms both}
+}
+@keyframes flores{from{transform:rotate(-3deg)}to{transform:none}}
+@media (min-width:900px){
+  body::before,body::after{width:56px;background-size:56px auto}
+  .pagina{padding:0 112px}
+  .capa{margin-top:60px}
+  .capa h1{font-size:96px;margin-bottom:24px}
+  .arte{display:grid;grid-template-columns:1fr 2.2fr 1fr;align-items:center;gap:20px;margin-top:40px}
+  .lateral{display:block}
+  .lateral .bicho{width:150px;margin:0 auto}
+}

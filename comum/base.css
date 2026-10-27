@@ -1,0 +1,22 @@
+/* Base comum aos 3 conceitos: acessibilidade e movimento. Cada conceito traz as próprias cores e fontes. */
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;line-height:1.5}
+img,svg{max-width:100%;height:auto;display:block}
+:focus-visible{outline:3px solid currentColor;outline-offset:3px}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+.pular{position:absolute;left:8px;top:-60px;padding:10px 14px;background:#fff;color:#000;z-index:10}
+.pular:focus{top:8px}
+[hidden]{display:none !important}
+/* Impressão e captura: nada fica escondido à espera da animação de entrada */
+@media print{[data-entrada]{opacity:1 !important;transform:none !important;animation:none !important}}
+@media (prefers-reduced-motion: reduce){
+  *,*::before,*::after{animation-duration:.001ms !important;animation-iteration-count:1 !important;transition-duration:.001ms !important;scroll-behavior:auto !important}
+}
+/* RSVP: fieldset sem moldura (agrupa os campos para habilitar só com o JavaScript ligado) */
+.rsvp-form fieldset{border:0;margin:0;padding:0;min-width:0;display:grid;gap:4px}
+.rsvp-sem-js{font-weight:700;margin:0 0 8px}
+/* Honeypot do RSVP: fora da tela, fora do teclado e dos leitores de tela */
+.isca{position:absolute !important;left:-10000px !important;top:auto;width:1px;height:1px;overflow:hidden}
+.status[data-estado=sucesso]::before{content:"✓ "}
+.status[data-estado=erro]::before,.status[data-estado=desconhecido]::before{content:"⚠ "}
