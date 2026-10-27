@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Monte o bolo! — Arthur, 1 aninho</title>
+<meta name="description" content="Aniversário de 1 aninho do Arthur: domingo, 29/11/2026, às 15h, na Casa da Árvore. Monte o bolo da fazendinha e assopre a vela!">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Monte o bolo! — Arthur, 1 aninho">
+<meta property="og:description" content="Domingo, 29/11, às 15h · Casa da Árvore · Venha caracterizado de country/fazendinha">
+<meta property="og:image" content="https://yantorres023.github.io/Convite-arthur-openbot/conceito-6/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="theme-color" content="#FFE3EC">
+<link rel="stylesheet" href="../comum/v2.css">
+<link rel="stylesheet" href="../comum/festa.css">
+<link rel="stylesheet" href="estilo.css">
+<script src="../comum/vendor/canvas-confetti-1.9.3.min.js" defer></script>
+<script type="module" src="../comum/pagina.js"></script>
+<script type="module" src="bolo.js"></script>
+</head>
+<body class="festa">
+<div class="barra">
+  <button type="button" class="btn-som" data-som aria-pressed="false" aria-label="Ligar o som">🔇</button>
+  <a class="btn-pular" href="#convite" data-pular>Pular e ver o convite</a>
+</div>
+
+<header class="cena" data-cena data-etapa="0">
+  <div class="titulo">
+    <p class="chamada">Vamos montar o bolo do</p>
+    <h1>Arthur</h1>
+    <p class="idade">1 aninho</p>
+  </div>
+
+  <div class="palco">
+    <svg class="fundo" viewBox="0 0 400 520" preserveAspectRatio="xMidYMax slice" aria-hidden="true" focusable="false">
+      <path d="M-10 40 Q100 80 200 50 T410 40" stroke="#C98B3E" stroke-width="3" fill="none"/>
+      <g class="bandeirinhas"><path d="M10 48 l18 0 l-9 26 z" fill="#FF8FB1"/><path d="M50 58 l18 2 l-11 25 z" fill="#FFD24A"/><path d="M92 64 l18 0 l-9 26 z" fill="#7EC8F0"/><path d="M134 62 l18 -2 l-7 26 z" fill="#86C454"/><path d="M176 54 l18 -2 l-7 26 z" fill="#FF8FB1"/><path d="M220 48 l18 0 l-9 26 z" fill="#FFD24A"/><path d="M262 46 l18 2 l-10 25 z" fill="#7EC8F0"/><path d="M304 48 l18 2 l-11 25 z" fill="#86C454"/><path d="M346 46 l18 0 l-9 26 z" fill="#FF8FB1"/></g>
+      <g class="baloes"><path d="M40 200 q-2 60 6 120" stroke="#9A7B8C" stroke-width="2" fill="none"/><ellipse cx="40" cy="170" rx="26" ry="32" fill="#FF8FB1"/><path d="M360 190 q4 60 -4 130" stroke="#9A7B8C" stroke-width="2" fill="none"/><ellipse cx="360" cy="160" rx="26" ry="32" fill="#7EC8F0"/><ellipse cx="34" cy="160" rx="6" ry="9" fill="#fff" opacity=".6"/><ellipse cx="354" cy="150" rx="6" ry="9" fill="#fff" opacity=".6"/></g>
+      <path d="M0 430 Q200 400 400 430 L400 520 L0 520 Z" fill="#E6C28E"/>
+      <rect x="0" y="440" width="400" height="80" fill="#D9AE73"/>
+      <g fill="#C99A5B" opacity=".6"><rect x="0" y="460" width="400" height="4"/><rect x="0" y="490" width="400" height="4"/></g>
+    </svg>
+
+    <div class="bolo" aria-hidden="true">
+      <div class="vela"><span class="chama"></span><span class="fumaca"></span><span class="numero">1</span></div>
+      <div class="topo-bichos"><!--SVG design/v2/conceito-2/assets/cow.svg arte b6-vaca--><!--SVG design/v2/conceito-2/assets/pig.svg arte b6-porco--><!--SVG design/v2/conceito-2/assets/sheep.svg arte b6-ovelha--></div>
+      <div class="camada camada-3"><span class="calda"></span></div>
+      <div class="camada camada-2"><span class="calda"></span></div>
+      <div class="camada camada-1"><span class="calda"></span></div>
+      <div class="suporte"></div>
+    </div>
+    <button type="button" class="acao" data-acao>🍰 Colocar a 1ª camada</button>
+  </div>
+
+  <p class="dica" data-dica role="status">👆 Toque no botão para montar o bolo! <span class="dica-contador" data-contador>0/5</span></p>
+  <ol class="revelados" data-revelados aria-live="polite" aria-label="O que o bolo revelou"></ol>
+  <a class="seta-baixo" href="#convite" data-ver hidden>Ver o convite completo ↓</a>
+</header>
+
+<!--DETALHES-->
+</body>
+</html>

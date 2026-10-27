@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Acorde os bichinhos! — Arthur, 1 aninho</title>
+<meta name="description" content="Aniversário de 1 aninho do Arthur: domingo, 29/11/2026, às 15h, na Casa da Árvore. Toque nos bichinhos para acordar a fazendinha!">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Acorde os bichinhos! — Arthur, 1 aninho">
+<meta property="og:description" content="Domingo, 29/11, às 15h · Casa da Árvore · Venha caracterizado de country/fazendinha">
+<meta property="og:image" content="https://yantorres023.github.io/Convite-arthur-openbot/conceito-4/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="theme-color" content="#FFB3A7">
+<link rel="stylesheet" href="../comum/v2.css">
+<link rel="stylesheet" href="../comum/festa.css">
+<link rel="stylesheet" href="estilo.css">
+<script src="../comum/vendor/canvas-confetti-1.9.3.min.js" defer></script>
+<script type="module" src="../comum/pagina.js"></script>
+<script type="module" src="bichinhos.js"></script>
+</head>
+<body class="festa">
+<div class="barra">
+  <button type="button" class="btn-som" data-som aria-pressed="false" aria-label="Ligar o som">🔇</button>
+  <a class="btn-pular" href="#convite" data-pular>Pular e ver o convite</a>
+</div>
+
+<header class="cena" data-cena data-estado="dormindo">
+  <div class="titulo">
+    <p class="chamada">Shhh… a fazendinha ainda está dormindo</p>
+    <h1>Arthur</h1>
+    <p class="idade">1 aninho</p>
+  </div>
+
+  <div class="palco">
+    <svg class="fundo" viewBox="0 0 400 520" preserveAspectRatio="xMidYMax slice" aria-hidden="true" focusable="false">
+      <g id="sol" class="sol">
+        <g class="raios">
+          <path d="M300 92 l0 -34 M300 222 l0 34 M235 157 l-34 0 M365 157 l34 0 M254 111 l-24 -24 M346 203 l24 24 M346 111 l24 -24 M254 203 l-24 24" stroke="#FFC93C" stroke-width="10" stroke-linecap="round"/>
+        </g>
+        <circle cx="300" cy="157" r="52" fill="#FFD24A" stroke="#F4A622" stroke-width="5"/>
+        <g class="rosto-dormindo"><path d="M276 150 q8 8 16 0 M308 150 q8 8 16 0" stroke="#8A4B14" stroke-width="4" fill="none" stroke-linecap="round"/><ellipse cx="300" cy="176" rx="7" ry="4" fill="#8A4B14"/></g>
+        <g class="rosto-acordado"><circle cx="284" cy="148" r="6" fill="#8A4B14"/><circle cx="316" cy="148" r="6" fill="#8A4B14"/><path d="M280 168 q20 22 40 0" stroke="#8A4B14" stroke-width="5" fill="none" stroke-linecap="round"/><circle cx="270" cy="165" r="7" fill="#FF8C8C" opacity=".6"/><circle cx="330" cy="165" r="7" fill="#FF8C8C" opacity=".6"/></g>
+      </g>
+      <g class="nuvens"><ellipse cx="70" cy="70" rx="46" ry="20" fill="#fff" opacity=".9"/><ellipse cx="100" cy="58" rx="30" ry="22" fill="#fff" opacity=".9"/><ellipse cx="180" cy="40" rx="34" ry="14" fill="#fff" opacity=".8"/></g>
+      <path d="M0 330 Q100 270 200 300 T400 285 L400 520 L0 520 Z" fill="#9FD27A"/>
+      <path d="M0 370 Q120 330 230 360 T400 350 L400 520 L0 520 Z" fill="#7CC160"/>
+      <g fill="#fff" stroke="#E2D2B5" stroke-width="2">
+        <rect x="12" y="300" width="10" height="56" rx="3"/><rect x="62" y="296" width="10" height="56" rx="3"/><rect x="112" y="300" width="10" height="56" rx="3"/><rect x="292" y="292" width="10" height="56" rx="3"/><rect x="342" y="296" width="10" height="56" rx="3"/><rect x="388" y="300" width="10" height="56" rx="3"/>
+        <rect x="0" y="312" width="130" height="9" rx="3"/><rect x="0" y="334" width="130" height="9" rx="3"/><rect x="284" y="306" width="116" height="9" rx="3"/><rect x="284" y="328" width="116" height="9" rx="3"/>
+      </g>
+      <g class="girassois">
+        <g transform="translate(20 400)"><path d="M0 0 v70" stroke="#4E9A3A" stroke-width="5"/><g fill="#FFC93C"><circle cx="0" cy="-14" r="9"/><circle cx="14" cy="0" r="9"/><circle cx="0" cy="14" r="9"/><circle cx="-14" cy="0" r="9"/><circle cx="10" cy="-10" r="8"/><circle cx="10" cy="10" r="8"/><circle cx="-10" cy="10" r="8"/><circle cx="-10" cy="-10" r="8"/></g><circle r="10" fill="#7A4A1E"/></g>
+        <g transform="translate(378 420)"><path d="M0 0 v70" stroke="#4E9A3A" stroke-width="5"/><g fill="#FFC93C"><circle cx="0" cy="-14" r="9"/><circle cx="14" cy="0" r="9"/><circle cx="0" cy="14" r="9"/><circle cx="-14" cy="0" r="9"/><circle cx="10" cy="-10" r="8"/><circle cx="10" cy="10" r="8"/><circle cx="-10" cy="10" r="8"/><circle cx="-10" cy="-10" r="8"/></g><circle r="10" fill="#7A4A1E"/></g>
+      </g>
+    </svg>
+
+    <button type="button" class="bicho" data-bicho="vaca" style="--x:3%;--y:33%;--w:36%" aria-label="Acordar a vaquinha">
+      <!--SVG design/v2/conceito-1/assets/cow.svg arte b4-vaca--><span class="zz" aria-hidden="true">Zzz</span><span class="fala" aria-hidden="true">Muuu!</span>
+    </button>
+    <button type="button" class="bicho" data-bicho="cavalo" style="--x:61%;--y:28%;--w:36%" aria-label="Acordar o cavalinho">
+      <!--SVG design/v2/conceito-1/assets/horse.svg arte b4-cavalo--><span class="zz" aria-hidden="true">Zzz</span><span class="fala" aria-hidden="true">Iiirrí!</span>
+    </button>
+    <button type="button" class="bicho" data-bicho="porco" style="--x:4%;--y:64%;--w:28%" aria-label="Acordar o porquinho">
+      <!--SVG design/v2/conceito-1/assets/pig.svg arte b4-porco--><span class="zz" aria-hidden="true">Zzz</span><span class="fala" aria-hidden="true">Oinc!</span>
+    </button>
+    <button type="button" class="bicho" data-bicho="ovelha" style="--x:36%;--y:56%;--w:30%" aria-label="Acordar a ovelhinha">
+      <!--SVG design/v2/conceito-1/assets/sheep.svg arte b4-ovelha--><span class="zz" aria-hidden="true">Zzz</span><span class="fala" aria-hidden="true">Méé!</span>
+    </button>
+    <button type="button" class="bicho" data-bicho="galinha" style="--x:70%;--y:64%;--w:25%" aria-label="Acordar a galinha">
+      <!--SVG design/v2/conceito-1/assets/hen.svg arte b4-galinha--><span class="zz" aria-hidden="true">Zzz</span><span class="fala" aria-hidden="true">Có-có!</span>
+    </button>
+  </div>
+
+  <p class="dica" data-dica role="status">👆 Toque nos bichinhos para acordar! <span class="dica-contador" data-contador>0/5</span></p>
+  <ol class="revelados" data-revelados aria-live="polite" aria-label="O que os bichinhos contaram"></ol>
+  <a class="seta-baixo" href="#convite" data-ver hidden>Ver o convite completo ↓</a>
+</header>
+
+<!--DETALHES-->
+</body>
+</html>

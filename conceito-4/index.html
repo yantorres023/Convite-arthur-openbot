@@ -1,0 +1,132 @@
+<!doctype html>
+<!-- gerado por scripts/montar.py a partir de modelos/; não editar à mão -->
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Acorde os bichinhos! — Arthur, 1 aninho</title>
+<meta name="description" content="Aniversário de 1 aninho do Arthur: domingo, 29/11/2026, às 15h, na Casa da Árvore. Toque nos bichinhos para acordar a fazendinha!">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Acorde os bichinhos! — Arthur, 1 aninho">
+<meta property="og:description" content="Domingo, 29/11, às 15h · Casa da Árvore · Venha caracterizado de country/fazendinha">
+<meta property="og:image" content="https://yantorres023.github.io/Convite-arthur-openbot/conceito-4/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="theme-color" content="#FFB3A7">
+<link rel="stylesheet" href="../comum/v2.css">
+<link rel="stylesheet" href="../comum/festa.css">
+<link rel="stylesheet" href="estilo.css">
+<script src="../comum/vendor/canvas-confetti-1.9.3.min.js" defer></script>
+<script type="module" src="../comum/pagina.js"></script>
+<script type="module" src="bichinhos.js"></script>
+</head>
+<body class="festa">
+<div class="barra">
+  <button type="button" class="btn-som" data-som aria-pressed="false" aria-label="Ligar o som">🔇</button>
+  <a class="btn-pular" href="#convite" data-pular>Pular e ver o convite</a>
+</div>
+
+<header class="cena" data-cena data-estado="dormindo">
+  <div class="titulo">
+    <p class="chamada">Shhh… a fazendinha ainda está dormindo</p>
+    <h1>Arthur</h1>
+    <p class="idade">1 aninho</p>
+  </div>
+
+  <div class="palco">
+    <svg class="fundo" viewBox="0 0 400 520" preserveAspectRatio="xMidYMax slice" aria-hidden="true" focusable="false">
+      <g id="sol" class="sol">
+        <g class="raios">
+          <path d="M300 92 l0 -34 M300 222 l0 34 M235 157 l-34 0 M365 157 l34 0 M254 111 l-24 -24 M346 203 l24 24 M346 111 l24 -24 M254 203 l-24 24" stroke="#FFC93C" stroke-width="10" stroke-linecap="round"/>
+        </g>
+        <circle cx="300" cy="157" r="52" fill="#FFD24A" stroke="#F4A622" stroke-width="5"/>
+        <g class="rosto-dormindo"><path d="M276 150 q8 8 16 0 M308 150 q8 8 16 0" stroke="#8A4B14" stroke-width="4" fill="none" stroke-linecap="round"/><ellipse cx="300" cy="176" rx="7" ry="4" fill="#8A4B14"/></g>
+        <g class="rosto-acordado"><circle cx="284" cy="148" r="6" fill="#8A4B14"/><circle cx="316" cy="148" r="6" fill="#8A4B14"/><path d="M280 168 q20 22 40 0" stroke="#8A4B14" stroke-width="5" fill="none" stroke-linecap="round"/><circle cx="270" cy="165" r="7" fill="#FF8C8C" opacity=".6"/><circle cx="330" cy="165" r="7" fill="#FF8C8C" opacity=".6"/></g>
+      </g>
+      <g class="nuvens"><ellipse cx="70" cy="70" rx="46" ry="20" fill="#fff" opacity=".9"/><ellipse cx="100" cy="58" rx="30" ry="22" fill="#fff" opacity=".9"/><ellipse cx="180" cy="40" rx="34" ry="14" fill="#fff" opacity=".8"/></g>
+      <path d="M0 330 Q100 270 200 300 T400 285 L400 520 L0 520 Z" fill="#9FD27A"/>
+      <path d="M0 370 Q120 330 230 360 T400 350 L400 520 L0 520 Z" fill="#7CC160"/>
+      <g fill="#fff" stroke="#E2D2B5" stroke-width="2">
+        <rect x="12" y="300" width="10" height="56" rx="3"/><rect x="62" y="296" width="10" height="56" rx="3"/><rect x="112" y="300" width="10" height="56" rx="3"/><rect x="292" y="292" width="10" height="56" rx="3"/><rect x="342" y="296" width="10" height="56" rx="3"/><rect x="388" y="300" width="10" height="56" rx="3"/>
+        <rect x="0" y="312" width="130" height="9" rx="3"/><rect x="0" y="334" width="130" height="9" rx="3"/><rect x="284" y="306" width="116" height="9" rx="3"/><rect x="284" y="328" width="116" height="9" rx="3"/>
+      </g>
+      <g class="girassois">
+        <g transform="translate(20 400)"><path d="M0 0 v70" stroke="#4E9A3A" stroke-width="5"/><g fill="#FFC93C"><circle cx="0" cy="-14" r="9"/><circle cx="14" cy="0" r="9"/><circle cx="0" cy="14" r="9"/><circle cx="-14" cy="0" r="9"/><circle cx="10" cy="-10" r="8"/><circle cx="10" cy="10" r="8"/><circle cx="-10" cy="10" r="8"/><circle cx="-10" cy="-10" r="8"/></g><circle r="10" fill="#7A4A1E"/></g>
+        <g transform="translate(378 420)"><path d="M0 0 v70" stroke="#4E9A3A" stroke-width="5"/><g fill="#FFC93C"><circle cx="0" cy="-14" r="9"/><circle cx="14" cy="0" r="9"/><circle cx="0" cy="14" r="9"/><circle cx="-14" cy="0" r="9"/><circle cx="10" cy="-10" r="8"/><circle cx="10" cy="10" r="8"/><circle cx="-10" cy="10" r="8"/><circle cx="-10" cy="-10" r="8"/></g><circle r="10" fill="#7A4A1E"/></g>
+      </g>
+    </svg>
+
+    <button type="button" class="bicho" data-bicho="vaca" style="--x:3%;--y:33%;--w:36%" aria-label="Acordar a vaquinha">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 250" class="arte" aria-hidden="true" focusable="false"><metadata>Ilustração vetorial original criada por Deidara para o convite do Arthur. Sem assets externos.</metadata><g id="b4-vaca-cow"><ellipse cx="118.0" cy="164.0" rx="57.0" ry="47.0" fill="#FFF9EB" stroke="none" stroke-width="2"/><rect x="71" y="189" width="34" height="39" rx="12" fill="#FFF9EB" stroke="none" stroke-width="2"/><rect x="131" y="189" width="33" height="39" rx="12" fill="#FFF9EB" stroke="none" stroke-width="2"/><ellipse cx="62.0" cy="156.0" rx="20.0" ry="26.0" fill="#FFF9EB" stroke="none" stroke-width="2"/><ellipse cx="178.0" cy="156.0" rx="20.0" ry="26.0" fill="#FFF9EB" stroke="none" stroke-width="2"/><ellipse cx="72.0" cy="64.0" rx="25.0" ry="16.0" fill="#FFF9EB" stroke="#293D4C" stroke-width="2"/><ellipse cx="172.0" cy="64.0" rx="25.0" ry="16.0" fill="#FFF9EB" stroke="#293D4C" stroke-width="2"/><polygon points="82.00,54.00 83.00,31.00 97.00,52.00" fill="#E9C983" stroke="none" stroke-width="2" stroke-linejoin="round"/><polygon points="145.00,52.00 157.00,31.00 159.00,57.00" fill="#E9C983" stroke="none" stroke-width="2" stroke-linejoin="round"/><ellipse cx="120.5" cy="96.0" rx="54.5" ry="56.0" fill="#FFF9EB" stroke="#293D4C" stroke-width="2"/><ellipse cx="89.5" cy="71.0" rx="17.5" ry="19.0" fill="#293D4C" stroke="none" stroke-width="2"/><ellipse cx="151.5" cy="150.5" rx="14.5" ry="17.5" fill="#293D4C" stroke="none" stroke-width="2"/><ellipse cx="122.0" cy="130.0" rx="51.0" ry="27.0" fill="#F2C7C2" stroke="none" stroke-width="2"/><ellipse cx="99.0" cy="125.0" rx="3.0" ry="4.0" fill="#293D4C" stroke="none" stroke-width="2"/><ellipse cx="145.0" cy="125.0" rx="3.0" ry="4.0" fill="#293D4C" stroke="none" stroke-width="2"/><ellipse cx="98.5" cy="89.5" rx="3.5" ry="4.5" fill="#293D4C" stroke="none" stroke-width="2"/><ellipse cx="144.5" cy="89.5" rx="3.5" ry="4.5" fill="#293D4C" stroke="none" stroke-width="2"/><ellipse cx="81.5" cy="104.5" rx="7.5" ry="4.5" fill="#F2C7C2" stroke="none" stroke-width="2"/><ellipse cx="160.5" cy="104.5" rx="7.5" ry="4.5" fill="#F2C7C2" stroke="none" stroke-width="2"/><polyline points="115.00,137.00 121.00,140.00 128.00,137.00" fill="none" stroke="#293D4C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><polygon points="91.00,164.00 151.00,164.00 129.00,187.00" fill="#315A88" stroke="none" stroke-width="2" stroke-linejoin="round"/><ellipse cx="121.0" cy="170.0" rx="2.0" ry="2.0" fill="#FFF9EB" stroke="none" stroke-width="2"/><rect x="91" y="26" width="58" height="21" rx="10" fill="#F5D88C" stroke="none" stroke-width="2"/><ellipse cx="120.5" cy="47.0" rx="41.5" ry="8.0" fill="#F5D88C" stroke="none" stroke-width="2"/></g></svg><span class="zz" aria-hidden="true">Zzz</span><span class="fala" aria-hidden="true">Muuu!</span>
+    </button>
+    <button type="button" class="bicho" data-bicho="cavalo" style="--x:61%;--y:28%;--w:36%" aria-label="Acordar o cavalinho">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 250" class="arte" aria-hidden="true" focusable="false"><metadata>Ilustração vetorial original criada por Deidara para o convite do Arthur. Sem assets externos.</metadata><g id="b4-cavalo-horse"><ellipse cx="118.0" cy="164.0" rx="57.0" ry="47.0" fill="#BD916F" stroke="none" stroke-width="2"/><rect x="71" y="189" width="34" height="39" rx="12" fill="#BD916F" stroke="none" stroke-width="2"/><rect x="131" y="189" width="33" height="39" rx="12" fill="#BD916F" stroke="none" stroke-width="2"/><ellipse cx="62.0" cy="156.0" rx="20.0" ry="26.0" fill="#BD916F" stroke="none" stroke-width="2"/><ellipse cx="178.0" cy="156.0" rx="20.0" ry="26.0" fill="#BD916F" stroke="none" stroke-width="2"/><ellipse cx="77.0" cy="47.0" rx="14.0" ry="29.0" fill="#BD916F" stroke="#293D4C" stroke-width="2"/><ellipse cx="161.5" cy="47.0" rx="12.5" ry="29.0" fill="#BD916F" stroke="#293D4C" stroke-width="2"/><ellipse cx="122.0" cy="103.5" rx="54.0" ry="55.5" fill="#BD916F" stroke="#293D4C" stroke-width="2"/><ellipse cx="124.0" cy="139.0" rx="52.0" ry="27.0" fill="#E8C6A5" stroke="none" stroke-width="2"/><polygon points="104.00,49.00 98.00,67.00 118.00,59.00 131.00,74.00 144.00,56.00 140.00,41.00" fill="#7D5846" stroke="none" stroke-width="2" stroke-linejoin="round"/><ellipse cx="100.0" cy="135.5" rx="3.0" ry="3.5" fill="#293D4C" stroke="none" stroke-width="2"/><ellipse cx="150.0" cy="135.5" rx="3.0" ry="3.5" fill="#293D4C" stroke="none" stroke-width="2"/><ellipse cx="98.5" cy="89.5" rx="3.5" ry="4.5" fill="#293D4C" stroke="none" stroke-width="2"/><ellipse cx="144.5" cy="89.5" rx="3.5" ry="4.5" fill="#293D4C" stroke="none" stroke-width="2"/><ellipse cx="81.5" cy="104.5" rx="7.5" ry="4.5" fill="#F2C7C2" stroke="none" stroke-width="2"/><ellipse cx="160.5" cy="104.5" rx="7.5" ry="4.5" fill="#F2C7C2" stroke="none" stroke-width="2"/><polyline points="115.00,146.00 121.00,149.00 128.00,146.00" fill="none" stroke="#293D4C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><polygon points="91.00,164.00 151.00,164.00 129.00,187.00" fill="#315A88" stroke="none" stroke-width="2" stroke-linejoin="round"/><ellipse cx="121.0" cy="170.0" rx="2.0" ry="2.0" fill="#FFF9EB" stroke="none" stroke-width="2"/></g></svg><span class="zz" aria-hidden="true">Zzz</span><span class="fala" aria-hidden="true">Iiirrí!</span>
+    </button>
+    <button type="button" class="bicho" data-bicho="porco" style="--x:4%;--y:64%;--w:28%" aria-label="Acordar o porquinho">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 250" class="arte" aria-hidden="true" focusable="false"><metadata>Ilustração vetorial original criada por Deidara para o convite do Arthur. Sem assets externos.</metadata><g id="b4-porco-pig"><ellipse cx="118.0" cy="164.0" rx="57.0" ry="47.0" fill="#F2C7C2" stroke="none" stroke-width="2"/><rect x="71" y="189" width="34" height="39" rx="12" fill="#F2C7C2" stroke="none" stroke-width="2"/><rect x="131" y="189" width="33" height="39" rx="12" fill="#F2C7C2" stroke="none" stroke-width="2"/><ellipse cx="62.0" cy="156.0" rx="20.0" ry="26.0" fill="#F2C7C2" stroke="none" stroke-width="2"/><ellipse cx="178.0" cy="156.0" rx="20.0" ry="26.0" fill="#F2C7C2" stroke="none" stroke-width="2"/><polygon points="65.00,65.00 63.00,25.00 101.00,51.00" fill="#F2C7C2" stroke="none" stroke-width="2" stroke-linejoin="round"/><polygon points="140.00,51.00 176.00,27.00 175.00,74.00" fill="#F2C7C2" stroke="none" stroke-width="2" stroke-linejoin="round"/><polygon points="72.00,53.00 71.00,38.00 86.00,51.00" fill="#D995AA" stroke="none" stroke-width="2" stroke-linejoin="round"/><polygon points="152.00,51.00 167.00,40.00 167.00,58.00" fill="#D995AA" stroke="none" stroke-width="2" stroke-linejoin="round"/><ellipse cx="121.0" cy="103.0" rx="61.0" ry="57.0" fill="#F2C7C2" stroke="#293D4C" stroke-width="2"/><ellipse cx="122.5" cy="121.0" rx="37.5" ry="22.0" fill="#E8A6B8" stroke="none" stroke-width="2"/><ellipse cx="107.5" cy="119.5" rx="3.5" ry="5.5" fill="#293D4C" stroke="none" stroke-width="2"/><ellipse cx="138.5" cy="119.5" rx="3.5" ry="5.5" fill="#293D4C" stroke="none" stroke-width="2"/><ellipse cx="98.5" cy="89.5" rx="3.5" ry="4.5" fill="#293D4C" stroke="none" stroke-width="2"/><ellipse cx="144.5" cy="89.5" rx="3.5" ry="4.5" fill="#293D4C" stroke="none" stroke-width="2"/><polyline points="115.00,139.00 121.00,142.00 128.00,139.00" fill="none" stroke="#293D4C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></g></svg><span class="zz" aria-hidden="true">Zzz</span><span class="fala" aria-hidden="true">Oinc!</span>
+    </button>
+    <button type="button" class="bicho" data-bicho="ovelha" style="--x:36%;--y:56%;--w:30%" aria-label="Acordar a ovelhinha">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 250" class="arte" aria-hidden="true" focusable="false"><metadata>Ilustração vetorial original criada por Deidara para o convite do Arthur. Sem assets externos.</metadata><g id="b4-ovelha-sheep"><ellipse cx="118.0" cy="164.0" rx="57.0" ry="47.0" fill="#FFF9EB" stroke="none" stroke-width="2"/><rect x="71" y="189" width="34" height="39" rx="12" fill="#FFF9EB" stroke="none" stroke-width="2"/><rect x="131" y="189" width="33" height="39" rx="12" fill="#FFF9EB" stroke="none" stroke-width="2"/><ellipse cx="62.0" cy="156.0" rx="20.0" ry="26.0" fill="#FFF9EB" stroke="none" stroke-width="2"/><ellipse cx="178.0" cy="156.0" rx="20.0" ry="26.0" fill="#FFF9EB" stroke="none" stroke-width="2"/><ellipse cx="68.0" cy="66.0" rx="24.0" ry="22.0" fill="#FFF9EB" stroke="#293D4C" stroke-width="1.5"/><ellipse cx="85.0" cy="40.0" rx="24.0" ry="22.0" fill="#FFF9EB" stroke="#293D4C" stroke-width="1.5"/><ellipse cx="113.0" cy="34.0" rx="24.0" ry="22.0" fill="#FFF9EB" stroke="#293D4C" stroke-width="1.5"/><ellipse cx="145.0" cy="44.0" rx="24.0" ry="22.0" fill="#FFF9EB" stroke="#293D4C" stroke-width="1.5"/><ellipse cx="164.0" cy="69.0" rx="24.0" ry="22.0" fill="#FFF9EB" stroke="#293D4C" stroke-width="1.5"/><ellipse cx="162.0" cy="104.0" rx="24.0" ry="22.0" fill="#FFF9EB" stroke="#293D4C" stroke-width="1.5"/><ellipse cx="145.0" cy="132.0" rx="24.0" ry="22.0" fill="#FFF9EB" stroke="#293D4C" stroke-width="1.5"/><ellipse cx="109.0" cy="136.0" rx="24.0" ry="22.0" fill="#FFF9EB" stroke="#293D4C" stroke-width="1.5"/><ellipse cx="75.0" cy="117.0" rx="24.0" ry="22.0" fill="#FFF9EB" stroke="#293D4C" stroke-width="1.5"/><ellipse cx="58.0" cy="93.0" rx="24.0" ry="22.0" fill="#FFF9EB" stroke="#293D4C" stroke-width="1.5"/><ellipse cx="121.5" cy="107.5" rx="37.5" ry="42.5" fill="#E7CFB3" stroke="none" stroke-width="2"/><ellipse cx="77.0" cy="95.5" rx="17.0" ry="11.5" fill="#E7CFB3" stroke="none" stroke-width="2"/><ellipse cx="164.5" cy="95.5" rx="15.5" ry="11.5" fill="#E7CFB3" stroke="none" stroke-width="2"/><ellipse cx="75.0" cy="156.5" rx="16.0" ry="15.5" fill="#FFF9EB" stroke="none" stroke-width="2"/><ellipse cx="101.0" cy="156.5" rx="16.0" ry="15.5" fill="#FFF9EB" stroke="none" stroke-width="2"/><ellipse cx="129.0" cy="156.5" rx="16.0" ry="15.5" fill="#FFF9EB" stroke="none" stroke-width="2"/><ellipse cx="157.0" cy="156.5" rx="16.0" ry="15.5" fill="#FFF9EB" stroke="none" stroke-width="2"/><ellipse cx="98.5" cy="97.5" rx="3.5" ry="4.5" fill="#293D4C" stroke="none" stroke-width="2"/><ellipse cx="144.5" cy="97.5" rx="3.5" ry="4.5" fill="#293D4C" stroke="none" stroke-width="2"/><ellipse cx="81.5" cy="112.5" rx="7.5" ry="4.5" fill="#F2C7C2" stroke="none" stroke-width="2"/><ellipse cx="160.5" cy="112.5" rx="7.5" ry="4.5" fill="#F2C7C2" stroke="none" stroke-width="2"/><polyline points="115.00,134.00 121.00,137.00 128.00,134.00" fill="none" stroke="#293D4C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></g></svg><span class="zz" aria-hidden="true">Zzz</span><span class="fala" aria-hidden="true">Méé!</span>
+    </button>
+    <button type="button" class="bicho" data-bicho="galinha" style="--x:70%;--y:64%;--w:25%" aria-label="Acordar a galinha">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 250" class="arte" aria-hidden="true" focusable="false"><metadata>Ilustração vetorial original criada por Deidara para o convite do Arthur. Sem assets externos.</metadata><g id="b4-galinha-hen"><ellipse cx="119.0" cy="153.5" rx="62.0" ry="54.5" fill="#F5D88C" stroke="none" stroke-width="2"/><ellipse cx="70.0" cy="151.0" rx="22.0" ry="27.0" fill="#E8BD78" stroke="none" stroke-width="2"/><ellipse cx="167.0" cy="151.0" rx="20.0" ry="27.0" fill="#E8BD78" stroke="none" stroke-width="2"/><polyline points="94.00,195.00 94.00,224.00 79.00,224.00" fill="none" stroke="#AA754D" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/><polyline points="144.00,195.00 144.00,224.00 160.00,224.00" fill="none" stroke="#AA754D" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/><ellipse cx="101.0" cy="42.0" rx="13.0" ry="15.0" fill="#D77972" stroke="none" stroke-width="2"/><ellipse cx="118.0" cy="34.0" rx="13.0" ry="15.0" fill="#D77972" stroke="none" stroke-width="2"/><ellipse cx="136.0" cy="43.0" rx="13.0" ry="15.0" fill="#D77972" stroke="none" stroke-width="2"/><ellipse cx="120.0" cy="103.0" rx="54.0" ry="53.0" fill="#F5D88C" stroke="#293D4C" stroke-width="2"/><polygon points="110.00,104.00 135.00,104.00 123.00,122.00" fill="#CA814A" stroke="none" stroke-width="2" stroke-linejoin="round"/><ellipse cx="98.5" cy="89.5" rx="3.5" ry="4.5" fill="#293D4C" stroke="none" stroke-width="2"/><ellipse cx="144.5" cy="89.5" rx="3.5" ry="4.5" fill="#293D4C" stroke="none" stroke-width="2"/><ellipse cx="81.5" cy="104.5" rx="7.5" ry="4.5" fill="#F2C7C2" stroke="none" stroke-width="2"/><ellipse cx="160.5" cy="104.5" rx="7.5" ry="4.5" fill="#F2C7C2" stroke="none" stroke-width="2"/><polyline points="115.00,131.00 121.00,134.00 128.00,131.00" fill="none" stroke="#293D4C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></g></svg><span class="zz" aria-hidden="true">Zzz</span><span class="fala" aria-hidden="true">Có-có!</span>
+    </button>
+  </div>
+
+  <p class="dica" data-dica role="status">👆 Toque nos bichinhos para acordar! <span class="dica-contador" data-contador>0/5</span></p>
+  <ol class="revelados" data-revelados aria-live="polite" aria-label="O que os bichinhos contaram"></ol>
+  <a class="seta-baixo" href="#convite" data-ver hidden>Ver o convite completo ↓</a>
+</header>
+
+<main id="convite" class="convite" tabindex="-1">
+  <h2>Você está convidado!</h2>
+  <div class="cartoes">
+    <section class="cartao"><h3>Quando</h3><p>Domingo, 29 de novembro de 2026</p></section>
+    <section class="cartao"><h3>Horário</h3><p>15h</p></section>
+    <section class="cartao cartao-onde"><h3>Onde</h3><p>Casa da Árvore</p><p class="sub">Rua Castelo Branco, nº 31<br>Cidade Nova, Santana do Paraíso</p>
+      <p class="mapas" data-mapas><a class="mapa" data-mapa="google" href="https://www.google.com/maps/search/?api=1&amp;query=Casa%20da%20%C3%81rvore%2C%20Rua%20Castelo%20Branco%2C%2031%2C%20Cidade%20Nova%2C%20Santana%20do%20Para%C3%ADso%20-%20MG" target="_blank" rel="noopener noreferrer" aria-label="Abrir o endereço da festa no Google Maps (abre em nova aba)">Abrir no Google Maps</a><a class="mapa" data-mapa="apple" href="https://maps.apple.com/?q=Casa%20da%20%C3%81rvore%2C%20Rua%20Castelo%20Branco%2C%2031%2C%20Cidade%20Nova%2C%20Santana%20do%20Para%C3%ADso%20-%20MG" target="_blank" rel="noopener noreferrer" aria-label="Abrir o endereço da festa no Apple Maps (abre em nova aba)">Abrir no Apple Maps</a><a class="mapa" data-mapa="waze" href="https://waze.com/ul?q=Casa%20da%20%C3%81rvore%2C%20Rua%20Castelo%20Branco%2C%2031%2C%20Cidade%20Nova%2C%20Santana%20do%20Para%C3%ADso%20-%20MG&amp;navigate=yes" target="_blank" rel="noopener noreferrer" aria-label="Abrir o endereço da festa no Waze (abre em nova aba)">Abrir no Waze</a></p>
+    </section>
+    <section class="cartao"><h3>Tema</h3><p>Venha caracterizado: country/fazendinha</p></section>
+    <section class="cartao"><h3>Agenda</h3><p class="sub">Domingo, 29/11/2026, às 15h</p><a class="btn-agenda" data-agenda href="../comum/arthur-1-ano.ics" download="aniversario-arthur-1-aninho.ics">📅 Adicionar à agenda</a></section>
+  </div>
+  <section class="rsvp" id="rsvp" aria-labelledby="rsvp-titulo">
+  <div class="rsvp-intro">
+    <h2 id="rsvp-titulo">Você vem?</h2>
+    <p class="rsvp-sub">Confirme sua presença<span class="so-desktop"><br>para o aniversário do Arthur.</span></p>
+    <div class="rsvp-bicho"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 250" class="bicho" aria-hidden="true" focusable="false"><metadata>Ilustração vetorial original criada por Deidara para o convite do Arthur. Sem assets externos.</metadata><g id="rsvp-porco-pig"><ellipse cx="118.0" cy="164.0" rx="57.0" ry="47.0" fill="#F2C7C2" stroke="none" stroke-width="2"/><rect x="71" y="189" width="34" height="39" rx="12" fill="#F2C7C2" stroke="none" stroke-width="2"/><rect x="131" y="189" width="33" height="39" rx="12" fill="#F2C7C2" stroke="none" stroke-width="2"/><ellipse cx="62.0" cy="156.0" rx="20.0" ry="26.0" fill="#F2C7C2" stroke="none" stroke-width="2"/><ellipse cx="178.0" cy="156.0" rx="20.0" ry="26.0" fill="#F2C7C2" stroke="none" stroke-width="2"/><polygon points="65.00,65.00 63.00,25.00 101.00,51.00" fill="#F2C7C2" stroke="none" stroke-width="2" stroke-linejoin="round"/><polygon points="140.00,51.00 176.00,27.00 175.00,74.00" fill="#F2C7C2" stroke="none" stroke-width="2" stroke-linejoin="round"/><polygon points="72.00,53.00 71.00,38.00 86.00,51.00" fill="#D995AA" stroke="none" stroke-width="2" stroke-linejoin="round"/><polygon points="152.00,51.00 167.00,40.00 167.00,58.00" fill="#D995AA" stroke="none" stroke-width="2" stroke-linejoin="round"/><ellipse cx="121.0" cy="103.0" rx="61.0" ry="57.0" fill="#F2C7C2" stroke="#293D4C" stroke-width="2"/><ellipse cx="122.5" cy="121.0" rx="37.5" ry="22.0" fill="#E8A6B8" stroke="none" stroke-width="2"/><ellipse cx="107.5" cy="119.5" rx="3.5" ry="5.5" fill="#293D4C" stroke="none" stroke-width="2"/><ellipse cx="138.5" cy="119.5" rx="3.5" ry="5.5" fill="#293D4C" stroke="none" stroke-width="2"/><ellipse cx="98.5" cy="89.5" rx="3.5" ry="4.5" fill="#293D4C" stroke="none" stroke-width="2"/><ellipse cx="144.5" cy="89.5" rx="3.5" ry="4.5" fill="#293D4C" stroke="none" stroke-width="2"/><polyline points="115.00,139.00 121.00,142.00 128.00,139.00" fill="none" stroke="#293D4C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></g></svg></div>
+  </div>
+  <form class="rsvp-form" data-rsvp novalidate onsubmit="return false">
+    <p class="rsvp-sem-js" data-sem-js>Para confirmar presença, o JavaScript precisa estar ativo. Se o botão não funcionar, recarregue a página.</p>
+    <fieldset data-rsvp-campos disabled>
+    <legend class="sr-only">Confirmação de presença</legend>
+    <div class="campo">
+      <label for="nome">Nome</label>
+      <input id="nome" name="nome" type="text" autocomplete="name" placeholder="Seu nome" maxlength="80" aria-describedby="erro-nome">
+      <p class="erro" id="erro-nome" data-erro="nome"></p>
+    </div>
+    <div class="campos-2">
+      <div class="campo">
+        <label for="adultos">Nº de adultos</label>
+        <input id="adultos" name="adultos" type="number" inputmode="numeric" min="0" max="20" step="1" placeholder="0" aria-describedby="erro-adultos">
+        <p class="erro" id="erro-adultos" data-erro="adultos"></p>
+      </div>
+      <div class="campo">
+        <label for="criancas">Nº de crianças</label>
+        <input id="criancas" name="criancas" type="number" inputmode="numeric" min="0" max="20" step="1" placeholder="0" aria-describedby="erro-criancas">
+        <p class="erro" id="erro-criancas" data-erro="criancas"></p>
+      </div>
+    </div>
+    <div class="isca" aria-hidden="true"><label for="website">Não preencha este campo</label><input id="website" name="website" type="text" tabindex="-1" autocomplete="off"></div>
+    <button type="button" class="botao" data-enviar>Confirmar presença</button>
+    <p class="rsvp-nota" data-nota>Sua confirmação vai para uma<br>planilha privada.</p>
+    <div class="erro-geral" data-erro="total" aria-live="polite"></div>
+    <div class="caixa caixa-sucesso" data-sucesso role="status" aria-live="polite" hidden></div>
+    <div class="caixa caixa-erro" data-alerta role="alert" hidden></div>
+    <p class="sr-only" data-status aria-live="polite"></p>
+    </fieldset>
+  </form>
+</section>
+</main>
+<footer class="rodape-festa"><p>Arthur · 1 ano (1 aninho) · 29/11/2026 · 15h</p></footer>
+</body>
+</html>

@@ -1,0 +1,41 @@
+/* Conceito 6 — Monte o bolo: festa no quintal, bolo em camadas com bichinhos e vela "1". Arte provisória (bichinhos da
+   Deidara v2, bolo em CSS); passe de arte em design/v3/. Contraste: texto #4A2338 sobre branco/creme (≥ 10:1);
+   destaque #B02E6B com texto branco (≥ 5:1). */
+:root{--ceu-1:#FFE3EC;--ceu-2:#FFF5D9;--chao:#E6C28E;--tinta:#4A2338;--tinta-sec:#6B4057;--destaque:#B02E6B;--papel:#FFF7F2;
+  --fonte-titulo:"Lilita One","Fredoka",system-ui,sans-serif;--fonte-texto:"Fredoka",system-ui,sans-serif;
+  --fundo:#FFF7F2;--texto:#4A2338;--acento:#B02E6B;--sec:#6B4057;--apoio:#FCE3EE;--campo:#FFFFFF;--titulo:"Lilita One",system-ui,sans-serif}
+
+/* Bolo montado de baixo para cima; cada etapa mostra uma peça caindo no lugar */
+.bolo{position:absolute;left:50%;bottom:16%;width:min(78%,360px);transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;z-index:3}
+.suporte{width:100%;height:18px;border-radius:999px;background:#fff;box-shadow:0 6px 0 #E3CFC3,0 10px 18px rgba(0,0,0,.12)}
+.camada{position:relative;height:64px;border-radius:18px 18px 10px 10px;margin-bottom:-4px;opacity:0;transform:translateY(-240px)}
+.camada-1{width:92%;background:#FF9DB8}
+.camada-2{width:78%;background:#FFE08A}
+.camada-3{width:64%;background:#9FD3F5}
+.calda{position:absolute;left:0;right:0;top:0;height:18px;border-radius:18px 18px 0 0;background:#fff;
+  -webkit-mask:radial-gradient(10px 12px at 10px 18px,transparent 98%,#000) 0 0/20px 100% repeat-x;mask:radial-gradient(10px 12px at 10px 18px,transparent 98%,#000) 0 0/20px 100% repeat-x}
+.camada::after{content:"";position:absolute;left:8%;right:8%;bottom:14px;height:8px;border-radius:999px;background:repeating-linear-gradient(90deg,rgba(255,255,255,.75) 0 10px,transparent 10px 22px)}
+.topo-bichos{display:flex;justify-content:center;align-items:flex-end;gap:2%;width:70%;margin-bottom:-14px;opacity:0;transform:translateY(-200px)}
+.topo-bichos .arte{width:32%;height:auto}
+.vela{position:relative;width:34px;height:70px;border-radius:8px;background:repeating-linear-gradient(135deg,#fff 0 8px,#FF8FB1 8px 16px);margin-bottom:-6px;opacity:0;transform:translateY(-160px)}
+.numero{position:absolute;left:calc(100% + 8px);top:6px;font:400 46px var(--fonte-titulo);color:var(--destaque);-webkit-text-stroke:3px #fff;paint-order:stroke fill}
+.chama{position:absolute;left:50%;top:-26px;width:20px;height:28px;margin-left:-10px;border-radius:50% 50% 50% 50%/60% 60% 40% 40%;background:radial-gradient(circle at 50% 70%,#FFF6B0,#FFB12B 60%,#FF7A1A);box-shadow:0 0 18px 6px rgba(255,190,60,.55);opacity:0;transform-origin:50% 100%}
+.fumaca{position:absolute;left:50%;top:-30px;width:10px;height:10px;margin-left:-5px;border-radius:50%;background:rgba(150,150,150,.6);opacity:0}
+.cena[data-etapa="1"] .camada-1,.cena[data-etapa="2"] .camada-1,.cena[data-etapa="3"] .camada-1,.cena[data-etapa="4"] .camada-1,.cena[data-etapa="5"] .camada-1,.cena[data-etapa=assoprou] .camada-1,
+.cena[data-etapa="2"] .camada-2,.cena[data-etapa="3"] .camada-2,.cena[data-etapa="4"] .camada-2,.cena[data-etapa="5"] .camada-2,.cena[data-etapa=assoprou] .camada-2,
+.cena[data-etapa="3"] .camada-3,.cena[data-etapa="4"] .camada-3,.cena[data-etapa="5"] .camada-3,.cena[data-etapa=assoprou] .camada-3,
+.cena[data-etapa="4"] .topo-bichos,.cena[data-etapa="5"] .topo-bichos,.cena[data-etapa=assoprou] .topo-bichos,
+.cena[data-etapa="5"] .vela,.cena[data-etapa=assoprou] .vela{opacity:1;transform:none;transition:transform .55s cubic-bezier(.34,1.4,.64,1),opacity .2s}
+.cena[data-etapa="5"] .chama{opacity:1;animation:tremer .25s ease-in-out infinite alternate}
+.cena[data-etapa=assoprou] .chama{opacity:0;transition:opacity .2s}
+.cena[data-etapa=assoprou] .fumaca{animation:fumacinha 1.4s ease-out 2}
+.cena[data-etapa=assoprou] .topo-bichos .arte{animation:pulinho .7s ease-in-out 3}
+@keyframes tremer{from{transform:scale(1,1) rotate(-3deg)}to{transform:scale(.92,1.08) rotate(3deg)}}
+@keyframes fumacinha{0%{opacity:.7;transform:translateY(0) scale(1)}100%{opacity:0;transform:translateY(-50px) scale(3)}}
+
+.acao{position:absolute;left:50%;bottom:3%;transform:translateX(-50%);z-index:6;min-height:52px;padding:0 22px;border:0;border-radius:999px;background:var(--destaque);color:#fff;font:400 20px var(--fonte-titulo);box-shadow:0 5px 0 #7E1F4C;cursor:pointer;white-space:nowrap;animation:chamar-btn 1.6s ease-in-out infinite}
+.acao:active{transform:translateX(-50%) translateY(3px);box-shadow:0 2px 0 #7E1F4C}
+.acao:disabled{animation:none;cursor:default}
+.acao:focus-visible{outline:3px solid var(--tinta);outline-offset:4px}
+@keyframes chamar-btn{0%,100%{box-shadow:0 5px 0 #7E1F4C,0 0 0 0 rgba(176,46,107,.45)}50%{box-shadow:0 5px 0 #7E1F4C,0 0 0 12px rgba(176,46,107,0)}}
+@media (prefers-reduced-motion: reduce){.camada,.topo-bichos,.vela{transform:none}}

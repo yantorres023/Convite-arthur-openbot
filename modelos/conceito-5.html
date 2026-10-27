@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Caça aos ovos! — Arthur, 1 aninho</title>
+<meta name="description" content="Aniversário de 1 aninho do Arthur: domingo, 29/11/2026, às 15h, na Casa da Árvore. Ache os 5 ovos da galinha para descobrir o convite!">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Caça aos ovos! — Arthur, 1 aninho">
+<meta property="og:description" content="Domingo, 29/11, às 15h · Casa da Árvore · Venha caracterizado de country/fazendinha">
+<meta property="og:image" content="https://yantorres023.github.io/Convite-arthur-openbot/conceito-5/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="theme-color" content="#7EC8F0">
+<link rel="stylesheet" href="../comum/v2.css">
+<link rel="stylesheet" href="../comum/festa.css">
+<link rel="stylesheet" href="estilo.css">
+<script src="../comum/vendor/canvas-confetti-1.9.3.min.js" defer></script>
+<script type="module" src="../comum/pagina.js"></script>
+<script type="module" src="ovos.js"></script>
+</head>
+<body class="festa">
+<div class="barra">
+  <button type="button" class="btn-som" data-som aria-pressed="false" aria-label="Ligar o som">🔇</button>
+  <a class="btn-pular" href="#convite" data-pular>Pular e ver o convite</a>
+</div>
+
+<header class="cena" data-cena data-estado="procurando">
+  <div class="titulo">
+    <p class="chamada">A galinha escondeu o convite do</p>
+    <h1>Arthur</h1>
+    <p class="idade">1 aninho</p>
+  </div>
+
+  <div class="palco">
+    <svg class="fundo" viewBox="0 0 400 520" preserveAspectRatio="xMidYMax slice" aria-hidden="true" focusable="false">
+      <g class="sol"><g class="raios"><path d="M330 32 l0 -26 M330 132 l0 26 M280 82 l-26 0 M380 82 l26 0 M295 47 l-18 -18 M365 117 l18 18 M365 47 l18 -18 M295 117 l-18 18" stroke="#FFC93C" stroke-width="9" stroke-linecap="round"/></g>
+        <circle cx="330" cy="82" r="40" fill="#FFD24A" stroke="#F4A622" stroke-width="5"/><circle cx="317" cy="76" r="5" fill="#8A4B14"/><circle cx="343" cy="76" r="5" fill="#8A4B14"/><path d="M314 92 q16 18 32 0" stroke="#8A4B14" stroke-width="4.5" fill="none" stroke-linecap="round"/></g>
+      <g fill="#fff"><ellipse cx="70" cy="60" rx="44" ry="18"/><ellipse cx="96" cy="48" rx="26" ry="20"/><ellipse cx="190" cy="34" rx="30" ry="12" opacity=".85"/></g>
+      <path d="M0 300 Q110 250 210 280 T400 262 L400 520 L0 520 Z" fill="#A6D96A"/>
+      <path d="M0 350 Q130 310 240 340 T400 330 L400 520 L0 520 Z" fill="#86C454"/>
+      <g class="ninho"><ellipse cx="200" cy="372" rx="78" ry="22" fill="#C98B3E"/><path d="M128 368 q72 26 144 0" stroke="#A86B2A" stroke-width="5" fill="none"/><path d="M134 360 q66 -14 132 0" stroke="#E0B064" stroke-width="4" fill="none"/></g>
+    </svg>
+    <div class="galinha" aria-hidden="true"><!--SVG design/v2/conceito-3/assets/hen.svg arte b5-galinha--><span class="fala-galinha">Có-có! Ache meus 5 ovos!</span></div>
+    <button type="button" class="ovo" data-ovo="1" style="--x:10%;--y:55%" aria-label="Procurar o ovo 1">
+      <span class="pintinho" aria-hidden="true"><!--SVG design/v2/conceito-3/assets/hen.svg arte b5-pintinho-1--></span>
+      <svg class="ovo-svg" viewBox="0 0 60 78" aria-hidden="true" focusable="false">
+        <g class="ovo-base"><path d="M6 46 Q6 76 30 76 Q54 76 54 46 L46 40 L40 47 L33 39 L26 47 L19 39 L13 46 Z" fill="#FFF3D6" stroke="#D9B373" stroke-width="2.5" stroke-linejoin="round"/><circle cx="20" cy="60" r="3" fill="#F2C9A0"/><circle cx="38" cy="66" r="2.5" fill="#F2C9A0"/></g>
+        <g class="ovo-topo"><path d="M6 46 Q6 4 30 4 Q54 4 54 46 L46 40 L40 47 L33 39 L26 47 L19 39 L13 46 Z" fill="#FFF3D6" stroke="#D9B373" stroke-width="2.5" stroke-linejoin="round"/><circle cx="22" cy="24" r="3.5" fill="#F2C9A0"/><circle cx="38" cy="18" r="2.5" fill="#F2C9A0"/><circle cx="40" cy="32" r="3" fill="#F2C9A0"/></g>
+      </svg>
+    </button>
+    <button type="button" class="ovo" data-ovo="2" style="--x:74%;--y:50%" aria-label="Procurar o ovo 2">
+      <span class="pintinho" aria-hidden="true"><!--SVG design/v2/conceito-3/assets/hen.svg arte b5-pintinho-2--></span>
+      <svg class="ovo-svg" viewBox="0 0 60 78" aria-hidden="true" focusable="false">
+        <g class="ovo-base"><path d="M6 46 Q6 76 30 76 Q54 76 54 46 L46 40 L40 47 L33 39 L26 47 L19 39 L13 46 Z" fill="#FFF3D6" stroke="#D9B373" stroke-width="2.5" stroke-linejoin="round"/><circle cx="20" cy="60" r="3" fill="#F2C9A0"/><circle cx="38" cy="66" r="2.5" fill="#F2C9A0"/></g>
+        <g class="ovo-topo"><path d="M6 46 Q6 4 30 4 Q54 4 54 46 L46 40 L40 47 L33 39 L26 47 L19 39 L13 46 Z" fill="#FFF3D6" stroke="#D9B373" stroke-width="2.5" stroke-linejoin="round"/><circle cx="22" cy="24" r="3.5" fill="#F2C9A0"/><circle cx="38" cy="18" r="2.5" fill="#F2C9A0"/><circle cx="40" cy="32" r="3" fill="#F2C9A0"/></g>
+      </svg>
+    </button>
+    <button type="button" class="ovo" data-ovo="3" style="--x:43%;--y:74%" aria-label="Procurar o ovo 3">
+      <span class="pintinho" aria-hidden="true"><!--SVG design/v2/conceito-3/assets/hen.svg arte b5-pintinho-3--></span>
+      <svg class="ovo-svg" viewBox="0 0 60 78" aria-hidden="true" focusable="false">
+        <g class="ovo-base"><path d="M6 46 Q6 76 30 76 Q54 76 54 46 L46 40 L40 47 L33 39 L26 47 L19 39 L13 46 Z" fill="#FFF3D6" stroke="#D9B373" stroke-width="2.5" stroke-linejoin="round"/><circle cx="20" cy="60" r="3" fill="#F2C9A0"/><circle cx="38" cy="66" r="2.5" fill="#F2C9A0"/></g>
+        <g class="ovo-topo"><path d="M6 46 Q6 4 30 4 Q54 4 54 46 L46 40 L40 47 L33 39 L26 47 L19 39 L13 46 Z" fill="#FFF3D6" stroke="#D9B373" stroke-width="2.5" stroke-linejoin="round"/><circle cx="22" cy="24" r="3.5" fill="#F2C9A0"/><circle cx="38" cy="18" r="2.5" fill="#F2C9A0"/><circle cx="40" cy="32" r="3" fill="#F2C9A0"/></g>
+      </svg>
+    </button>
+    <button type="button" class="ovo" data-ovo="4" style="--x:3%;--y:80%" aria-label="Procurar o ovo 4">
+      <span class="pintinho" aria-hidden="true"><!--SVG design/v2/conceito-3/assets/hen.svg arte b5-pintinho-4--></span>
+      <svg class="ovo-svg" viewBox="0 0 60 78" aria-hidden="true" focusable="false">
+        <g class="ovo-base"><path d="M6 46 Q6 76 30 76 Q54 76 54 46 L46 40 L40 47 L33 39 L26 47 L19 39 L13 46 Z" fill="#FFF3D6" stroke="#D9B373" stroke-width="2.5" stroke-linejoin="round"/><circle cx="20" cy="60" r="3" fill="#F2C9A0"/><circle cx="38" cy="66" r="2.5" fill="#F2C9A0"/></g>
+        <g class="ovo-topo"><path d="M6 46 Q6 4 30 4 Q54 4 54 46 L46 40 L40 47 L33 39 L26 47 L19 39 L13 46 Z" fill="#FFF3D6" stroke="#D9B373" stroke-width="2.5" stroke-linejoin="round"/><circle cx="22" cy="24" r="3.5" fill="#F2C9A0"/><circle cx="38" cy="18" r="2.5" fill="#F2C9A0"/><circle cx="40" cy="32" r="3" fill="#F2C9A0"/></g>
+      </svg>
+    </button>
+    <button type="button" class="ovo" data-ovo="5" style="--x:82%;--y:76%" aria-label="Procurar o ovo 5">
+      <span class="pintinho" aria-hidden="true"><!--SVG design/v2/conceito-3/assets/hen.svg arte b5-pintinho-5--></span>
+      <svg class="ovo-svg" viewBox="0 0 60 78" aria-hidden="true" focusable="false">
+        <g class="ovo-base"><path d="M6 46 Q6 76 30 76 Q54 76 54 46 L46 40 L40 47 L33 39 L26 47 L19 39 L13 46 Z" fill="#FFF3D6" stroke="#D9B373" stroke-width="2.5" stroke-linejoin="round"/><circle cx="20" cy="60" r="3" fill="#F2C9A0"/><circle cx="38" cy="66" r="2.5" fill="#F2C9A0"/></g>
+        <g class="ovo-topo"><path d="M6 46 Q6 4 30 4 Q54 4 54 46 L46 40 L40 47 L33 39 L26 47 L19 39 L13 46 Z" fill="#FFF3D6" stroke="#D9B373" stroke-width="2.5" stroke-linejoin="round"/><circle cx="22" cy="24" r="3.5" fill="#F2C9A0"/><circle cx="38" cy="18" r="2.5" fill="#F2C9A0"/><circle cx="40" cy="32" r="3" fill="#F2C9A0"/></g>
+      </svg>
+    </button>
+    <svg class="frente" viewBox="0 0 400 520" preserveAspectRatio="xMidYMax slice" aria-hidden="true" focusable="false">
+      <g class="feno"><rect x="-6" y="330" width="92" height="56" rx="10" fill="#F2C94C" stroke="#C9A227" stroke-width="3"/><path d="M4 346 h70 M4 362 h70" stroke="#C9A227" stroke-width="3"/>
+        <rect x="318" y="318" width="92" height="56" rx="10" fill="#F2C94C" stroke="#C9A227" stroke-width="3"/><path d="M328 334 h70 M328 350 h70" stroke="#C9A227" stroke-width="3"/></g>
+      <g class="moitas" fill="#5FAE3C"><circle cx="160" cy="470" r="26"/><circle cx="186" cy="462" r="30"/><circle cx="214" cy="472" r="24"/><circle cx="20" cy="500" r="30"/><circle cx="50" cy="492" r="24"/><circle cx="356" cy="498" r="28"/><circle cx="386" cy="488" r="26"/></g>
+      <g class="flores"><g fill="#FF8FB1"><circle cx="150" cy="448" r="7"/><circle cx="160" cy="452" r="7"/><circle cx="154" cy="460" r="7"/><circle cx="144" cy="458" r="7"/></g><circle cx="152" cy="455" r="4" fill="#FFD24A"/>
+        <g fill="#FFFFFF"><circle cx="370" cy="470" r="7"/><circle cx="380" cy="474" r="7"/><circle cx="374" cy="482" r="7"/><circle cx="364" cy="480" r="7"/></g><circle cx="372" cy="477" r="4" fill="#FFD24A"/></g>
+    </svg>
+  </div>
+
+  <p class="dica" data-dica role="status">🥚 Ache os ovos escondidos! <span class="dica-contador" data-contador>0/5</span></p>
+  <ol class="revelados" data-revelados aria-live="polite" aria-label="O que os ovos revelaram"></ol>
+  <a class="seta-baixo" href="#convite" data-ver hidden>Ver o convite completo ↓</a>
+</header>
+
+<!--DETALHES-->
+</body>
+</html>

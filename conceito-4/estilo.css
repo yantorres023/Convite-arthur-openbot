@@ -1,0 +1,31 @@
+/* Conceito 4 — Acorde os bichinhos: amanhecer no pasto. Arte provisória (bichinhos da Deidara v2); passe de arte da
+   Deidara em design/v3/. Contraste: texto #3B2A4A sobre branco/creme (≥ 7:1); botões #D9475B com texto branco (≥ 4,5:1). */
+:root{--ceu-1:#B9A8E8;--ceu-2:#FFC6B0;--chao:#7CC160;--tinta:#3B2A4A;--tinta-sec:#5E4B6E;--destaque:#C93E54;--papel:#FFF6EC;
+  --fonte-titulo:"Baloo 2","Fredoka",system-ui,sans-serif;--fonte-texto:"Fredoka","Baloo 2",system-ui,sans-serif;
+  /* variáveis do RSVP comum (v2.css) */
+  --fundo:#FFF6EC;--texto:#3B2A4A;--acento:#C93E54;--sec:#5E4B6E;--apoio:#FCE6EA;--campo:#FFFFFF;--titulo:"Baloo 2",system-ui,sans-serif}
+.titulo h1{font-weight:800}
+.cena{transition:background 1.2s ease}
+.cena[data-estado=acordado]{--ceu-1:#7FC8F8;--ceu-2:#D8F1FF}
+.chamada{transition:opacity .4s}
+
+/* Sol: dormindo baixo e de olhos fechados; acorda subindo e sorrindo */
+.sol{transform:translateY(165px);transition:transform 1.4s cubic-bezier(.22,1,.36,1)}
+.rosto-acordado{opacity:0;transition:opacity .4s .6s}
+.cena[data-estado=acordado] .sol{transform:none}
+.cena[data-estado=acordado] .rosto-dormindo{opacity:0}
+.cena[data-estado=acordado] .rosto-acordado{opacity:1}
+.cena[data-estado=acordado] .raios{transform-origin:300px 157px;animation:girar 24s linear infinite}
+
+/* Bichinhos: botões sobre a cena */
+.bicho{position:absolute;left:var(--x);top:var(--y);width:var(--w);padding:0;border:0;background:none;cursor:pointer;z-index:4;-webkit-tap-highlight-color:transparent;border-radius:24px}
+.bicho .arte{width:100%;height:auto;filter:saturate(.55) brightness(.92);transform-origin:50% 100%;animation:respirar 3.2s ease-in-out infinite;transition:filter .3s}
+.bicho .zz{position:absolute;right:4%;top:-4%;font:800 22px var(--fonte-titulo);color:#5E4B6E;animation:zz 2.4s ease-in-out infinite}
+.bicho .fala{position:absolute;left:50%;top:-14%;transform:translate(-50%,6px) scale(.6);opacity:0;background:#fff;border-radius:999px;padding:4px 12px;font:800 16px var(--fonte-titulo);color:var(--destaque);white-space:nowrap;box-shadow:0 3px 8px rgba(0,0,0,.15);transition:transform .35s cubic-bezier(.34,1.56,.64,1),opacity .2s}
+.bicho.acordado .arte{filter:none;animation:pulinho .7s cubic-bezier(.34,1.56,.64,1) 1, flutuar 3s ease-in-out .7s infinite}
+.bicho.acordado .zz{display:none}
+.bicho.acordado .fala{opacity:1;transform:translate(-50%,0) scale(1)}
+.bicho:not(.acordado)::after{content:"";position:absolute;inset:-6px;border-radius:30px;box-shadow:0 0 0 0 rgba(255,255,255,.7);animation:chamar 2s ease-out infinite}
+@keyframes chamar{0%{box-shadow:0 0 0 0 rgba(255,255,255,.65)}70%{box-shadow:0 0 0 14px rgba(255,255,255,0)}100%{box-shadow:0 0 0 0 rgba(255,255,255,0)}}
+.bicho:focus-visible{outline:3px solid #fff;outline-offset:4px}
+@media (prefers-reduced-motion: reduce){.sol{transform:none}.bicho .zz{opacity:1}}

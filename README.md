@@ -14,6 +14,23 @@ Páginas estáticas (HTML, CSS e JS, sem dependências externas) com os 3 concei
 - **Repositório público:** não contém ID de planilha, URL do Web App, credencial nem dado de convidado. O endpoint fica em `comum/rsvp-config.local.js`, que está no `.gitignore`.
 - **GitHub Pages:** não está ativo. A prévia é local.
 
+## Conceitos interativos (4–6)
+
+| Pasta | Mecânica |
+|---|---|
+| `conceito-4/` | **Acorde os bichinhos**: cada toque acorda um bichinho, que faz o som e conta um dado da festa. Com os 5 acordados, o sol nasce sorrindo e sai confete. |
+| `conceito-5/` | **Caça aos ovos**: 5 ovos meio escondidos no feno. Cada toque racha um ovo e solta um pintinho com um dado da festa. Com os 5 achados, sai confete. |
+| `conceito-6/` | **Monte o bolo**: o botão põe 3 camadas, os bichinhos e a vela "1". "Assopre a vela!" apaga a vela e solta confete. |
+
+- **Som:** começa desligado e é gerado por WebAudio, sem arquivos de áudio. O 1º toque liga o som, e o botão 🔇/🔊 alterna.
+- **Pular:** "Pular e ver o convite" revela tudo e leva ao convite completo.
+- **Movimento reduzido:** com `prefers-reduced-motion`, nada anima e não há confete.
+- **Agenda:** "Adicionar à agenda" baixa `comum/arthur-1-ano.ics` (29/11/2026, 15h, America/Sao_Paulo).
+- **Prévia no WhatsApp:** og:image por conceito em `conceito-N/og.png`, gerado por `scripts/og.mjs`.
+- **Fontes:** Baloo 2, Fredoka e Lilita One (OFL) e Chewy (Apache 2.0), locais em `comum/fontes-festa/` com as licenças.
+- **Confete:** canvas-confetti 1.9.3 (ISC), copiado em `comum/vendor/` com a licença; sem CDN.
+- **Arte:** os bichinhos são os SVGs originais da Deidara (v2). O passe de arte dela, sobre a página rodando, vem em `design/v3/`.
+
 ## Dados do convite
 
 Arthur, 1 ano ("1 aninho" na capa) · **domingo, 29/11/2026, 15h** · venha caracterizado: **country/fazendinha** · **Casa da Árvore — Rua Castelo Branco, nº 31, Cidade Nova, Santana do Paraíso** · sem foto.
