@@ -1,0 +1,48 @@
+{
+  "intro_ms": 650,
+  "core": "spring simulada por keyframes; cubic-bezier(.22,1,.36,1)",
+  "cenas": [
+    "Cena pronta e galinha em destaque. Cinco ovos visíveis, sem depender de procurar fora da tela; indicação Toque nos ovinhos.",
+    "Ovos 1..5 revelam quando, horário, endereço, tema e RSVP inativo. Alternar inteiro/rachado; pintinho sai com salto, casca abre e marca do contador preenche.",
+    "Ovos encontrados não recebem nova contagem. Progresso 0/5→5/5; qualquer ordem é válida.",
+    "Ao completar, pintinhos fazem festa e confete curto; dados permanecem disponíveis no resumo."
+  ],
+  "ambientais": [
+    {
+      "alvo": "#cloud-left, #cloud-right",
+      "tipo": "deriva horizontal ±8px",
+      "duracao_ms": 18000,
+      "loop": true
+    },
+    {
+      "alvo": "#sun",
+      "tipo": "rotação lenta ±5° e pulso 1→1.04",
+      "duracao_ms": 6500,
+      "loop": true
+    },
+    {
+      "alvo": "#sunflower-left, #sunflower-right",
+      "tipo": "balanço ±5° na base",
+      "duracao_ms": 3200,
+      "loop": true
+    },
+    {
+      "alvo": "#bunting",
+      "tipo": "balanço ±1°",
+      "duracao_ms": 4000,
+      "loop": true
+    }
+  ],
+  "reacoes": {
+    "pressionar": "scale .94 em 80ms",
+    "comemorar": "scale .92→1.08→1 em 520ms; ease-out",
+    "revelar_dado": "translateY 18px→0; opacity 0→1 em 360ms",
+    "confete": "~36 peças com gravidade, 1.2s, execução por conclusão; nunca loop",
+    "som": "Começa mudo. Botão explícito Som desligado / Som ligado. WebAudio só após gesto e opt-in; notas curtas <350ms, volume baixo, sem autoplay nem voz sintética longa."
+  },
+  "controles": "Pular brincadeira sempre visível; atalho revela o resumo e encerra introdução/partículas imediatamente. Botão Pausar animações se ambientação em loop continuar mais de 5s. Revisitar dados sem ter de reiniciar o jogo.",
+  "reduced_motion": "Remover loops, transforms, bounce, voos e confete. Cenário estático completo; toque ou teclado ainda revela informação instantaneamente e atualiza progresso. Pular continua disponível. Não impor pulo ou perda de conteúdo; som permanece opt-in.",
+  "fallback": "Resumo completo no HTML, disponível sem JS e via link Ver convite completo. Nenhum dado importante depende de concluir a brincadeira.",
+  "progresso": "0/5→5/5",
+  "contrato_svg": "assets/cena-interativa.svg com ids em português; display:none indica estados a revelar. Estados abertos/fechados não devem aparecer simultaneamente."
+}

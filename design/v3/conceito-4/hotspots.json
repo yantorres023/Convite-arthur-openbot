@@ -1,0 +1,73 @@
+{
+  "viewBox": [
+    0,
+    0,
+    390,
+    700
+  ],
+  "id_ceu": "ceu",
+  "id_chao": "chao",
+  "hotspots": [
+    {
+      "id": "vaca",
+      "fechado": "vaca-dormindo",
+      "aberto": "vaca-acordado",
+      "bounds": [
+        9,
+        306,
+        143,
+        446
+      ],
+      "revela": "Domingo, 29 de novembro de 2026"
+    },
+    {
+      "id": "galinha",
+      "fechado": "galinha-dormindo",
+      "aberto": "galinha-acordado",
+      "bounds": [
+        139,
+        327,
+        246,
+        439
+      ],
+      "revela": "Às 15h"
+    },
+    {
+      "id": "porco",
+      "fechado": "porco-dormindo",
+      "aberto": "porco-acordado",
+      "bounds": [
+        253,
+        307,
+        387,
+        447
+      ],
+      "revela": "Casa da Árvore — Rua Castelo Branco, nº 31, Cidade Nova, Santana do Paraíso"
+    },
+    {
+      "id": "ovelha",
+      "fechado": "ovelha-dormindo",
+      "aberto": "ovelha-acordado",
+      "bounds": [
+        57,
+        473,
+        193,
+        615
+      ],
+      "revela": "Venha caracterizado de country/fazendinha"
+    },
+    {
+      "id": "cavalo",
+      "fechado": "cavalo-dormindo",
+      "aberto": "cavalo-acordado",
+      "bounds": [
+        207,
+        473,
+        343,
+        615
+      ],
+      "revela": "Confirmação ainda não ativada"
+    }
+  ],
+  "clicavel": "Botões HTML com alvo >=48×48 e texto acessível. Coordenadas guiam a composição, não travam a liberdade de Edward. No bolo usar um botão sequencial e depois Assoprar a vela."
+}

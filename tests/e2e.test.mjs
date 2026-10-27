@@ -351,8 +351,8 @@ test("conceito-1: servidor mudo → prazo de 15 s esgota → 'não conseguimos c
 
 // ---------- Conceitos interativos 4–6 (e2e mínimo) ----------
 const INTERATIVOS = [
-  { c: "conceito-4", alvos: "[data-bicho]", estado: ["data-estado", "acordado"] },
-  { c: "conceito-5", alvos: "[data-ovo]", estado: ["data-estado", "achou"] },
+  { c: "conceito-4", alvos: "[data-bicho]", estado: ["data-estado", "fim"] },
+  { c: "conceito-5", alvos: "[data-ovo]", estado: ["data-estado", "fim"] },
   { c: "conceito-6", alvos: null, estado: ["data-etapa", "assoprou"] },
 ];
 for (const { c, alvos, estado } of INTERATIVOS) {
@@ -366,6 +366,9 @@ for (const { c, alvos, estado } of INTERATIVOS) {
     const rev = (await p.textContent("[data-revelados]")).replace(/\s+/g, " ");
     for (const s of ["29 de novembro de 2026", "15h", "Casa da Árvore", "country/fazendinha"]) assert.ok(rev.includes(s), `${c}: revelação sem "${s}"`);
     assert.equal(await p.isVisible("[data-ver]"), true, "link para o convite completo");
+    // a arte v3 trocou os estados no SVG (nada de dormindo/inteiro/fechado visível no fim)
+    const estadosIniciais = await p.evaluate(() => [...document.querySelectorAll('[id$="-dormindo"],[id$="-inteiro"]')].filter((e) => getComputedStyle(e).display !== "none").length);
+    assert.equal(estadosIniciais, 0, "estado inicial ainda visível no SVG");
     await p.screenshot({ path: `${PRINTS}/390-${c}-interacao.png` });
     const txt = (await p.textContent("#convite")).replace(/\s+/g, " ");
     for (const s of ["Domingo, 29 de novembro de 2026", "15h", "Casa da Árvore", "Rua Castelo Branco, nº 31", "country/fazendinha"]) assert.ok(txt.includes(s), `${c}: convite sem "${s}"`);

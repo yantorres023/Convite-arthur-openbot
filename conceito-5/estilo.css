@@ -1,25 +1,6 @@
-/* Conceito 5 — Caça aos ovos: dia de sol no feno. Arte provisória (galinha/pintinho da Deidara v2); passe de arte em design/v3/.
-   Contraste: texto #2F3A1E sobre branco/creme (≥ 10:1); destaque #B4441F com texto branco (≥ 4,5:1). */
-:root{--ceu-1:#7EC8F0;--ceu-2:#DDF3FF;--chao:#86C454;--tinta:#2F3A1E;--tinta-sec:#4D5A36;--destaque:#B4441F;--papel:#FFF8E6;
-  --fonte-titulo:"Chewy","Fredoka",system-ui,sans-serif;--fonte-texto:"Fredoka",system-ui,sans-serif;
-  --fundo:#FFF8E6;--texto:#2F3A1E;--acento:#B4441F;--sec:#4D5A36;--apoio:#FDEFD2;--campo:#FFFFFF;--titulo:"Chewy",system-ui,sans-serif}
-.titulo h1{letter-spacing:.03em}
-.frente{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:5}
-.galinha{position:absolute;left:31%;top:36%;width:38%;z-index:3;transform-origin:50% 100%;animation:respirar 2.6s ease-in-out infinite}
-.galinha .arte{width:100%;height:auto}
-.fala-galinha{position:absolute;left:50%;top:-16%;transform:translateX(-50%);background:#fff;border-radius:16px;padding:5px 12px;font:600 15px var(--fonte-texto);color:var(--destaque);white-space:nowrap;box-shadow:0 3px 8px rgba(0,0,0,.15)}
-.cena[data-estado=achou] .galinha{animation:pulinho .8s cubic-bezier(.34,1.56,.64,1) 3}
-
-/* Ovos: botões meio escondidos atrás do feno e das moitas (camada .frente por cima) */
-.ovo{position:absolute;left:var(--x);top:var(--y);width:15%;min-width:48px;aspect-ratio:60/78;padding:0;border:0;background:none;cursor:pointer;z-index:4;-webkit-tap-highlight-color:transparent;animation:balancar 2.8s ease-in-out infinite}
-.ovo:nth-of-type(2n){animation-delay:-1.1s}
-.ovo-svg{width:100%;height:100%;overflow:visible}
-.ovo-topo{transform-origin:50% 60%;transition:transform .45s cubic-bezier(.34,1.56,.64,1),opacity .3s .3s}
-.pintinho{position:absolute;left:-15%;right:-15%;bottom:28%;opacity:0;transform:translateY(30%) scale(.4);transition:transform .45s cubic-bezier(.34,1.56,.64,1) .15s,opacity .2s .15s;pointer-events:none}
-.pintinho .arte{width:100%;height:auto}
-.ovo.rachado{animation:none}
-.ovo.rachado .ovo-topo{transform:translate(-6px,-26px) rotate(-38deg);opacity:0}
-.ovo.rachado .pintinho{opacity:1;transform:none}
-.cena[data-estado=achou] .ovo.rachado .pintinho{animation:pulinho .7s ease-in-out 2}
-.ovo:focus-visible{outline:3px solid #fff;outline-offset:3px;border-radius:40%}
-@keyframes balancar{0%,100%{transform:rotate(0)}10%{transform:rotate(-7deg)}20%{transform:rotate(6deg)}30%{transform:rotate(0)}}
+/* Conceito 5 — Cadê os ovinhos? (arte e paleta v3 da Deidara: design/v3/conceito-5/). Contraste: contraste.json. */
+:root{--ceu-1:#FFE9AF;--ceu-2:#FFE9AF;--tinta:#54392F;--tinta-sec:#6B4E42;--destaque:#A24925;--papel:#FFF6E9;
+  --fonte-titulo:"Baloo 2","Fredoka",system-ui,sans-serif;--fonte-texto:"Fredoka",system-ui,sans-serif;
+  --fundo:#FFF6E9;--texto:#54392F;--acento:#A24925;--sec:#6B4E42;--apoio:#FCE7D6;--campo:#FFFFFF;--titulo:"Baloo 2",system-ui,sans-serif}
+.titulo h1{font-weight:800}
+.alvo{border-radius:50%/42%}

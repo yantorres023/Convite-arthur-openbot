@@ -1,0 +1,37 @@
+[
+  {
+    "uso": "Texto sobre céu",
+    "fg": "#3B3649",
+    "bg": "#C0DFFA",
+    "ratio": 8.39,
+    "AA": true
+  },
+  {
+    "uso": "Texto normal",
+    "fg": "#3B3649",
+    "bg": "#FFF7D9",
+    "ratio": 10.81,
+    "AA": true
+  },
+  {
+    "uso": "Apoio",
+    "fg": "#60546B",
+    "bg": "#FFF7D9",
+    "ratio": 6.57,
+    "AA": true
+  },
+  {
+    "uso": "Botões",
+    "fg": "#FFF7D9",
+    "bg": "#7043A5",
+    "ratio": 6.44,
+    "AA": true
+  },
+  {
+    "uso": "Texto no painel",
+    "fg": "#3B3649",
+    "bg": "#EEE4FA",
+    "ratio": 9.46,
+    "AA": true
+  }
+]
