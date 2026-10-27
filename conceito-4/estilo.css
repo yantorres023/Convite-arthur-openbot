@@ -4,3 +4,6 @@
   --fundo:#FFF7D9;--texto:#3B3649;--acento:#7043A5;--sec:#4F4960;--apoio:#EDE3F7;--campo:#FFFFFF;--titulo:"Lilita One",system-ui,sans-serif}
 .titulo h1{font-weight:400}
 .cena-v3[data-estado=fim] .cena-arte #c4-sun{transform-box:fill-box;transform-origin:50% 50%;animation:pulinho .8s ease-in-out 2}
+/* B02 (passe 02): halo menor, dentro do bichinho, e um de cada vez (a área de toque continua inteira) */
+.alvo:not(.feito)::after{inset:22%;animation-duration:3.5s}
+.alvo:nth-of-type(2)::after{animation-delay:.7s}.alvo:nth-of-type(3)::after{animation-delay:1.4s}.alvo:nth-of-type(4)::after{animation-delay:2.1s}.alvo:nth-of-type(5)::after{animation-delay:2.8s}
