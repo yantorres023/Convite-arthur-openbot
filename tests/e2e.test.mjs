@@ -90,6 +90,32 @@ test("comparativo: index com link para os 3 conceitos", async () => {
   }
 });
 
+const ENDERECO_BUSCA = "Casa da Árvore, Rua Castelo Branco, 31, Cidade Nova, Santana do Paraíso - MG";
+const MAPAS = { google: ["https://www.google.com", "/maps/search/", "query"], apple: ["https://maps.apple.com", "/", "q"], waze: ["https://waze.com", "/ul", "q"] };
+async function conferirMapas(p, onde) {
+  for (const [k, [origem, caminho, param]] of Object.entries(MAPAS)) {
+    const a = p.locator(`[data-mapa=${k}]`);
+    assert.equal(await a.count(), 1, `${onde}: botão ${k}`);
+    const u = new URL(await a.getAttribute("href"));
+    assert.equal(u.origin, origem, `${onde}: domínio oficial do ${k}`); assert.equal(u.pathname, caminho);
+    assert.equal(u.searchParams.get(param), ENDERECO_BUSCA, `${onde}: endereço decodificado do ${k}`);
+    if (k === "google") assert.equal(u.searchParams.get("api"), "1");
+    if (k === "waze") assert.equal(u.searchParams.get("navigate"), "yes");
+    assert.equal(await a.getAttribute("target"), "_blank"); assert.equal(await a.getAttribute("rel"), "noopener noreferrer");
+    assert.match(await a.getAttribute("aria-label"), /Abrir o endereço da festa no .+ \(abre em nova aba\)/);
+    const box = await a.boundingBox(); assert.ok(box.height >= 44, `${onde}: alvo do ${k} ≥ 44 px`);
+  }
+}
+
+test("botões de mapa (Google Maps, Apple Maps, Waze): 3 páginas e comparativo, 390 e 1440, sem requisição externa no carregamento", async () => {
+  for (const pagina of ["", ...CONCEITOS.map((c) => `${c}/`)]) for (const w of LARGURAS) {
+    const { p, fim } = await abrir(`${BASE}/${pagina}`, { largura: w });
+    await conferirMapas(p, `${pagina || "comparativo"} ${w}`);
+    assert.ok(await p.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 1), "sem rolagem horizontal");
+    await fim(); // fim() falha se houve qualquer requisição a outra origem
+  }
+});
+
 for (const c of CONCEITOS) {
   test(`${c}: dados exatos, sem rede externa, sem foto, sem rolagem lateral (390 e 1440, prints)`, async () => {
     for (const w of LARGURAS) {

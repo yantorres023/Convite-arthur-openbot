@@ -18,6 +18,8 @@ Páginas estáticas (HTML, CSS e JS, sem dependências externas) com os 3 concei
 
 Arthur, 1 ano ("1 aninho" na capa) · **domingo, 29/11/2026, 15h** · venha caracterizado: **country/fazendinha** · **Casa da Árvore — Rua Castelo Branco, nº 31, Cidade Nova, Santana do Paraíso** · sem foto.
 
+**Como chegar:** junto ao endereço há 3 botões, "Abrir no Google Maps", "Abrir no Apple Maps" e "Abrir no Waze". São links oficiais de **busca** pelo endereço "Casa da Árvore, Rua Castelo Branco, 31, Cidade Nova, Santana do Paraíso - MG", sem coordenadas, e abrem numa nova aba (`noopener noreferrer`).
+
 ## Prévia local
 
 ```
@@ -91,7 +93,7 @@ npm test                    # regras do RSVP (node --test)
 npm run test:e2e            # Playwright em 390 e 1440: dados, rede, RSVP (servidor simulado), teclado, reduced-motion, contraste; prints em prints/
 ```
 
-O e2e (53 testes) falha se a página fizer requisição para outra origem que não o endpoint **falso** configurado no teste. Esse endpoint é atendido por um servidor simulado. Em todos os cenários exige nenhum erro de console.
+O e2e (54 testes) falha se a página fizer requisição para outra origem que não o endpoint **falso** configurado no teste. Esse endpoint é atendido por um servidor simulado. Em todos os cenários exige nenhum erro de console.
 
 Cobre:
 - **Dados e páginas:** dados exatos, sem foto, sem rolagem horizontal.

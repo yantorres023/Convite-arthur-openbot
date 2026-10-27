@@ -26,6 +26,11 @@ h1{font-family:var(--titulo);font-weight:700;font-size:clamp(68px,19vw,150px);li
 .info .local{font-weight:700;font-size:19px;margin-top:12px !important}
 .info .endereco{font-size:15px;line-height:1.45;margin-top:6px !important}
 
+/* Botões de mapa (busca pelo endereço; sem coordenadas) */
+.mapas{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin:16px 0 0 !important}
+.mapa{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:0 16px;border:1px solid var(--acento);border-radius:999px;background:var(--fundo);color:var(--texto);font-weight:700;font-size:14px;text-decoration:none;transition:background-color 120ms}
+.mapa:hover{background:var(--campo)}
+
 /* Tema */
 .tema{display:flex;align-items:center;gap:28px;margin:44px 6px 0}
 .tema .bicho{width:64px;flex:none}
