@@ -40,8 +40,8 @@ async function abrir(url, { largura = 390, reduzir = false, js = true, bloquear 
   await ctx.route(() => true, async (r) => {
     const u = new URL(r.request().url());
     if (bloquear && bloquear.test(u.pathname)) return r.fulfill({ status: 404, body: "" });
-    if (u.origin === ORIGEM && u.pathname === "/comum/rsvp-config.local.js")
-      return servidor ? r.fulfill({ status: 200, contentType: "text/javascript", body: `export const RSVP_ENDPOINT = ${JSON.stringify(ENDPOINT)};` }) : r.fulfill({ status: 404, body: "" });
+    if (u.origin === ORIGEM && u.pathname === "/comum/rsvp-config.js")
+      return servidor ? r.fulfill({ status: 200, contentType: "text/javascript", body: `export const RSVP_ENDPOINT = ${JSON.stringify(ENDPOINT)};` }) : r.continue(); // sem servidor: o arquivo real (null)
     if (u.origin === ORIGEM) return r.continue();
     if (servidor && u.origin === new URL(ENDPOINT).origin) {
       envios.push({ metodo: r.request().method(), tipo: r.request().headers()["content-type"], corpo: r.request().postData() });
@@ -62,7 +62,8 @@ async function abrir(url, { largura = 390, reduzir = false, js = true, bloquear 
   });
   const p = await ctx.newPage();
   // Avisos esperados do próprio navegador: config ausente / módulo bloqueado de propósito; 429 simulado.
-  const ignorar = (t) => (/404|Failed to load|rsvp-config\.local\.js/i.test(t) && (!servidor || bloquear)) || (servidor === "limite429" && /status of 429/.test(t));
+  // Avisos esperados do próprio navegador: módulo bloqueado de propósito; 429 simulado. (Nenhum 404 de config.)
+  const ignorar = (t) => (/404|Failed to load/i.test(t) && bloquear) || (servidor === "limite429" && /status of 429/.test(t));
   p.on("pageerror", (e) => { if (!ignorar(String(e))) erros.push(String(e)); });
   p.on("console", (m) => { if (m.type() === "error" && !ignorar(m.text())) erros.push(m.text()); });
   await p.goto(url, { waitUntil: "networkidle" });

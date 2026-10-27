@@ -111,3 +111,7 @@ input[aria-invalid=true]{border:2px solid var(--erro)}
   .rsvp-bicho{display:block;width:140px;margin-left:44px}
   .rodape{margin-top:50px}
 }
+/* RSVP inativo: aviso destacado acima do botão; botão com aparência de indisponível */
+.rsvp-form.inativo .rsvp-nota{background:var(--apoio);border:1px solid var(--acento);border-radius:12px;padding:10px 12px;color:var(--texto);font-weight:600;font-size:15px;margin:12px 0 0}
+.rsvp-form.inativo .botao{background:#E4E1E8;color:#4A4652;box-shadow:none;cursor:not-allowed}
+.rsvp-form.inativo input{background:#F4F2F6}

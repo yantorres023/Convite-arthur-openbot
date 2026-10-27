@@ -17,3 +17,5 @@ A arte pode ser reposicionada olhando a página rodando, sem manter coordenadas 
 Manter Chewy + Fredoka da implementação publicada. A cena ganhou cerca, fardos de feno, ninho com palha, galinha maior e flores. Cinco ovos coloridos, cascas e pintinho original já estão no SVG.
 
 Esta seção substitui a sugestão tipográfica inicial do README. Não colocar texto visual dentro do SVG. Fonte, título, instrução, progressos e botões são HTML.
+
+As prévias PNG de cena são os estudos iniciais. A versão enriquecida deste passe está nos SVGs canônicos; as evidências de página ficam em ../passe-arte-01/.

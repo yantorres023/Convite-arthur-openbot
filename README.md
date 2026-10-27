@@ -11,7 +11,7 @@ Páginas estáticas (HTML, CSS e JS, sem dependências externas) com os 3 concei
 ## Status real
 - **Integração preparada; o Web App não está publicado.** A publicação depende de aprovação do Yan; veja `INTEGRACAO-PLANILHA.md`.
 - **Sem endpoint configurado,** a página mostra "Confirmação ainda não ativada" e não envia nada. Ela nunca simula sucesso.
-- **Repositório público:** não contém ID de planilha, URL do Web App, credencial nem dado de convidado. O endpoint fica em `comum/rsvp-config.local.js`, que está no `.gitignore`.
+- **Repositório público:** não contém ID de planilha, URL do Web App, credencial nem dado de convidado. O endpoint fica em `comum/rsvp-config.js` com `RSVP_ENDPOINT = null` (inativo).
 - **GitHub Pages:** não está ativo. A prévia é local.
 
 ## Conceitos interativos (4–6)
@@ -49,7 +49,7 @@ Na pasta do projeto, abra http://127.0.0.1:4300/. O GitHub Pages não está ativ
 
 O destino é uma planilha privada do Yan, autorizado por ele. A integração e o contrato são do Rocky: `INTEGRACAO-PLANILHA.md`.
 
-- **Endpoint:** fica fora do repositório. O arquivo `comum/rsvp-config.local.js` está no `.gitignore` e segue o modelo `comum/rsvp-config.exemplo.js`. Nenhum ID de planilha, URL do Apps Script ou credencial entra no git.
+- **Endpoint:** `comum/rsvp-config.js`, hoje `null`. Para ativar (só com aprovação do Yan), ponha a URL do Web App nesse arquivo. Como o GitHub Pages publica a partir desta branch, a URL fica pública; o navegador a vê de qualquer forma ao enviar.
 - **Sem endpoint configurado:** a página mostra "Confirmação ainda não ativada" com o botão desabilitado, e **nunca simula sucesso**.
 - **Campos:**
   - **Nome:** 2 a 80 caracteres.

@@ -102,3 +102,10 @@ img,svg{display:block;max-width:100%}
 .palco-v3 .acao:focus-visible{outline:3px solid var(--tinta);outline-offset:4px}
 .cena-v3 .dica{margin-top:-6px}
 @media (min-width:900px){.palco-v3{width:min(100%,560px)}}
+
+/* A02 (passe de arte): o dado mais recente aparece num balão DENTRO da cena, sem rolar; o histórico fica abaixo */
+.palco-v3 .atual{position:absolute;left:4%;right:4%;bottom:2.5%;z-index:7;margin:0;background:#fff;border-radius:18px;padding:10px 14px;font:600 16px/1.35 var(--fonte-texto);color:var(--tinta);box-shadow:0 6px 16px rgba(0,0,0,.18);text-align:center}
+.palco-v3 .atual.novo{animation:entrar .4s cubic-bezier(.22,1,.36,1) both}
+.palco-v3:has(.acao) .atual{display:none !important} /* no bolo, o próprio bolo mostra o passo; o dado aparece logo abaixo */
+/* A03: "1 aninho" em Fredoka 700 */
+.festa .idade{font-family:"Fredoka",system-ui,sans-serif;font-weight:700}

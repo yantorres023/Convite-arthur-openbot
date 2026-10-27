@@ -21,3 +21,5 @@ Esta seção substitui a sugestão tipográfica inicial do README. Não colocar 
 ## Ganchos do estado inicial
 
 `#artpass-silhueta-bolo` é a sugestão pontilhada inicial; ocultar ao montar a primeira camada. `#artpass-bichinhos-convidando` são convidados laterais iniciais; ocultar quando o topo com animais entrar. Os grupos do bolo foram reposicionados abaixo da faixa do título, mantendo ids. Recalcular áreas se alterar o enquadramento; `hotspots.json` antigo é referência, não posição final obrigatória.
+
+As prévias PNG de cena são os estudos iniciais. A versão enriquecida deste passe está nos SVGs canônicos; as evidências de página ficam em ../passe-arte-01/.

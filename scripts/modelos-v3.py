@@ -73,7 +73,8 @@ for n, c in CONCEITOS.items():
       <p class="idade">1 aninho</p>
       <p class="nome-brincadeira">{c["nome"]}</p>
     </div>
-{botoes}  </div>
+{botoes}    <p class="atual" data-atual hidden aria-hidden="true"></p>
+  </div>
 
   <p class="dica" data-dica role="status">{c["dica"]} <span class="dica-contador" data-contador>0/5</span></p>
   <ol class="revelados" data-revelados aria-live="polite" aria-label="O que a brincadeira revelou"></ol>

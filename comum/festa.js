@@ -82,6 +82,8 @@ export function prepararPular(revelarTudo) {
 
 /** Balão com o dado revelado (lista acessível, aria-live). */
 export function revelar(lista, emoji, texto) {
+  const atual = document.querySelector("[data-atual]");
+  if (atual) { atual.textContent = `${emoji} ${texto}`; atual.hidden = false; atual.classList.remove("novo"); void atual.offsetWidth; atual.classList.add("novo"); }
   const li = document.createElement("li");
   li.className = "balao";
   const e = document.createElement("span"); e.className = "balao-emoji"; e.setAttribute("aria-hidden", "true"); e.textContent = emoji;

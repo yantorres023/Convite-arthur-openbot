@@ -22,6 +22,8 @@ function avancar({ silencioso = false } = {}) {
   if (etapa < PASSOS.length) {
     const [id, s, emoji, texto, proximo] = PASSOS[etapa];
     $(id).style.display = "inline"; $(id).classList.add("caiu");
+    if (id === "c6-camada-1") $("c6-artpass-silhueta-bolo")?.style.setProperty("display", "none");   // some ao começar
+    if (id === "c6-topo-bichinhos") $("c6-artpass-bichinhos-convidando")?.style.setProperty("display", "none"); // saem quando o topo entra
     if (id === "c6-vela") { $("c6-chama").style.display = "inline"; $("c6-chama").classList.add("acesa"); }
     etapa++; cena.dataset.etapa = String(etapa);
     if (!silencioso) som(s);
