@@ -1,0 +1,507 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Arthur · 1 aninho — Pescaria dos patinhos · Versão 12 · Claude Opus 5.5 · esforço max</title>
+<meta name="description" content="Convite do Arthur, 1 aninho: domingo, 29 de novembro de 2026, às 15h, na Casa da Árvore. Pesque os patinhos do laguinho e descubra a festa!">
+<meta name="theme-color" content="#79C7FF">
+<meta name="color-scheme" content="light">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Arthur · 1 aninho — Pescaria dos patinhos">
+<meta property="og:description" content="Domingo, 29 de novembro de 2026, às 15h · Casa da Árvore · Venha caracterizado: country/fazendinha">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cpath d='M8 30c4 5 10 7 16 7 8-4 22-4 30 2 8 6 7 17 0 22-9 5-32 5-40 0-7-5-9-19-6-31z' fill='%23FFD23F'/%3E%3Ccircle cx='42' cy='22' r='13' fill='%23FFD23F'/%3E%3Cpath d='M53 21c6-3 11 0 10 4-3 3-8 3-11 1z' fill='%23FF9A1F'/%3E%3Ccircle cx='46' cy='19' r='2.6' fill='%231E2A3A'/%3E%3C/svg%3E">
+<link rel="preload" href="../comum/fontes-festa/LilitaOne.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../comum/fontes-festa/Baloo2.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="estilo.css">
+<script src="../comum/vendor/canvas-confetti-1.9.3.min.js" defer></script>
+<script type="module" src="convite.js"></script>
+<script type="module" src="pescaria.js"></script>
+</head>
+<body>
+
+<!-- Peças de desenho reaproveitadas (patinho, chapéus, laço, botinha, xadrez) -->
+<svg class="defs" aria-hidden="true" focusable="false" width="0" height="0">
+  <defs>
+    <radialGradient id="g-pato" cx="38%" cy="32%" r="72%">
+      <stop offset="0" stop-color="#FFEB99"/><stop offset=".5" stop-color="#FFD43F"/><stop offset="1" stop-color="#F7BE16"/>
+    </radialGradient>
+    <radialGradient id="g-agua" cx="50%" cy="44%" r="64%">
+      <stop offset="0" stop-color="#93DEF8"/><stop offset=".55" stop-color="#5EC4EE"/><stop offset="1" stop-color="#3AA3DA"/>
+    </radialGradient>
+    <linearGradient id="g-morro" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#CDEAA6"/><stop offset=".35" stop-color="#BDE296"/><stop offset="1" stop-color="#B2DC8A"/>
+    </linearGradient>
+    <linearGradient id="g-areia" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#F7E6BC"/><stop offset="1" stop-color="#EFD59F"/>
+    </linearGradient>
+    <!-- xadrez (gingham) e bolinhas -->
+    <pattern id="p-xv" width="8" height="8" patternUnits="userSpaceOnUse"><rect width="8" height="8" fill="#fff"/><rect width="4" height="8" fill="#E8574A" fill-opacity=".62"/><rect width="8" height="4" fill="#E8574A" fill-opacity=".62"/></pattern>
+    <pattern id="p-xa" width="8" height="8" patternUnits="userSpaceOnUse"><rect width="8" height="8" fill="#fff"/><rect width="4" height="8" fill="#3D8FD6" fill-opacity=".6"/><rect width="8" height="4" fill="#3D8FD6" fill-opacity=".6"/></pattern>
+    <pattern id="p-xr" width="8" height="8" patternUnits="userSpaceOnUse"><rect width="8" height="8" fill="#fff"/><rect width="4" height="8" fill="#F06BA0" fill-opacity=".6"/><rect width="8" height="4" fill="#F06BA0" fill-opacity=".6"/></pattern>
+    <pattern id="p-bv" width="8" height="8" patternUnits="userSpaceOnUse"><rect width="8" height="8" fill="#E8574A"/><circle cx="2" cy="2" r="1.3" fill="#fff"/><circle cx="6" cy="6" r="1.3" fill="#fff"/></pattern>
+    <pattern id="p-ba" width="8" height="8" patternUnits="userSpaceOnUse"><rect width="8" height="8" fill="#3D8FD6"/><circle cx="2" cy="2" r="1.3" fill="#fff"/><circle cx="6" cy="6" r="1.3" fill="#fff"/></pattern>
+    <!-- cerca de madeira -->
+    <pattern id="p-cerca" width="40" height="56" patternUnits="userSpaceOnUse" x="-420" y="124">
+      <rect x="0" y="14" width="40" height="8" rx="2" fill="#D9A066"/><rect x="0" y="20" width="40" height="2" fill="#B9824A"/>
+      <rect x="0" y="32" width="40" height="8" rx="2" fill="#D9A066"/><rect x="0" y="38" width="40" height="2" fill="#B9824A"/>
+      <rect x="15" y="2" width="10" height="54" rx="5" fill="#C98B55"/><rect x="21" y="6" width="3" height="48" rx="1.5" fill="#AE7442"/>
+    </pattern>
+
+    <!-- patinho de borracha (de lado, olhando para a direita); linha d'água em y=92 -->
+    <symbol id="s-pato" viewBox="0 -32 124 140">
+      <path d="M12 36C18 44 28 48 40 48C56 44 82 44 98 54C112 64 110 86 96 96C82 106 36 106 22 96C8 86 6 58 12 36Z" fill="url(#g-pato)" stroke="#E4A20A" stroke-width="2"/>
+      <path d="M22 92C38 104 84 104 98 92C92 102 76 107 58 107C40 107 28 101 22 92Z" fill="#EFA90B" opacity=".55"/>
+      <path d="M38 64C46 53 69 53 78 64C74 78 52 81 41 73Z" fill="#F7BB16"/>
+      <path d="M46 69C54 65 64 65 70 69" fill="none" stroke="#E9A30B" stroke-width="2" stroke-linecap="round"/>
+      <ellipse cx="33" cy="56" rx="9" ry="4" transform="rotate(-18 33 56)" fill="#fff" opacity=".5"/>
+      <circle cx="80" cy="32" r="23" fill="url(#g-pato)" stroke="#E4A20A" stroke-width="2"/>
+      <ellipse cx="70" cy="20" rx="8" ry="4.5" transform="rotate(-30 70 20)" fill="#fff" opacity=".6"/>
+      <path d="M99 34C109 28 122 31 120 39C116 44 106 45 99 42Z" fill="#FF9A1F"/>
+      <path d="M99 41C106 45 114 46 118 42C115 49 105 50 98 46Z" fill="#EE7A12"/>
+      <circle cx="88" cy="27" r="4.6" fill="#1E2A3A"/><circle cx="89.6" cy="25.3" r="1.6" fill="#fff"/>
+      <ellipse cx="86.5" cy="40" rx="5.5" ry="3.2" fill="#FF8FA3" opacity=".8"/>
+    </symbol>
+    <!-- fundo do patinho (onde fica o número) -->
+    <symbol id="s-verso" viewBox="0 0 124 100">
+      <path d="M106 40C115 35 124 39 122 46C119 51 112 52 107 49Z" fill="#FF9A1F" stroke="#E07510" stroke-width="1.5"/>
+      <path d="M3 50C11 44 16 34 28 26C42 17 58 14 72 15C98 17 117 31 117 54C117 76 95 92 64 92C36 92 13 79 7 62C5 58 3 54 3 50Z" fill="#E9A400"/>
+      <path d="M3 46C11 40 16 30 28 22C42 13 58 10 72 11C98 13 117 27 117 50C117 72 95 88 64 88C36 88 13 75 7 58C5 54 3 50 3 46Z" fill="url(#g-pato)" stroke="#E4A20A" stroke-width="2"/>
+      <ellipse cx="64" cy="50" rx="44" ry="29" fill="#FFE68A" opacity=".45"/>
+      <circle cx="62" cy="50" r="27" fill="#fff" stroke="#F2B705" stroke-width="3.5"/>
+    </symbol>
+    <!-- chapéu de cowboy (cores por variável) -->
+    <symbol id="s-chapeu" viewBox="0 0 60 36">
+      <path d="M17 31C15 15 18 4 23 3C26 2.5 28 6.5 30 6.5C32 6.5 34 2.5 37 3C42 4 45 15 43 31Z" style="fill:var(--ch,#C98B55);stroke:var(--ch2,#8E5527)" stroke-width="1.6" stroke-linejoin="round"/>
+      <path d="M16.6 21Q30 25 43.4 21L43.1 26.6Q30 30.6 16.9 26.6Z" style="fill:var(--fita,#E8574A)"/>
+      <path d="M2 21C7 28 19 30.5 30 30.5C41 30.5 53 28 58 21C57 30 46 35.5 30 35.5C14 35.5 3 30 2 21Z" style="fill:var(--ch,#C98B55);stroke:var(--ch2,#8E5527)" stroke-width="1.6" stroke-linejoin="round"/>
+      <path d="M23.5 8Q25.5 15 24.5 20" fill="none" stroke="#fff" stroke-opacity=".4" stroke-width="2" stroke-linecap="round"/>
+    </symbol>
+    <!-- chapéu de palha -->
+    <symbol id="s-palha" viewBox="0 0 64 30">
+      <ellipse cx="32" cy="23" rx="30" ry="6.5" fill="#EAC575" stroke="#B98A38" stroke-width="1.6"/>
+      <path d="M10 23Q32 28 54 23" fill="none" stroke="#C99A45" stroke-width="1.1" stroke-linecap="round"/>
+      <path d="M19 23C18 11 23 5 32 5C41 5 46 11 45 23Z" fill="#F2D38A" stroke="#B98A38" stroke-width="1.6"/>
+      <path d="M18.7 17.5Q32 21 45.3 17.5L45.1 22.2Q32 25.6 18.9 22.2Z" fill="#E8574A"/>
+      <path d="M24 9Q32 7 40 9" fill="none" stroke="#C99A45" stroke-width="1.1" stroke-linecap="round"/>
+    </symbol>
+    <!-- laço xadrez -->
+    <symbol id="s-laco" viewBox="0 0 40 24">
+      <path d="M20 12C13 2 2 3 3 12C2 21 13 22 20 12ZM20 12C27 2 38 3 37 12C38 21 27 22 20 12Z" fill="url(#p-xv)" stroke="#C8433A" stroke-width="1.6" stroke-linejoin="round"/>
+      <path d="M18 14L13 23L18.5 21.5ZM22 14L27 23L21.5 21.5Z" fill="#E8574A"/>
+      <ellipse cx="20" cy="12" rx="4" ry="4.6" fill="#E8574A" stroke="#C8433A" stroke-width="1.2"/>
+    </symbol>
+    <!-- botinha country -->
+    <symbol id="s-bota" viewBox="0 0 24 28">
+      <path d="M5 2Q8 .5 10.5 2Q13 .5 16 2L16 16Q16 18.5 19 19.5L21.5 20.3Q24.5 21.5 23.5 24.5L22.5 25.5L5 25.5Z" style="fill:var(--bota,#B2733B)" stroke="#6E3F1C" stroke-width="1.3" stroke-linejoin="round"/>
+      <path d="M5 4.5H16V7.2H5Z" fill="#E8574A"/>
+      <path d="M8 11Q10.5 15.5 13 11" fill="none" stroke="#F6D9A0" stroke-width="1.3" stroke-linecap="round"/>
+      <path d="M5 25.5V28H10.5V25.5Z" fill="#6E3F1C"/>
+    </symbol>
+  </defs>
+</svg>
+
+<div class="palco" data-palco>
+  <div class="barra">
+    <a class="pular" href="#convite" data-pular>Pular e ver o convite <svg viewBox="0 0 20 20" aria-hidden="true" focusable="false"><path d="M10 4v11M5 10.5l5 5 5-5" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+    <button class="som" type="button" data-som aria-pressed="false" aria-label="Som" title="Som">
+      <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 9.5h3.5L12 5.5v13l-4.5-4H4z" fill="currentColor" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><g class="som-on" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M15.5 9.2a4 4 0 0 1 0 5.6"/><path d="M18 6.8a7.5 7.5 0 0 1 0 10.4"/></g><g class="som-off" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M15.5 9.5l5 5M20.5 9.5l-5 5"/></g></svg>
+    </button>
+  </div>
+
+  <svg class="bandeirinhas" viewBox="0 0 390 48" aria-hidden="true" focusable="false">
+    <path d="M-4 6Q195 34 394 6" fill="none" stroke="#9A6A40" stroke-width="2"/>
+    <g stroke-width="3" stroke-linejoin="round">
+      <path d="M3 8.6H27L15 32.6Z" fill="url(#p-xv)" stroke="#E8574A"/>
+      <path d="M35 12.3H59L47 36.3Z" fill="#FFD23F" stroke="#FFD23F"/>
+      <path d="M67 15.2H91L79 39.2Z" fill="url(#p-xa)" stroke="#3D8FD6"/>
+      <path d="M99 17.5H123L111 41.5Z" fill="#E8574A" stroke="#E8574A"/>
+      <path d="M131 19H155L143 43Z" fill="url(#p-xv)" stroke="#E8574A"/>
+      <path d="M163 19.9H187L175 43.9Z" fill="#4BA3E3" stroke="#4BA3E3"/>
+      <path d="M195 19.9H219L207 43.9Z" fill="#FFD23F" stroke="#FFD23F"/>
+      <path d="M227 19.3H251L239 43.3Z" fill="url(#p-xa)" stroke="#3D8FD6"/>
+      <path d="M259 18H283L271 42Z" fill="#E8574A" stroke="#E8574A"/>
+      <path d="M291 15.9H315L303 39.9Z" fill="url(#p-xv)" stroke="#E8574A"/>
+      <path d="M323 13.1H347L335 37.1Z" fill="#FFD23F" stroke="#FFD23F"/>
+      <path d="M355 9.5H379L367 33.5Z" fill="url(#p-xa)" stroke="#3D8FD6"/>
+    </g>
+  </svg>
+
+  <div class="nuvens" aria-hidden="true">
+    <svg class="nuvem nuvem-a" viewBox="0 0 120 50" focusable="false"><path d="M18 46C6 46 2 34 12 28C10 16 26 10 34 18C40 4 64 2 70 18C80 10 98 14 96 28C110 28 114 46 100 46Z" fill="#fff"/></svg>
+    <svg class="nuvem nuvem-b" viewBox="0 0 120 50" focusable="false"><path d="M18 46C6 46 2 34 12 28C10 16 26 10 34 18C40 4 64 2 70 18C80 10 98 14 96 28C110 28 114 46 100 46Z" fill="#fff"/></svg>
+  </div>
+
+  <header class="titulo">
+    <h1><span class="nome">Arthur<svg class="nome-chapeu" viewBox="0 0 60 36" aria-hidden="true" focusable="false"><use href="#s-chapeu" width="60" height="36" style="--ch:#C98B55;--ch2:#6E3F1C;--fita:#E8574A"/></svg></span> <span class="idade">1 aninho</span></h1>
+  </header>
+
+  <section class="placar" aria-labelledby="placar-titulo">
+    <h2 class="placar-titulo" id="placar-titulo" data-placar>Pesque os 5 patinhos e descubra a festa!</h2>
+    <ol class="vagas" aria-label="Patinhos pescados">
+      <li><button class="vaga" type="button" data-vaga="idade" disabled aria-label="Patinho ainda no laguinho"><span aria-hidden="true">?</span></button></li>
+      <li><button class="vaga" type="button" data-vaga="dia" disabled aria-label="Patinho ainda no laguinho"><span aria-hidden="true">?</span></button></li>
+      <li><button class="vaga" type="button" data-vaga="hora" disabled aria-label="Patinho ainda no laguinho"><span aria-hidden="true">?</span></button></li>
+      <li><button class="vaga" type="button" data-vaga="local" disabled aria-label="Patinho ainda no laguinho"><span aria-hidden="true">?</span></button></li>
+      <li><button class="vaga" type="button" data-vaga="tema" disabled aria-label="Patinho ainda no laguinho"><span aria-hidden="true">?</span></button></li>
+    </ol>
+  </section>
+
+  <div class="cena">
+    <div class="lago" data-lago>
+      <svg class="lago-fundo" data-agua viewBox="0 0 390 560" aria-hidden="true" focusable="false">
+        <!-- sol -->
+        <g class="sol" transform="translate(356 60)">
+          <g class="sol-raios" stroke="#FFC93C" stroke-width="6" stroke-linecap="round">
+            <path d="M0-44v-12M0 44v12M-44 0h-12M44 0h12M31-31l8-8M-31 31l-8 8M31 31l8 8M-31-31l-8-8"/>
+          </g>
+          <circle r="31" fill="#FFD84D"/><circle r="31" fill="none" stroke="#FFC22E" stroke-width="3"/>
+          <circle cx="-9" cy="-9" r="9" fill="#FFE98A"/>
+        </g>
+        <!-- nuvenzinha -->
+        <path class="nuvem-c" d="M22 112C12 112 9 102 17 97C16 87 29 83 35 89C40 78 59 77 63 89C71 83 85 86 83 97C94 97 97 112 86 112Z" fill="#fff"/>
+
+        <!-- cerca, botinhas penduradas e corda -->
+        <rect x="-1500" y="124" width="3400" height="56" fill="url(#p-cerca)"/>
+        <g class="botinhas">
+          <path d="M160 136Q156 146 152 150M160 136Q164 146 168 150" fill="none" stroke="#7A4A26" stroke-width="1.4"/>
+          <use href="#s-bota" x="141" y="146" width="15" height="17.5" style="--bota:#B2733B"/>
+          <use href="#s-bota" x="160" y="147" width="15" height="17.5" style="--bota:#C9864A"/>
+        </g>
+        <!-- laço de corda pendurado no mourão -->
+        <g class="corda" transform="translate(200 137)">
+          <g fill="none" stroke-linecap="round">
+            <g stroke="#8E5A2B" stroke-width="5.2">
+              <ellipse cx="0" cy="18" rx="14" ry="16.5"/><ellipse cx="2" cy="19.5" rx="10.5" ry="13"/>
+              <path d="M10 31Q17 41 12 49Q8 55 13.5 58"/>
+            </g>
+            <g stroke="#E5B675" stroke-width="3.2">
+              <ellipse cx="0" cy="18" rx="14" ry="16.5"/><ellipse cx="2" cy="19.5" rx="10.5" ry="13"/>
+              <path d="M10 31Q17 41 12 49Q8 55 13.5 58"/>
+            </g>
+            <g stroke="#B98243" stroke-width="3.2" stroke-dasharray="1.3 2.7">
+              <ellipse cx="0" cy="18" rx="14" ry="16.5"/><ellipse cx="2" cy="19.5" rx="10.5" ry="13"/>
+              <path d="M10 31Q17 41 12 49Q8 55 13.5 58"/>
+            </g>
+          </g>
+          <circle cx="0" cy="2.2" r="2.6" fill="#7A4A26"/>
+          <path d="M-5.5 1.5Q0 4.5 5.5 1.5L3.5 8.5Q0 10.5-3.5 8.5Z" fill="url(#p-xv)" stroke="#C8433A" stroke-width="1" stroke-linejoin="round"/>
+        </g>
+
+        <!-- morro -->
+        <path d="M-1500 174C-1100 166-700 182-420 178C-260 160-120 172 0 168C90 165 140 158 195 160C260 162 320 170 400 166C520 160 660 176 810 170C1100 164 1500 178 1900 172L1900 640L-1500 640Z" fill="url(#g-morro)"/>
+        <path d="M-1500 174C-1100 166-700 182-420 178C-260 160-120 172 0 168C90 165 140 158 195 160C260 162 320 170 400 166C520 160 660 176 810 170C1100 164 1500 178 1900 172" fill="none" stroke="#DDF1C2" stroke-width="3"/>
+        <g fill="#9ACD71">
+          <path d="M150 196l3-7 3 7 3-6 2 6z"/><path d="M236 200l3-7 3 7 3-6 2 6z"/><path d="M-60 210l3-7 3 7 3-6 2 6z"/><path d="M440 206l3-7 3 7 3-6 2 6z"/><path d="M196 222l3-7 3 7 3-6 2 6z"/>
+        </g>
+        <g class="florzinhas">
+          <g transform="translate(126 214)"><circle r="3" fill="#fff"/><circle cx="4" r="3" fill="#fff"/><circle cx="2" cy="-3.4" r="3" fill="#fff"/><circle cx="2" cy="3.4" r="3" fill="#fff"/><circle cx="2" r="1.8" fill="#FFB21F"/></g>
+          <g transform="translate(262 222)"><circle r="3" fill="#fff"/><circle cx="4" r="3" fill="#fff"/><circle cx="2" cy="-3.4" r="3" fill="#fff"/><circle cx="2" cy="3.4" r="3" fill="#fff"/><circle cx="2" r="1.8" fill="#FFB21F"/></g>
+        </g>
+
+        <!-- vaquinha de chapéu, bandana e botinhas -->
+        <g class="vaca" transform="translate(22 128)">
+          <g class="vaca-rabo"><path d="M9 34C1 38-1 48 2 56" fill="none" stroke="#6B5A52" stroke-width="2.6" stroke-linecap="round"/><path d="M2 54c-4 2-4 8 0 9 4-1 5-7 0-9z" fill="#6B5A52"/></g>
+          <rect x="13" y="44" width="9" height="20" rx="4" fill="#ECE6DC"/><rect x="43" y="44" width="9" height="20" rx="4" fill="#ECE6DC"/>
+          <use href="#s-bota" x="11" y="58" width="12" height="14" style="--bota:#A9682F"/><use href="#s-bota" x="41" y="58" width="12" height="14" style="--bota:#A9682F"/>
+          <rect x="6" y="22" width="58" height="34" rx="17" fill="#fff" stroke="#D3CBBE" stroke-width="1.6"/>
+          <path d="M21 23c8-1 13 6 10 12s-12 6-14 0c-1-5 0-11 4-12z" fill="#3B3B4F"/>
+          <path d="M45 38c6-3 13 1 12 8s-11 7-13 2c-2-4-2-8 1-10z" fill="#3B3B4F"/>
+          <rect x="21" y="47" width="9" height="19" rx="4" fill="#fff" stroke="#D3CBBE" stroke-width="1.2"/><rect x="51" y="47" width="9" height="19" rx="4" fill="#fff" stroke="#D3CBBE" stroke-width="1.2"/>
+          <use href="#s-bota" x="20" y="61" width="12" height="14" style="--bota:#C47E40"/><use href="#s-bota" x="50" y="61" width="12" height="14" style="--bota:#C47E40"/>
+          <g transform="translate(54 4)">
+            <ellipse cx="-1" cy="16" rx="7.5" ry="4" transform="rotate(-22 -1 16)" fill="#fff" stroke="#D3CBBE" stroke-width="1.2"/><ellipse cx="-1" cy="16" rx="3.6" ry="1.9" transform="rotate(-22 -1 16)" fill="#FFB8C6"/>
+            <ellipse cx="31" cy="16" rx="7.5" ry="4" transform="rotate(22 31 16)" fill="#fff" stroke="#D3CBBE" stroke-width="1.2"/><ellipse cx="31" cy="16" rx="3.6" ry="1.9" transform="rotate(22 31 16)" fill="#FFB8C6"/>
+            <rect x="2" y="4" width="26" height="31" rx="13" fill="#fff" stroke="#D3CBBE" stroke-width="1.6"/>
+            <path d="M19 6c5 0 8 5 6 9-3 2-7 0-8-3z" fill="#3B3B4F"/>
+            <path d="M3 34Q15 40 27 34L21 45Q15 49 9 45Z" fill="url(#p-xv)" stroke="#C8433A" stroke-width="1" stroke-linejoin="round"/>
+            <ellipse cx="15" cy="29" rx="13.5" ry="9" fill="#FFB8C6"/>
+            <ellipse cx="10" cy="29" rx="1.8" ry="2.4" fill="#D9738A"/><ellipse cx="20" cy="29" rx="1.8" ry="2.4" fill="#D9738A"/>
+            <g class="piscar"><circle cx="9" cy="16" r="2.7" fill="#1E2A3A"/><circle cx="21" cy="16" r="2.7" fill="#1E2A3A"/><circle cx="9.9" cy="15.1" r=".9" fill="#fff"/><circle cx="21.9" cy="15.1" r=".9" fill="#fff"/></g>
+            <use href="#s-chapeu" x="-3" y="-11" width="36" height="21.6" transform="rotate(-8 15 0)" style="--ch:#D49A5E;--ch2:#8E5527;--fita:#3D8FD6"/>
+          </g>
+        </g>
+
+        <!-- ovelhinha de laço xadrez, bandana e botinhas -->
+        <g class="ovelha" transform="translate(284 134)">
+          <rect x="15" y="42" width="6" height="22" rx="3" fill="#4A4A5A"/><rect x="25" y="44" width="6" height="22" rx="3" fill="#4A4A5A"/><rect x="43" y="44" width="6" height="22" rx="3" fill="#4A4A5A"/><rect x="53" y="42" width="6" height="22" rx="3" fill="#4A4A5A"/>
+          <g transform="translate(74 0) scale(-1 1)">
+            <use href="#s-bota" x="51.2" y="54.2" width="11" height="12.8" style="--bota:#A9682F"/><use href="#s-bota" x="13.2" y="54.2" width="11" height="12.8" style="--bota:#A9682F"/>
+            <use href="#s-bota" x="41.2" y="56.2" width="11" height="12.8" style="--bota:#C47E40"/><use href="#s-bota" x="23.2" y="56.2" width="11" height="12.8" style="--bota:#C47E40"/>
+          </g>
+          <g fill="#D8D3CA"><circle cx="22" cy="30" r="14.6"/><circle cx="36" cy="22" r="15.6"/><circle cx="50" cy="27" r="14.6"/><circle cx="57" cy="39" r="12.6"/><circle cx="42" cy="42" r="14.6"/><circle cx="26" cy="42" r="13.6"/></g>
+          <g fill="#fff"><circle cx="22" cy="30" r="13"/><circle cx="36" cy="22" r="14"/><circle cx="50" cy="27" r="13"/><circle cx="57" cy="39" r="11"/><circle cx="42" cy="42" r="13"/><circle cx="26" cy="42" r="12"/></g>
+          <ellipse cx="2" cy="24" rx="5.5" ry="2.8" transform="rotate(28 2 24)" fill="#4A4A5A"/><ellipse cx="18" cy="23" rx="5.5" ry="2.8" transform="rotate(-28 18 23)" fill="#4A4A5A"/>
+          <ellipse cx="10" cy="31" rx="9.5" ry="11.5" fill="#4A4A5A"/>
+          <circle cx="7" cy="19" r="4.6" fill="#fff"/><circle cx="12.5" cy="18" r="4.4" fill="#fff"/>
+          <g class="piscar"><circle cx="6.5" cy="29" r="2.3" fill="#fff"/><circle cx="13.5" cy="29" r="2.3" fill="#fff"/><circle cx="6.8" cy="29.4" r="1.2" fill="#1E2A3A"/><circle cx="13.8" cy="29.4" r="1.2" fill="#1E2A3A"/></g>
+          <path d="M8 36q2 1.8 4 0" fill="none" stroke="#fff" stroke-width="1.3" stroke-linecap="round"/>
+          <path d="M2 40Q10 45 18 40L13 50Q10 52 7 50Z" fill="url(#p-ba)" stroke="#2F7FBF" stroke-width="1" stroke-linejoin="round"/>
+          <use href="#s-laco" x="13" y="8" width="18" height="10.8" transform="rotate(14 22 13)"/>
+        </g>
+
+        <!-- margem de areia -->
+        <path d="M9 391C7 311 88 252 194 250C302 248 383 309 381 391C379 475 298 531 194 531C90 531 11 471 9 391Z" fill="#DDBD82"/>
+        <path d="M9 382C7 302 88 243 194 241C302 239 383 300 381 382C379 466 298 522 194 522C90 522 11 462 9 382Z" fill="url(#g-areia)"/>
+        <!-- água -->
+        <path d="M27 385C25 315 99 263 194 261C292 259 366 313 364 385C362 457 290 505 194 505C98 505 29 455 27 385Z" fill="url(#g-agua)"/>
+        <path d="M27 385C25 315 99 263 194 261C292 259 366 313 364 385C344 332 282 298 194 298C108 298 46 332 27 385Z" fill="#2C8FC7" opacity=".3"/>
+        <path d="M62 460C110 498 280 498 330 460" fill="none" stroke="#fff" stroke-opacity=".38" stroke-width="3" stroke-linecap="round"/>
+        <g class="brilhos" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-opacity=".6">
+          <path class="b1" d="M88 352q9-5 18 0"/><path class="b2" d="M262 452q9-5 18 0"/><path class="b3" d="M300 360q7-4 14 0"/><path class="b1" d="M134 470q7-4 14 0"/><path class="b2" d="M230 312q7-4 14 0"/>
+        </g>
+        <!-- taboas -->
+        <g class="taboas">
+          <path d="M36 380Q44 330 60 296Q47 334 43 380Z" fill="#7DB85A"/><path d="M24 382Q16 336 4 306Q20 338 30 382Z" fill="#8CC566"/>
+          <path d="M31 384V274" stroke="#6FA24E" stroke-width="3"/><rect x="26.5" y="272" width="9" height="32" rx="4.5" fill="#8E5B2E"/><path d="M31 272v-10" stroke="#6FA24E" stroke-width="2" stroke-linecap="round"/>
+          <path d="M44 386V300" stroke="#6FA24E" stroke-width="2.6"/><rect x="40" y="298" width="8" height="26" rx="4" fill="#9A6634"/>
+          <path d="M352 382Q344 334 330 300Q346 336 358 382Z" fill="#7DB85A"/><path d="M366 384Q374 338 386 310Q370 340 360 384Z" fill="#8CC566"/>
+          <path d="M360 386V280" stroke="#6FA24E" stroke-width="3"/><rect x="355.5" y="278" width="9" height="30" rx="4.5" fill="#8E5B2E"/><path d="M360 278v-10" stroke="#6FA24E" stroke-width="2" stroke-linecap="round"/>
+        </g>
+        <!-- vitórias-régias, flor e sapinho -->
+        <g class="folhas">
+          <path d="M70 432l23-4a24 9 0 1 1-1.5 6z" fill="#7CC46B"/><path d="M70 432l-16 3M70 432l-6-7M70 432l10 7" stroke="#62A855" stroke-width="1.2"/>
+          <path d="M320 333l15-3a16 6 0 1 1-1 4z" fill="#86CB74"/>
+          <path d="M120 318l11-2a12 4.6 0 1 1-.8 3z" fill="#86CB74"/>
+        </g>
+        <g class="flor-lotus" transform="translate(62 426)">
+          <ellipse cx="-6" cy="-2" rx="4" ry="8" transform="rotate(-35 -6 -2)" fill="#FF9EBB"/><ellipse cx="6" cy="-2" rx="4" ry="8" transform="rotate(35 6 -2)" fill="#FF9EBB"/>
+          <ellipse cx="0" cy="-5" rx="4.2" ry="9" fill="#FFB3CB"/><circle cy="1" r="3.4" fill="#FFD23F"/>
+        </g>
+        <g class="sapinho" transform="translate(306 470)">
+          <ellipse cx="0" cy="6" rx="22" ry="7.5" fill="#7CC46B"/>
+          <ellipse cx="0" cy="-2" rx="13" ry="9.5" fill="#79C96A"/><ellipse cx="0" cy="1" rx="8" ry="5.5" fill="#C9EDB0"/>
+          <circle cx="-7.5" cy="-11" r="5.6" fill="#79C96A"/><circle cx="7.5" cy="-11" r="5.6" fill="#79C96A"/>
+          <g class="piscar"><circle cx="-7.5" cy="-11" r="3.6" fill="#fff"/><circle cx="7.5" cy="-11" r="3.6" fill="#fff"/><circle cx="-7" cy="-10.6" r="1.9" fill="#1E2A3A"/><circle cx="8" cy="-10.6" r="1.9" fill="#1E2A3A"/></g>
+          <path d="M-5 -3q5 4 10 0" fill="none" stroke="#2F6B2A" stroke-width="1.4" stroke-linecap="round"/>
+          <ellipse cx="-9" cy="-3" rx="2.4" ry="1.4" fill="#FF9EBB"/><ellipse cx="9" cy="-3" rx="2.4" ry="1.4" fill="#FF9EBB"/>
+          <path d="M-7 2Q0 6 7 2L3 10Q0 12-3 10Z" fill="url(#p-bv)" stroke="#C8433A" stroke-width=".8"/>
+        </g>
+        <g data-ondas class="ondas"></g>
+        <!-- pedrinhas e flores da margem -->
+        <g class="pedras">
+          <ellipse cx="96" cy="512" rx="9" ry="5" fill="#D6C7AA"/><ellipse cx="108" cy="517" rx="6" ry="3.6" fill="#CBB994"/>
+          <ellipse cx="290" cy="514" rx="8" ry="4.6" fill="#D6C7AA"/><ellipse cx="342" cy="490" rx="7" ry="4" fill="#CBB994"/>
+        </g>
+        <g transform="translate(356 452)"><circle r="3.4" fill="#fff"/><circle cx="4.6" r="3.4" fill="#fff"/><circle cx="2.3" cy="-3.8" r="3.4" fill="#fff"/><circle cx="2.3" cy="3.8" r="3.4" fill="#fff"/><circle cx="2.3" r="2" fill="#FFB21F"/></g>
+        <!-- fardo de feno com pintinho de chapéu -->
+        <g class="feno" transform="translate(4 482)">
+          <rect x="0" y="8" width="58" height="34" rx="9" fill="#F2CC6B" stroke="#CFA049" stroke-width="2"/>
+          <path d="M6 17h46M5 25h48M6 33h46" stroke="#DDB253" stroke-width="1.6" stroke-linecap="round"/>
+          <path d="M18 9v32M41 9v32" stroke="#E8574A" stroke-width="2.4"/>
+          <path d="M4 10l3-5 2 5 3-6 2 6M44 9l3-5 2 5 3-5 2 5" fill="none" stroke="#E2B654" stroke-width="1.4" stroke-linecap="round"/>
+        </g>
+        <g class="pintinho" transform="translate(33 474)">
+          <path d="M-4 9v6M3 9v6" stroke="#F08A1E" stroke-width="1.8" stroke-linecap="round"/>
+          <circle r="10" fill="#FFE066"/><circle cx="-4" cy="1" r="5" fill="#FFD23F"/>
+          <circle cx="3" cy="-2" r="1.7" fill="#1E2A3A"/><path d="M8-1l5 1.5-5 2z" fill="#F08A1E"/>
+          <ellipse cx="4" cy="3" rx="2" ry="1.2" fill="#FF9EBB"/>
+          <use href="#s-chapeu" x="-11" y="-17" width="20" height="12" transform="rotate(-10 -1 -11)" style="--ch:#F28DB6;--ch2:#C9578A;--fita:#fff"/>
+        </g>
+        <!-- fardinho de feno com chapéu de caubói -->
+        <g class="feno feno-2" transform="translate(314 516)">
+          <rect x="0" y="6" width="48" height="28" rx="8" fill="#F2CC6B" stroke="#CFA049" stroke-width="2"/>
+          <path d="M5 14h38M4 20.5h40M5 27h38" stroke="#DDB253" stroke-width="1.5" stroke-linecap="round"/>
+          <path d="M14 7v26M34 7v26" stroke="#E8574A" stroke-width="2.2"/>
+          <path d="M3 8l2.5-4.5 2 4.5 2.5-5 2 5M36 7l2.5-4.5 2 4.5 2.5-4.5 2 4.5" fill="none" stroke="#E2B654" stroke-width="1.3" stroke-linecap="round"/>
+          <use href="#s-chapeu" x="7" y="-12" width="34" height="20.4" transform="rotate(9 24 -2)" style="--ch:#C98B55;--ch2:#8E5527;--fita:#3D8FD6"/>
+        </g>
+      </svg>
+
+      <!-- ilhota com a casinha dos patinhos (fica entre os patinhos de trás e os da frente) -->
+      <svg class="ilha" viewBox="0 0 390 560" aria-hidden="true" focusable="false">
+        <ellipse cx="195" cy="402" rx="60" ry="22" fill="none" stroke="#fff" stroke-opacity=".55" stroke-width="2.5"/>
+        <ellipse cx="195" cy="398" rx="50" ry="18.5" fill="#D9B87A"/>
+        <ellipse cx="195" cy="393" rx="50" ry="16.5" fill="#F1DCAB"/>
+        <ellipse cx="195" cy="390" rx="42" ry="12" fill="#B9E08F"/>
+        <path d="M160 392l2-5 2 5 2-4 2 4zM224 394l2-5 2 5 2-4 2 4z" fill="#97CC6E"/>
+        <g class="casinha">
+          <rect x="173" y="350" width="44" height="41" rx="6" fill="#FFF6E0" stroke="#E6CFA3" stroke-width="2"/>
+          <path d="M173 362H217M173 374H217" stroke="#F0DDB4" stroke-width="1.6"/>
+          <path d="M166 358L195 328L224 358Z" fill="#E8574A" stroke="#E8574A" stroke-width="7" stroke-linejoin="round"/>
+          <path d="M168 357L195 330.5L222 357" fill="none" stroke="#fff" stroke-width="2.6" stroke-linejoin="round" stroke-linecap="round"/>
+          <path d="M190 338.5v3.2a5 5 0 0 0 10 0v-3.2" fill="none" stroke="#A7B1BF" stroke-width="2.8" stroke-linecap="round"/>
+          <path d="M186.5 391V379A8.5 8.5 0 0 1 203.5 379V391Z" fill="#8A5A35"/>
+          <circle cx="199" cy="384" r="1.3" fill="#FFD23F"/>
+          <path d="M184 391l-8 9h38l-8-9" fill="#C98B55"/>
+          <path d="M195 328V305" stroke="#8A5A35" stroke-width="2.2" stroke-linecap="round"/>
+          <g class="bandeira">
+            <path d="M196 305.5h21l-4.5 6.5 4.5 6.5h-21z" fill="#FFD23F" stroke="#E9A800" stroke-width="1"/>
+            <text x="204.5" y="312.4" class="bandeira-num">1</text>
+          </g>
+        </g>
+      </svg>
+
+      <p class="dica" data-dica>Toque num patinho!</p>
+
+      <!-- os 5 patinhos (botões); cada um tem um número embaixo -->
+      <button class="pato" type="button" data-pato="idade" aria-label="Pescar o patinho de chapéu caramelo" style="--x:195;--y:312;--k:.84">
+        <svg class="pato-onda" viewBox="-60 -14 120 28" aria-hidden="true" focusable="false"><ellipse class="o0" rx="46" ry="8"/><ellipse class="o1" rx="40" ry="8"/><ellipse class="o2" rx="40" ry="8"/></svg>
+        <span class="pato-mov">
+          <svg class="pato-corpo" viewBox="0 -32 124 140" aria-hidden="true" focusable="false"><g class="pato-espelho">
+            <use href="#s-pato" x="0" y="-32" width="124" height="140"/>
+            <path d="M58 47Q79 58 102 45L103 51Q80 64 58 53ZM86 53Q97 52 104 48Q104 62 96 71Q89 62 86 53ZM60 50L49 45L51 54ZM60 51L51 58L58 60Z" fill="url(#p-bv)" stroke="#C8433A" stroke-width="1.2" stroke-linejoin="round"/>
+            <use href="#s-chapeu" x="56" y="-14" width="48" height="28.8" transform="rotate(-10 80 6)" style="--ch:#D49A5E;--ch2:#8E5527;--fita:#E8574A"/>
+            <circle class="argola" cx="77.5" cy="-13.5" r="5"/>
+          </g></svg>
+        </span>
+        <span class="pato-agua" aria-hidden="true"></span>
+      </button>
+      <button class="pato" type="button" data-pato="dia" aria-label="Pescar o patinho de laço xadrez" style="--x:309;--y:351;--k:.92">
+        <svg class="pato-onda" viewBox="-60 -14 120 28" aria-hidden="true" focusable="false"><ellipse class="o0" rx="46" ry="8"/><ellipse class="o1" rx="40" ry="8"/><ellipse class="o2" rx="40" ry="8"/></svg>
+        <span class="pato-mov">
+          <svg class="pato-corpo" viewBox="0 -32 124 140" aria-hidden="true" focusable="false"><g class="pato-espelho">
+            <use href="#s-pato" x="0" y="-32" width="124" height="140"/>
+            <path d="M58 47Q79 58 102 45L103 51Q80 64 58 53ZM86 53Q97 52 104 48Q104 62 96 71Q89 62 86 53ZM60 50L49 45L51 54ZM60 51L51 58L58 60Z" fill="url(#p-ba)" stroke="#2F7FBF" stroke-width="1.2" stroke-linejoin="round"/>
+            <use href="#s-laco" x="54" y="1" width="26" height="15.6" transform="rotate(-22 67 9)"/>
+            <circle class="argola" cx="85" cy="4.5" r="5"/>
+          </g></svg>
+        </span>
+        <span class="pato-agua" aria-hidden="true"></span>
+      </button>
+      <button class="pato" type="button" data-pato="hora" aria-label="Pescar o patinho de chapéu rosa" style="--x:266;--y:449;--k:1">
+        <svg class="pato-onda" viewBox="-60 -14 120 28" aria-hidden="true" focusable="false"><ellipse class="o0" rx="46" ry="8"/><ellipse class="o1" rx="40" ry="8"/><ellipse class="o2" rx="40" ry="8"/></svg>
+        <span class="pato-mov">
+          <svg class="pato-corpo" viewBox="0 -32 124 140" aria-hidden="true" focusable="false"><g class="pato-espelho">
+            <use href="#s-pato" x="0" y="-32" width="124" height="140"/>
+            <path d="M58 47Q79 58 102 45L103 51Q80 64 58 53ZM86 53Q97 52 104 48Q104 62 96 71Q89 62 86 53ZM60 50L49 45L51 54ZM60 51L51 58L58 60Z" fill="url(#p-xr)" stroke="#D2558A" stroke-width="1.2" stroke-linejoin="round"/>
+            <use href="#s-chapeu" x="56" y="-14" width="48" height="28.8" transform="rotate(8 80 6)" style="--ch:#F48FB8;--ch2:#C2507F;--fita:#fff"/>
+            <circle class="argola" cx="82" cy="-13.4" r="5"/>
+          </g></svg>
+        </span>
+        <span class="pato-agua" aria-hidden="true"></span>
+      </button>
+      <button class="pato" type="button" data-pato="local" aria-label="Pescar o patinho de chapéu de palha" style="--x:124;--y:449;--k:1">
+        <svg class="pato-onda" viewBox="-60 -14 120 28" aria-hidden="true" focusable="false"><ellipse class="o0" rx="46" ry="8"/><ellipse class="o1" rx="40" ry="8"/><ellipse class="o2" rx="40" ry="8"/></svg>
+        <span class="pato-mov">
+          <svg class="pato-corpo" viewBox="0 -32 124 140" aria-hidden="true" focusable="false"><g class="pato-espelho">
+            <use href="#s-pato" x="0" y="-32" width="124" height="140"/>
+            <path d="M58 47Q79 58 102 45L103 51Q80 64 58 53ZM86 53Q97 52 104 48Q104 62 96 71Q89 62 86 53ZM60 50L49 45L51 54ZM60 51L51 58L58 60Z" fill="url(#p-xa)" stroke="#2F7FBF" stroke-width="1.2" stroke-linejoin="round"/>
+            <use href="#s-palha" x="50" y="-8" width="60" height="28.1"/>
+            <circle class="argola" cx="80" cy="-7.2" r="5"/>
+          </g></svg>
+        </span>
+        <span class="pato-agua" aria-hidden="true"></span>
+      </button>
+      <button class="pato" type="button" data-pato="tema" aria-label="Pescar o patinho caubói de chapéu marrom" style="--x:81;--y:351;--k:.92">
+        <svg class="pato-onda" viewBox="-60 -14 120 28" aria-hidden="true" focusable="false"><ellipse class="o0" rx="46" ry="8"/><ellipse class="o1" rx="40" ry="8"/><ellipse class="o2" rx="40" ry="8"/></svg>
+        <span class="pato-mov">
+          <svg class="pato-corpo" viewBox="0 -32 124 140" aria-hidden="true" focusable="false"><g class="pato-espelho">
+            <use href="#s-pato" x="0" y="-32" width="124" height="140"/>
+            <path d="M58 47Q79 58 102 45L103 51Q80 64 58 53ZM86 53Q97 52 104 48Q104 62 96 71Q89 62 86 53ZM60 50L49 45L51 54ZM60 51L51 58L58 60Z" fill="url(#p-xv)" stroke="#C8433A" stroke-width="1.2" stroke-linejoin="round"/>
+            <use href="#s-chapeu" x="54" y="-17" width="52" height="31.2" transform="rotate(-6 80 4)" style="--ch:#9A5A2C;--ch2:#5E3215;--fita:#FFD23F"/>
+            <circle class="argola" cx="78.4" cy="-16" r="5"/>
+          </g></svg>
+        </span>
+        <span class="pato-agua" aria-hidden="true"></span>
+      </button>
+    </div>
+  </div>
+
+  <div class="voo" data-voo aria-hidden="true"></div>
+  <svg class="vara" data-vara aria-hidden="true" focusable="false">
+    <path class="vara-linha" data-v-linha d=""/>
+    <path class="vara-cana" data-v-cana d=""/>
+    <path class="vara-nos" data-v-nos d=""/>
+    <path class="vara-cabo" data-v-cabo d=""/>
+    <g data-v-boia><circle r="5.5" fill="#fff" stroke="#1E3A5F" stroke-width="1"/><path d="M-5.5 0A5.5 5.5 0 0 1 5.5 0Z" fill="#E8574A"/><path d="M0-5.5v-3" stroke="#1E3A5F" stroke-width="1.4"/></g>
+    <g data-v-gancho><circle r="2.1" fill="none" stroke="#7D8794" stroke-width="1.6"/><path d="M0 2V13A6 6 0 1 1-12 13V10" fill="none" stroke="#7D8794" stroke-width="2.6" stroke-linecap="round"/></g>
+  </svg>
+
+  <section class="bilhete" data-bilhete hidden aria-labelledby="bilhete-titulo">
+    <div class="bilhete-faixa" aria-hidden="true"></div>
+    <p class="bilhete-rotulo" data-b-rotulo></p>
+    <h2 class="bilhete-titulo" id="bilhete-titulo" data-b-titulo></h2>
+    <p class="bilhete-texto" data-b-texto></p>
+    <ul class="bilhete-lista" data-b-lista hidden></ul>
+    <div class="bilhete-acoes">
+      <button class="btn btn-prim" type="button" data-b-seguir>Pescar outro patinho</button>
+      <a class="btn btn-prim" href="#convite" data-b-convite hidden>Ver o convite completo</a>
+      <button class="btn btn-sec" type="button" data-b-denovo hidden>Pescar de novo</button>
+    </div>
+  </section>
+  <p class="sr-only" data-anuncio aria-live="polite"></p>
+</div>
+
+<main id="convite" class="convite" tabindex="-1" aria-labelledby="convite-titulo">
+  <div class="convite-in">
+    <p class="convite-pre">Arthur · 1 aninho</p>
+    <h2 id="convite-titulo">Você está convidado!</h2>
+    <ul class="cartoes">
+      <li class="cartao" data-cartao="idade">
+        <svg class="selo" viewBox="6 10 112 84" aria-hidden="true" focusable="false"><use href="#s-verso" width="124" height="100"/><text x="62" y="51" class="verso-num um">1</text></svg>
+        <div><h3>Aniversário</h3><p>Arthur, 1 aninho</p></div>
+      </li>
+      <li class="cartao" data-cartao="dia">
+        <svg class="selo" viewBox="6 10 112 84" aria-hidden="true" focusable="false"><use href="#s-verso" width="124" height="100"/><text x="62" y="51" class="verso-num">29</text></svg>
+        <div><h3>Quando</h3><p>Domingo, 29 de novembro de 2026</p></div>
+      </li>
+      <li class="cartao" data-cartao="hora">
+        <svg class="selo" viewBox="6 10 112 84" aria-hidden="true" focusable="false"><use href="#s-verso" width="124" height="100"/><text x="62" y="51" class="verso-num">15</text></svg>
+        <div><h3>Horário</h3><p>às 15h</p></div>
+      </li>
+      <li class="cartao cartao-onde" data-cartao="local">
+        <svg class="selo" viewBox="6 10 112 84" aria-hidden="true" focusable="false"><use href="#s-verso" width="124" height="100"/><text x="62" y="51" class="verso-num">31</text></svg>
+        <div><h3>Onde</h3><p>Casa da Árvore</p><p class="sub">Rua Castelo Branco, nº&nbsp;31<br>Cidade Nova, Santana do Paraíso</p></div>
+        <p class="mapas" data-mapas><a class="mapa" data-mapa="google" href="https://www.google.com/maps/search/?api=1&amp;query=Casa%20da%20%C3%81rvore%2C%20Rua%20Castelo%20Branco%2C%2031%2C%20Cidade%20Nova%2C%20Santana%20do%20Para%C3%ADso%20-%20MG" target="_blank" rel="noopener noreferrer" aria-label="Abrir o endereço da festa no Google Maps (abre em nova aba)">Abrir no Google Maps</a><a class="mapa" data-mapa="apple" href="https://maps.apple.com/?q=Casa%20da%20%C3%81rvore%2C%20Rua%20Castelo%20Branco%2C%2031%2C%20Cidade%20Nova%2C%20Santana%20do%20Para%C3%ADso%20-%20MG" target="_blank" rel="noopener noreferrer" aria-label="Abrir o endereço da festa no Apple Maps (abre em nova aba)">Abrir no Apple Maps</a><a class="mapa" data-mapa="waze" href="https://waze.com/ul?q=Casa%20da%20%C3%81rvore%2C%20Rua%20Castelo%20Branco%2C%2031%2C%20Cidade%20Nova%2C%20Santana%20do%20Para%C3%ADso%20-%20MG&amp;navigate=yes" target="_blank" rel="noopener noreferrer" aria-label="Abrir o endereço da festa no Waze (abre em nova aba)">Abrir no Waze</a></p>
+      </li>
+      <li class="cartao cartao-traje" data-cartao="tema">
+        <svg class="selo" viewBox="6 10 112 84" aria-hidden="true" focusable="false"><use href="#s-verso" width="124" height="100"/><use href="#s-chapeu" x="40" y="37" width="44" height="26.4" style="--ch:#9A5A2C;--ch2:#5E3215;--fita:#FFD23F"/></svg>
+        <div><h3>Traje</h3><p>Venha caracterizado: country/fazendinha</p>
+          <p class="traje-icones" aria-hidden="true">
+            <svg viewBox="0 0 60 36" focusable="false"><use href="#s-chapeu" width="60" height="36" style="--ch:#C98B55;--ch2:#6E3F1C;--fita:#E8574A"/></svg>
+            <svg viewBox="0 0 40 30" focusable="false"><path d="M3 5Q20 10 37 5L28 24Q20 30 12 24Z" fill="url(#p-xv)" stroke="#C8433A" stroke-width="1.6" stroke-linejoin="round"/></svg>
+            <svg viewBox="0 0 24 28" focusable="false"><use href="#s-bota" width="24" height="28"/></svg>
+            <svg viewBox="0 0 40 24" focusable="false"><use href="#s-laco" width="40" height="24"/></svg>
+          </p>
+        </div>
+      </li>
+    </ul>
+    <p class="agenda"><a class="btn-agenda" data-agenda href="../comum/arthur-1-ano.ics" download="aniversario-arthur-1-aninho.ics"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="3" y="5" width="18" height="16" rx="3.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M3 10h18M8 3v4M16 3v4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><circle cx="12" cy="15.5" r="2" fill="currentColor"/></svg>Adicionar à agenda</a></p>
+
+<section class="rsvp" id="rsvp" aria-labelledby="rsvp-titulo">
+  <div class="rsvp-intro">
+    <h2 id="rsvp-titulo">Você vem?</h2>
+    <p class="rsvp-sub">Confirme sua presença<span class="so-desktop"><br>para o aniversário do Arthur.</span></p>
+    <div class="rsvp-bicho"><svg viewBox="0 -32 124 160" aria-hidden="true" focusable="false"><path d="M46 96v12M68 96v12" stroke="#F08A1E" stroke-width="4.5" stroke-linecap="round"/><use href="#s-bota" x="38.6" y="105" width="17" height="19.8" style="--bota:#C98B55"/><use href="#s-bota" x="60.6" y="105" width="17" height="19.8" style="--bota:#B2733B"/><use href="#s-pato" x="0" y="-32" width="124" height="140"/><path d="M58 47Q79 58 102 45L103 51Q80 64 58 53ZM86 53Q97 52 104 48Q104 62 96 71Q89 62 86 53ZM60 50L49 45L51 54ZM60 51L51 58L58 60Z" fill="url(#p-xv)" stroke="#C8433A" stroke-width="1.2" stroke-linejoin="round"/><use href="#s-chapeu" x="56" y="-14" width="48" height="28.8" transform="rotate(-10 80 6)" style="--ch:#D49A5E;--ch2:#8E5527;--fita:#E8574A"/></svg></div>
+  </div>
+  <form class="rsvp-form" data-rsvp novalidate onsubmit="return false">
+    <p class="rsvp-sem-js" data-sem-js>Para confirmar presença, o JavaScript precisa estar ativo. Se o botão não funcionar, recarregue a página.</p>
+    <fieldset data-rsvp-campos disabled>
+    <legend class="sr-only">Confirmação de presença</legend>
+    <div class="campo">
+      <label for="nome">Nome</label>
+      <input id="nome" name="nome" type="text" autocomplete="name" placeholder="Seu nome" maxlength="80" aria-describedby="erro-nome">
+      <p class="erro" id="erro-nome" data-erro="nome"></p>
+    </div>
+    <div class="campos-2">
+      <div class="campo">
+        <label for="adultos">Nº de adultos</label>
+        <input id="adultos" name="adultos" type="number" inputmode="numeric" min="0" max="20" step="1" placeholder="0" aria-describedby="erro-adultos">
+        <p class="erro" id="erro-adultos" data-erro="adultos"></p>
+      </div>
+      <div class="campo">
+        <label for="criancas">Nº de crianças</label>
+        <input id="criancas" name="criancas" type="number" inputmode="numeric" min="0" max="20" step="1" placeholder="0" aria-describedby="erro-criancas">
+        <p class="erro" id="erro-criancas" data-erro="criancas"></p>
+      </div>
+    </div>
+    <div class="isca" aria-hidden="true"><label for="website">Não preencha este campo</label><input id="website" name="website" type="text" tabindex="-1" autocomplete="off"></div>
+    <button type="button" class="botao" data-enviar>Confirmar presença</button>
+    <p class="rsvp-nota" data-nota>Sua confirmação vai para uma<br>planilha privada.</p>
+    <div class="erro-geral" data-erro="total" aria-live="polite"></div>
+    <div class="caixa caixa-sucesso" data-sucesso role="status" aria-live="polite" hidden></div>
+    <div class="caixa caixa-erro" data-alerta role="alert" hidden></div>
+    <p class="sr-only" data-status aria-live="polite"></p>
+    </fieldset>
+  </form>
+</section>
+  </div>
+</main>
+
+<footer class="rodape">
+  <p class="rodape-festa">Arthur · 1 aninho · 29/11/2026 · 15h</p>
+  <p class="versao">Versão 12 · Claude Opus 5.5 · esforço max</p>
+</footer>
+</body>
+</html>

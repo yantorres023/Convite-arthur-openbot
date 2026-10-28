@@ -1,0 +1,31 @@
+{
+  "versao": "12",
+  "retomada": true,
+  "modelo_autodeclarado": "claude-opus-5-5",
+  "esforco_autodeclarado": "max",
+  "esforco_fonte": "runtime: CLAUDE_EFFORT=max (printenv CLAUDE_EFFORT); modelo pelo model ID do contexto (claude-opus-5-5)",
+  "conceito": "Pescaria de patinhos (fazendinha country)",
+  "mecanica": "Tocar (ou Enter) num dos 5 patinhos de chapéu e bandana que boiam no laguinho: a varinha de bambu fisga a argolinha, o patinho sai da água balançando as botinhas, vira de cabeça para baixo e mostra o número de baixo (1, 29, 15, 31 e o premiado de chapéu) com o dado da festa; cada um vai para uma argola de corda do placar e, com os 5, aparece o resumo com confete.",
+  "verificacao": {
+    "console_erros": 0,
+    "interacao": "ok",
+    "rsvp_inativo": true,
+    "mapas": 3,
+    "detalhes": "Playwright (verificar.cjs, porta 4712): 0 erro de console/página/rede em 390x844 com toque, 390x844 com teclado, 390x844 com reduced-motion e 1280x800; 1º patinho por toque e os outros 4 por Enter, 5/5 vagas e resumo final, 'Pescar de novo' devolve os 5 ao lago; foco visível (contorno de 3px) nos 9 primeiros Tabs; com reduced-motion os patinhos ficam parados e o bilhete abre em ~0,2 s, sem confete; RSVP com fieldset desabilitado e 'Confirmação ainda não ativada.' visível; 3 links de mapa idênticos aos de comum/mapas.html (target _blank, rel noopener noreferrer); agenda ../comum/arthur-1-ano.ics responde 200 text/calendar; 'Pular e ver o convite' leva o foco ao #convite; sem rolagem horizontal."
+  },
+  "retomada_notas": "Mantido o trabalho parcial (cena, mecânica, convite, RSVP). Na retomada: vaguinhas viraram argolas de corda presas numa cordinha; patinho pescado ganha botinhas que balançam e, virado, chuta as botinhas para cima; laço de corda maior no mourão; ovelha de botinhas; vaca de bandana xadrez; 2º fardo de feno com chapéu; botinhas no patinho do RSVP; contraste do rótulo do bilhete corrigido (4,49:1 → 5,4:1); morro e cerca estendidos no desktop; 'nº 31' sem quebra de linha; prints extras salvos dentro da pasta.",
+  "arquivos": [
+    "index.html",
+    "estilo.css",
+    "pescaria.js",
+    "convite.js",
+    "verificar.cjs",
+    "RUN.json",
+    "print-390.png",
+    "print-390-interacao.png",
+    "print-390-fim.png",
+    "print-390-foco.png",
+    "print-390-reduzido.png",
+    "print-1280.png"
+  ]
+}

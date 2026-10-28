@@ -1,0 +1,36 @@
+{
+  "versao": "10",
+  "modelo_autodeclarado": "claude-opus-5-5",
+  "esforco_autodeclarado": "max",
+  "esforco_fonte": "runtime: CLAUDE_EFFORT=max (lido com printenv CLAUDE_EFFORT); model ID do contexto do sistema: \"The exact model ID is claude-opus-5-5\"",
+  "retomada": true,
+  "retomada_nota": "A execução anterior foi interrompida por limite de uso. Esta retomada partiu dos arquivos parciais, conferiu tudo contra o BRIEFING e o reforço de tema country e terminou a versão.",
+  "conceito": "Bloquinhos de madeira (fazendinha country)",
+  "mecanica": "Toque num bloquinho de madeira (bichinho country de chapéu de cowboy ou lencinho xadrez): um laço de corda cai sobre ele, aperta e o leva voando e rolando como um dado até a prateleira. Os blocos formam A-R-T-H-U-R e cada um revela um dado da festa na placa de madeira. Depois cai do céu o bloquinho dourado do 1, que também é laçado para o alto da torrinha e ganha um chapéu de cowboy, com \"aninho!\", confete e uma ola de xilofone.",
+  "elementos_country": ["chapéu de cowboy (porquinho, pintinho, cavalinho, patinho, sol e o bloquinho do 1)", "lencinho xadrez (vaquinha e patinho)", "botinhas", "cerca", "fardos de feno", "laço de corda (no poste e na mecânica)", "toalha e laterais dos blocos em xadrez", "girassóis"],
+  "mudancas_na_retomada": [
+    "Bandana de bolinhas trocada por lencinho xadrez (vermelho na vaquinha, azul no patinho)",
+    "Patinho ganhou chapéu de cowboy: agora são 4 de 6 bichinhos de chapéu",
+    "A mecânica ganhou o laço de corda: ele cai sobre o bloquinho, aperta, vai junto no voo e afrouxa no pouso. Tem som de laçada em WebAudio e fica desligado com prefers-reduced-motion",
+    "Link da agenda vai direto para ../comum/arthur-1-ano.ics, sem o atributo download (no iPhone abre 'Adicionar ao calendário')",
+    "Prints e og.png regenerados, verificação refeita e _rascunho removido"
+  ],
+  "verificacao": {
+    "console_erros": 0,
+    "interacao": "ok",
+    "rsvp_inativo": true,
+    "mapas": 3,
+    "ferramenta": "Playwright (Chromium) com NODE_PATH do convite-pr; servidor python3 -m http.server 4710 --bind 127.0.0.1 servindo a pasta pai; 55 checagens, todas ok",
+    "console": "0 erros e 0 avisos em 9 carregamentos: toque, reduced-motion, teclado, pular, #convite, 360x640, 412x915, 1280x800. Sem rede externa (só 127.0.0.1 e o blob do worker do confete)",
+    "interacao_detalhe": "390x844 com toque: 6 bloquinhos laçados (14 SVGs de laço criados e todos removidos), as vagas formam ARTHUR1, os 6 dados aparecem com o texto exato, título final 'Você está convidado!', chapéu no 1. O som começa mudo, liga no 1º toque e o botão alterna aria-pressed. 'Ver o convite' rola até #convite e põe o foco nele",
+    "reduced_motion": "ok: nenhuma animação infinita, sem pulinhos, sem laço animado e sem confete; a interação completa leva a fase fim com 7 vagas e 6 dados",
+    "teclado": "ok: Pular → Som → bloquinhos. Enter empilha e o foco passa ao próximo; o dourado recebe o foco ao cair; Enter vai a 'Ver o convite' e depois a #convite; seguem agenda, Google, Apple e Waze. Anel de foco visível em todos",
+    "pular": "ok: pular logo no início, no meio de uma laçada (sem laço órfão) e abrir direto em #convite. 'Montar de novo' devolve os 6 bloquinhos",
+    "rsvp": "Estrutura de comum/rsvp.html + ligarRSVP(form, RSVP_ENDPOINT) com endpoint null. Mostra 'Confirmação ainda não ativada.' acima do botão, fieldset e botão desabilitados, clicar não envia nada",
+    "mapas_detalhe": "3 links idênticos a comum/mapas.html (href, target _blank, rel noopener noreferrer, aria-label, texto)",
+    "agenda": "href ../comum/arthur-1-ano.ics responde 200 text/calendar",
+    "contraste": "AA em todos os textos sobre fundo sólido (menor razão 4,57:1). Na placa de madeira, calculado à parte: título vermelho ≥3,7:1 (texto grande) e dados marrom-escuro ~7–10:1",
+    "tamanhos": "360x640, 412x915 e 1280x800 sem overflow horizontal e com os 6 bloquinhos na tela"
+  },
+  "arquivos": ["index.html", "estilo.css", "brinquedo.js", "rsvp-ligar.js", "og.png", "RUN.json", "print-390.png", "print-390-interacao.png"]
+}

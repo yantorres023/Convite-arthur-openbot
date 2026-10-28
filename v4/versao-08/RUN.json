@@ -1,0 +1,14 @@
+{
+  "versao": "08",
+  "modelo_autodeclarado": "claude-opus-5-5",
+  "esforco_autodeclarado": "xhigh",
+  "conceito": "Bandinha do Arthur (bandinha country da fazendinha)",
+  "mecanica": "Qualquer bichinho tocado toca a próxima nota da melodia de Parabéns no seu instrumento (WebAudio); cada nota canta um pedacinho do convite como letra sob a pauta, cada um dos 4 versos revela um dado e no fim a banda toda toca a valsa com karaokê do convite e confete.",
+  "verificacao": {
+    "console_erros": 0,
+    "interacao": "ok",
+    "rsvp_inativo": true,
+    "mapas": 3
+  },
+  "arquivos": ["index.html", "estilo.css", "banda.js", "som.js", "print-390.png", "print-390-interacao.png", "RUN.json"]
+}

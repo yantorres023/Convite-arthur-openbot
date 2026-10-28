@@ -1,0 +1,383 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Arthur · 1 aninho · Balões da festa — Versão 09 · Claude Opus 5.5 · esforço xhigh</title>
+<meta name="description" content="Convite do aniversário de 1 aninho do Arthur — domingo, 29 de novembro de 2026, às 15h, na Casa da Árvore.">
+<meta name="theme-color" content="#BFE6FF">
+<meta property="og:title" content="Arthur · 1 aninho">
+<meta property="og:description" content="Domingo, 29 de novembro de 2026, às 15h · Casa da Árvore · Venha caracterizado: country/fazendinha">
+<link rel="preload" href="../comum/fontes-festa/LilitaOne.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../comum/fontes-festa/Fredoka.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="../comum/base.css">
+<link rel="stylesheet" href="estilo.css">
+<script src="../comum/vendor/canvas-confetti-1.9.3.min.js" defer></script>
+<script type="module" src="app.js"></script>
+</head>
+<body>
+
+<!-- Bichinhos e peças reutilizáveis (desenhos originais) -->
+<svg class="defs" aria-hidden="true" focusable="false" width="0" height="0">
+  <defs>
+    <linearGradient id="ouro" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#FFE9A0"/><stop offset=".45" stop-color="#FFC83D"/><stop offset="1" stop-color="#F2A21F"/>
+    </linearGradient>
+
+    <!-- xadrez (gingham) -->
+    <pattern id="xadrez" width="10" height="10" patternUnits="userSpaceOnUse"><rect width="5" height="10" fill="#fff" opacity=".4"/><rect width="10" height="5" fill="#fff" opacity=".4"/></pattern>
+    <pattern id="xadrez-v" width="8" height="8" patternUnits="userSpaceOnUse"><rect width="8" height="8" fill="#E8573A"/><rect width="4" height="8" fill="#fff" opacity=".45"/><rect width="8" height="4" fill="#fff" opacity=".45"/></pattern>
+    <pattern id="xadrez-a" width="8" height="8" patternUnits="userSpaceOnUse"><rect width="8" height="8" fill="#4D9DE0"/><rect width="4" height="8" fill="#fff" opacity=".45"/><rect width="8" height="4" fill="#fff" opacity=".45"/></pattern>
+
+    <!-- chapéu de cowboy (cor = currentColor; aba em y=0) -->
+    <g id="chapeu">
+      <path d="M-11 1Q-12.5-13-7-16.5Q-3-14.5 0-12.5Q3-14.5 7-16.5Q12.5-13 11 1Z" fill="currentColor" stroke="#4A3426" stroke-width="2" stroke-linejoin="round"/>
+      <path d="M-11.2-3.6Q0-.6 11.2-3.6" stroke="#E63946" stroke-width="3.2" fill="none"/>
+      <path d="M-7-12.5Q-8.6-8-8-3.5" stroke="#fff" stroke-width="1.6" opacity=".4" fill="none" stroke-linecap="round"/>
+      <path d="M-20.5-3.5Q-18.5 4.5 0 5Q18.5 4.5 20.5-3.5Q12.5 1.6 0 1.6Q-12.5 1.6-20.5-3.5Z" fill="currentColor" stroke="#4A3426" stroke-width="2" stroke-linejoin="round"/>
+    </g>
+
+    <!-- botinha country (sola em y=0, bico para a direita) -->
+    <g id="bota">
+      <path d="M-4.6-10.5H3.6V-4.2Q8.6-4.2 9.6-1.2Q10.1 1.8 7.6 1.8H-5Q-6.3 1.8-6.1 0Z" fill="#A0562A" stroke="#4A3426" stroke-width="1.8" stroke-linejoin="round"/>
+      <path d="M-5.2-10.3H4.2" stroke="#6B3E26" stroke-width="2.8" stroke-linecap="round"/>
+      <path d="M-2.2-7.4q1.4 2.2 2.8 0" stroke="#FFD166" stroke-width="1.3" fill="none" stroke-linecap="round"/>
+    </g>
+
+    <!-- balão (cor = currentColor) -->
+    <g id="balao-forma">
+      <path d="M60 8C82 8 94 26 93 46C92 66 76 82 60 86C44 82 28 66 27 46C26 26 38 8 60 8Z" fill="currentColor" stroke="#4A3426" stroke-width="2.4"/>
+      <path d="M60 86l-5.5 6.5h11z" fill="currentColor" stroke="#4A3426" stroke-width="2.2" stroke-linejoin="round"/>
+      <ellipse cx="44" cy="30" rx="6.5" ry="12.5" transform="rotate(28 44 30)" fill="#fff" opacity=".6"/>
+      <circle cx="48.5" cy="51" r="2.6" fill="#fff" opacity=".5"/>
+    </g>
+
+    <!-- paraquedinha (cor = currentColor) -->
+    <g id="paraquedas-forma">
+      <path d="M9 100L24 145M36 101L24 145M64 101L76 145M91 100L76 145" stroke="#4A3426" stroke-width="1.6" fill="none" stroke-linecap="round"/>
+      <path d="M8 100C8 72 27 58 50 58C73 58 92 72 92 100Q85 92 78 100Q71 92 64 100Q57 92 50 100Q43 92 36 100Q29 92 22 100Q15 92 8 100Z" fill="currentColor" stroke="#4A3426" stroke-width="2.4" stroke-linejoin="round"/>
+      <path d="M8 100C8 72 27 58 50 58C73 58 92 72 92 100Q85 92 78 100Q71 92 64 100Q57 92 50 100Q43 92 36 100Q29 92 22 100Q15 92 8 100Z" fill="url(#xadrez)"/>
+      <circle cx="50" cy="57.5" r="3.2" fill="currentColor" stroke="#4A3426" stroke-width="2"/>
+    </g>
+
+    <!-- VACA de chapéu de cowboy, sininho e botinhas -->
+    <symbol id="a-vaca" viewBox="0 0 80 84">
+      <path d="M29 63L15 31M51 63L65 31" stroke="#4A3426" stroke-width="11.4" stroke-linecap="round"/>
+      <path d="M29 63L15 31M51 63L65 31" stroke="#fff" stroke-width="6.6" stroke-linecap="round"/>
+      <circle cx="15" cy="30" r="4.6" fill="#6B5444" stroke="#4A3426" stroke-width="2"/><circle cx="65" cy="30" r="4.6" fill="#6B5444" stroke="#4A3426" stroke-width="2"/>
+      <ellipse cx="40" cy="68" rx="15" ry="12.5" fill="#fff" stroke="#4A3426" stroke-width="2.4"/>
+      <path d="M44 63q6-2 8 3q-1 6-6 5q-5-3-2-8z" fill="#3A2E2B"/>
+      <use href="#bota" transform="translate(32 83.4) scale(-1.1 1.1)"/><use href="#bota" transform="translate(48 83.4) scale(1.1)"/>
+      <ellipse cx="19" cy="36" rx="8" ry="4.6" transform="rotate(-18 19 36)" fill="#fff" stroke="#4A3426" stroke-width="2.2"/>
+      <ellipse cx="61" cy="36" rx="8" ry="4.6" transform="rotate(18 61 36)" fill="#fff" stroke="#4A3426" stroke-width="2.2"/>
+      <ellipse cx="19.5" cy="36" rx="4.4" ry="2" transform="rotate(-18 19.5 36)" fill="#F9B9C6"/><ellipse cx="60.5" cy="36" rx="4.4" ry="2" transform="rotate(18 60.5 36)" fill="#F9B9C6"/>
+      <ellipse cx="40" cy="42" rx="19" ry="17.5" fill="#fff" stroke="#4A3426" stroke-width="2.4"/>
+      <path d="M26 33q3-8 11-6q2 6-4 9q-6 2-7-3z" fill="#3A2E2B"/>
+      <path d="M50 27q6 0 7 6q-4 2-7-1z" fill="#3A2E2B"/>
+      <ellipse cx="40" cy="51" rx="12.5" ry="8" fill="#F9B9C6" stroke="#4A3426" stroke-width="2.2"/>
+      <ellipse cx="35.6" cy="51" rx="1.8" ry="2.5" fill="#B9667A"/><ellipse cx="44.4" cy="51" rx="1.8" ry="2.5" fill="#B9667A"/>
+      <circle cx="33" cy="40" r="2.9" fill="#2B1E18"/><circle cx="47" cy="40" r="2.9" fill="#2B1E18"/>
+      <circle cx="34" cy="39" r="1" fill="#fff"/><circle cx="48" cy="39" r="1" fill="#fff"/>
+      <ellipse cx="25.5" cy="46" rx="3.2" ry="2" fill="#FF9EB0" opacity=".75"/><ellipse cx="54.5" cy="46" rx="3.2" ry="2" fill="#FF9EB0" opacity=".75"/>
+      <path d="M33 60q7 3 14 0" stroke="#C0392B" stroke-width="2.6" fill="none" stroke-linecap="round"/>
+      <path d="M36 62h8l1.5 6q-5.5 2.5-11 0z" fill="#FFC93C" stroke="#4A3426" stroke-width="1.8" stroke-linejoin="round"/>
+      <circle cx="40" cy="69" r="1.4" fill="#4A3426"/>
+      <use href="#chapeu" transform="translate(40 26.5) rotate(-6)" style="color:#C4773B"/>
+    </symbol>
+
+    <!-- PORQUINHO de lencinho, florzinha e botinhas -->
+    <symbol id="a-porco" viewBox="0 0 80 84">
+      <path d="M29 63L15 31M51 63L65 31" stroke="#4A3426" stroke-width="11.4" stroke-linecap="round"/>
+      <path d="M29 63L15 31M51 63L65 31" stroke="#FFB6C9" stroke-width="6.6" stroke-linecap="round"/>
+      <circle cx="15" cy="30" r="4.4" fill="#E58AA6" stroke="#4A3426" stroke-width="2"/><circle cx="65" cy="30" r="4.4" fill="#E58AA6" stroke="#4A3426" stroke-width="2"/>
+      <path d="M54 70q7 0 6-5q-1-4-4-1q-2 3 2 4" stroke="#4A3426" stroke-width="2" fill="none" stroke-linecap="round"/>
+      <ellipse cx="40" cy="68" rx="15" ry="12.5" fill="#FFB6C9" stroke="#4A3426" stroke-width="2.4"/>
+      <use href="#bota" transform="translate(32 83.4) scale(-1.1 1.1)"/><use href="#bota" transform="translate(48 83.4) scale(1.1)"/>
+      <path d="M24 31L21 15L36 25Z" fill="#F38FAE" stroke="#4A3426" stroke-width="2.2" stroke-linejoin="round"/>
+      <path d="M56 31L59 15L44 25Z" fill="#F38FAE" stroke="#4A3426" stroke-width="2.2" stroke-linejoin="round"/>
+      <circle cx="40" cy="43" r="19" fill="#FFB6C9" stroke="#4A3426" stroke-width="2.4"/>
+      <ellipse cx="40" cy="50" rx="9.5" ry="6.6" fill="#FF94B3" stroke="#4A3426" stroke-width="2.2"/>
+      <ellipse cx="36.8" cy="50" rx="1.7" ry="2.5" fill="#B84D72"/><ellipse cx="43.2" cy="50" rx="1.7" ry="2.5" fill="#B84D72"/>
+      <circle cx="32" cy="40" r="2.9" fill="#2B1E18"/><circle cx="48" cy="40" r="2.9" fill="#2B1E18"/>
+      <circle cx="33" cy="39" r="1" fill="#fff"/><circle cx="49" cy="39" r="1" fill="#fff"/>
+      <ellipse cx="25.5" cy="48" rx="3.2" ry="2" fill="#FF7A9C" opacity=".7"/><ellipse cx="54.5" cy="48" rx="3.2" ry="2" fill="#FF7A9C" opacity=".7"/>
+      <path d="M36 56q4 3 8 0" stroke="#4A3426" stroke-width="2" fill="none" stroke-linecap="round"/>
+      <path d="M25 59.5q15 7 30 0l-4 8q-11 6-22 0z" fill="#E63946" stroke="#4A3426" stroke-width="2" stroke-linejoin="round"/>
+      <path d="M35.5 65l4.5 9.5 4.5-9.5z" fill="#E63946" stroke="#4A3426" stroke-width="2" stroke-linejoin="round"/>
+      <circle cx="31" cy="63.5" r="1.2" fill="#fff"/><circle cx="40" cy="66" r="1.2" fill="#fff"/><circle cx="49" cy="63.5" r="1.2" fill="#fff"/><circle cx="40" cy="70.5" r="1.1" fill="#fff"/>
+      <g transform="translate(55 24)"><circle cx="0" cy="-4.5" r="3.4" fill="#fff" stroke="#4A3426" stroke-width="1.4"/><circle cx="4.3" cy="-1.4" r="3.4" fill="#fff" stroke="#4A3426" stroke-width="1.4"/><circle cx="2.7" cy="3.7" r="3.4" fill="#fff" stroke="#4A3426" stroke-width="1.4"/><circle cx="-2.7" cy="3.7" r="3.4" fill="#fff" stroke="#4A3426" stroke-width="1.4"/><circle cx="-4.3" cy="-1.4" r="3.4" fill="#fff" stroke="#4A3426" stroke-width="1.4"/><circle r="2.6" fill="#FFC93C"/></g>
+    </symbol>
+
+    <!-- OVELHINHA de chapéu rosa e botinhas -->
+    <symbol id="a-ovelha" viewBox="0 0 80 84">
+      <path d="M29 63L15 31M51 63L65 31" stroke="#4A3426" stroke-width="10.4" stroke-linecap="round"/>
+      <path d="M29 63L15 31M51 63L65 31" stroke="#6E5646" stroke-width="5.8" stroke-linecap="round"/>
+      <g stroke="#4A3426" stroke-width="4.8" fill="#4A3426"><circle cx="29" cy="67" r="7.5"/><circle cx="35" cy="60" r="7.5"/><circle cx="45" cy="60" r="7.5"/><circle cx="51" cy="67" r="7.5"/><circle cx="46" cy="74" r="7.5"/><circle cx="34" cy="74" r="7.5"/></g>
+      <g fill="#FFF8EE"><circle cx="29" cy="67" r="7.5"/><circle cx="35" cy="60" r="7.5"/><circle cx="45" cy="60" r="7.5"/><circle cx="51" cy="67" r="7.5"/><circle cx="46" cy="74" r="7.5"/><circle cx="34" cy="74" r="7.5"/><circle cx="40" cy="67" r="8"/></g>
+      <use href="#bota" transform="translate(32 83.4) scale(-1.1 1.1)"/><use href="#bota" transform="translate(48 83.4) scale(1.1)"/>
+      <ellipse cx="22" cy="44" rx="8" ry="4.2" transform="rotate(22 22 44)" fill="#E7C09A" stroke="#4A3426" stroke-width="2.2"/>
+      <ellipse cx="58" cy="44" rx="8" ry="4.2" transform="rotate(-22 58 44)" fill="#E7C09A" stroke="#4A3426" stroke-width="2.2"/>
+      <ellipse cx="40" cy="46" rx="15" ry="15.5" fill="#F4DCC0" stroke="#4A3426" stroke-width="2.4"/>
+      <g stroke="#4A3426" stroke-width="4.8" fill="#4A3426"><circle cx="29" cy="33" r="6.8"/><circle cx="36" cy="28" r="6.8"/><circle cx="44" cy="28" r="6.8"/><circle cx="51" cy="33" r="6.8"/></g>
+      <g fill="#FFF8EE"><circle cx="29" cy="33" r="6.8"/><circle cx="36" cy="28" r="6.8"/><circle cx="44" cy="28" r="6.8"/><circle cx="51" cy="33" r="6.8"/><circle cx="40" cy="34" r="6"/></g>
+      <circle cx="33.5" cy="46" r="2.8" fill="#2B1E18"/><circle cx="46.5" cy="46" r="2.8" fill="#2B1E18"/>
+      <circle cx="34.5" cy="45" r="1" fill="#fff"/><circle cx="47.5" cy="45" r="1" fill="#fff"/>
+      <ellipse cx="29" cy="52" rx="3" ry="1.9" fill="#FF9EB0" opacity=".8"/><ellipse cx="51" cy="52" rx="3" ry="1.9" fill="#FF9EB0" opacity=".8"/>
+      <path d="M38 52.5h4l-2 2z" fill="#B9667A" stroke="#4A3426" stroke-width="1.2" stroke-linejoin="round"/>
+      <path d="M37 56q3 2.6 6 0" stroke="#4A3426" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+      <use href="#chapeu" transform="translate(41 25) rotate(8) scale(.92)" style="color:#FF8FB8"/>
+    </symbol>
+
+    <!-- CAVALINHO de chapéu de palha, bandana e botinhas -->
+    <symbol id="a-cavalo" viewBox="0 0 80 84">
+      <path d="M29 63L15 31M51 63L65 31" stroke="#4A3426" stroke-width="11.4" stroke-linecap="round"/>
+      <path d="M29 63L15 31M51 63L65 31" stroke="#C98A55" stroke-width="6.6" stroke-linecap="round"/>
+      <circle cx="15" cy="30" r="4.6" fill="#5A3B28" stroke="#4A3426" stroke-width="2"/><circle cx="65" cy="30" r="4.6" fill="#5A3B28" stroke="#4A3426" stroke-width="2"/>
+      <ellipse cx="40" cy="68" rx="15" ry="12.5" fill="#C98A55" stroke="#4A3426" stroke-width="2.4"/>
+      <use href="#bota" transform="translate(32 83.4) scale(-1.1 1.1)"/><use href="#bota" transform="translate(48 83.4) scale(1.1)"/>
+      <path d="M26 29L24 13L36 23Z" fill="#C98A55" stroke="#4A3426" stroke-width="2.2" stroke-linejoin="round"/>
+      <path d="M54 29L56 13L44 23Z" fill="#C98A55" stroke="#4A3426" stroke-width="2.2" stroke-linejoin="round"/>
+      <path d="M27.5 25L26.5 18L32 23Z" fill="#F0B9A0"/><path d="M52.5 25L53.5 18L48 23Z" fill="#F0B9A0"/>
+      <ellipse cx="40" cy="41" rx="16.5" ry="17.5" fill="#C98A55" stroke="#4A3426" stroke-width="2.4"/>
+      <ellipse cx="40" cy="52" rx="13" ry="9.5" fill="#EFCDA6" stroke="#4A3426" stroke-width="2.2"/>
+      <ellipse cx="35.4" cy="52.5" rx="1.8" ry="2.6" fill="#8A5A3A"/><ellipse cx="44.6" cy="52.5" rx="1.8" ry="2.6" fill="#8A5A3A"/>
+      <path d="M36 57.5q4 2.6 8 0" stroke="#4A3426" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+      <path d="M30 27q2-10 9-7q4-7 10-1q6-1 4 7q-4 6-8 2q-3 5-7 1q-5 3-8-2z" fill="#6B3E26" stroke="#4A3426" stroke-width="2" stroke-linejoin="round"/>
+      <circle cx="33" cy="38" r="2.9" fill="#2B1E18"/><circle cx="47" cy="38" r="2.9" fill="#2B1E18"/>
+      <circle cx="34" cy="37" r="1" fill="#fff"/><circle cx="48" cy="37" r="1" fill="#fff"/>
+      <ellipse cx="27" cy="45" rx="3" ry="1.9" fill="#FF8FA3" opacity=".7"/><ellipse cx="53" cy="45" rx="3" ry="1.9" fill="#FF8FA3" opacity=".7"/>
+      <path d="M26 59q14 7 28 0l-4 8q-10 6-20 0z" fill="#3A86FF" stroke="#4A3426" stroke-width="2" stroke-linejoin="round"/>
+      <path d="M36 64l4 9 4-9z" fill="#3A86FF" stroke="#4A3426" stroke-width="2" stroke-linejoin="round"/>
+      <circle cx="32" cy="63" r="1.1" fill="#fff"/><circle cx="40" cy="65.5" r="1.1" fill="#fff"/><circle cx="48" cy="63" r="1.1" fill="#fff"/><circle cx="40" cy="69.5" r="1" fill="#fff"/>
+      <use href="#chapeu" transform="translate(40 23) rotate(-4) scale(.86)" style="color:#E9B65E"/>
+    </symbol>
+
+    <!-- PINTINHO de chapéu de cowboy e botinhas -->
+    <symbol id="a-pintinho" viewBox="0 0 80 84">
+      <path d="M29 62L16 32M51 62L64 32" stroke="#4A3426" stroke-width="11.4" stroke-linecap="round"/>
+      <path d="M29 62L16 32M51 62L64 32" stroke="#FFD84D" stroke-width="6.6" stroke-linecap="round"/>
+      <path d="M12 31l3-7 2 6zM68 31l-3-7-2 6z" fill="#FFD84D" stroke="#4A3426" stroke-width="1.8" stroke-linejoin="round"/>
+      <circle cx="40" cy="55" r="23" fill="#FFD84D" stroke="#4A3426" stroke-width="2.4"/>
+      <ellipse cx="40" cy="66" rx="11" ry="7" fill="#FFE98F"/>
+      <use href="#bota" transform="translate(32 83.4) scale(-1.1 1.1)"/><use href="#bota" transform="translate(48 83.4) scale(1.1)"/>
+      <circle cx="32.5" cy="50" r="2.9" fill="#2B1E18"/><circle cx="47.5" cy="50" r="2.9" fill="#2B1E18"/>
+      <circle cx="33.5" cy="49" r="1" fill="#fff"/><circle cx="48.5" cy="49" r="1" fill="#fff"/>
+      <path d="M35.5 56L40 52.5L44.5 56L40 60Z" fill="#FF9F1C" stroke="#4A3426" stroke-width="1.8" stroke-linejoin="round"/>
+      <path d="M35.5 56h9" stroke="#4A3426" stroke-width="1.2"/>
+      <ellipse cx="26.5" cy="57" rx="3.2" ry="2" fill="#FF9E7A" opacity=".75"/><ellipse cx="53.5" cy="57" rx="3.2" ry="2" fill="#FF9E7A" opacity=".75"/>
+      <use href="#chapeu" transform="translate(41 34.5) rotate(-10) scale(.86)" style="color:#C4773B"/>
+    </symbol>
+  </defs>
+</svg>
+
+<div class="pagina">
+  <section class="cena" aria-labelledby="titulo-arthur" data-cena>
+    <div class="nuvens" aria-hidden="true">
+      <svg class="nuvem n1" viewBox="0 0 120 56"><path d="M18 50h86c9 0 15-6 15-14s-7-14-15-13c-2-11-12-19-24-17C73-5 52-3 46 12 40 6 28 7 24 17 12 17 4 25 4 34s7 16 14 16z" fill="#fff"/></svg>
+      <svg class="nuvem n2" viewBox="0 0 120 56"><path d="M18 50h86c9 0 15-6 15-14s-7-14-15-13c-2-11-12-19-24-17C73-5 52-3 46 12 40 6 28 7 24 17 12 17 4 25 4 34s7 16 14 16z" fill="#fff"/></svg>
+      <svg class="nuvem n3" viewBox="0 0 120 56"><path d="M18 50h86c9 0 15-6 15-14s-7-14-15-13c-2-11-12-19-24-17C73-5 52-3 46 12 40 6 28 7 24 17 12 17 4 25 4 34s7 16 14 16z" fill="#fff"/></svg>
+      <svg class="sol" viewBox="0 0 120 120">
+        <g class="raios" stroke="#FFC93C" stroke-width="7" stroke-linecap="round"><path d="M60 6v14M60 100v14M6 60h14M100 60h14M22 22l10 10M88 88l10 10M98 22 88 32M32 88 22 98"/></g>
+        <circle cx="60" cy="60" r="30" fill="#FFD84D" stroke="#F2A21F" stroke-width="3"/>
+        <circle cx="50" cy="56" r="3" fill="#7A4A12"/><circle cx="70" cy="56" r="3" fill="#7A4A12"/>
+        <path d="M50 68q10 8 20 0" stroke="#7A4A12" stroke-width="3" fill="none" stroke-linecap="round"/>
+        <ellipse cx="44" cy="65" rx="4" ry="2.4" fill="#FF9E7A" opacity=".7"/><ellipse cx="76" cy="65" rx="4" ry="2.4" fill="#FF9E7A" opacity=".7"/>
+      </svg>
+    </div>
+
+    <header class="topo">
+      <div class="barra">
+        <button type="button" class="btn-pular" data-pular>Pular e ver o convite</button>
+        <button type="button" class="som" data-som aria-pressed="true" aria-label="Som dos balões">
+          <svg class="ico-som" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 9.5h3.5L12 5.5v13L7.5 14.5H4z" fill="currentColor" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path class="ondas" d="M15.5 9a4.5 4.5 0 0 1 0 6M18 6.5a8 8 0 0 1 0 11" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/><path class="xis" d="M16 9.5l5 5m0-5-5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        </button>
+      </div>
+      <p class="sobre">Os bichinhos trouxeram recados da festa do</p>
+      <h1 class="nome" id="titulo-arthur"><span class="nome-txt">Arthur<svg class="chapeu-titulo" viewBox="-23 -19 46 26" aria-hidden="true" focusable="false"><use href="#chapeu" style="color:#C4773B"/></svg></span></h1>
+      <p class="dica" data-dica><span class="dica-txt">Toque nos balões!</span></p>
+    </header>
+
+    <div class="ceu" data-ceu>
+      <!-- ordem = leitura (esquerda→direita, de cima para baixo) -->
+      <button type="button" class="balao" data-i="0" style="--cor:#FF5A5F;--x:3%;--y:2%;--dur:3.6s;--atraso:-.4s" aria-label="Estourar o balão vermelho da vaquinha">
+        <span class="flutua"><svg viewBox="0 0 100 206" aria-hidden="true" focusable="false"><g class="pq"><use href="#paraquedas-forma"/></g><path class="fio" d="M60 92q-7 14 4 26t12 27"/><g class="bl"><use href="#balao-forma"/></g><use class="bicho" href="#a-vaca" x="10" y="118" width="80" height="84"/></svg></span>
+      </button>
+      <button type="button" class="balao" data-i="2" style="--cor:#FFC93C;--x:37%;--y:0%;--dur:4.1s;--atraso:-1.6s" aria-label="Estourar o balão amarelo da ovelhinha">
+        <span class="flutua"><svg viewBox="0 0 100 206" aria-hidden="true" focusable="false"><g class="pq"><use href="#paraquedas-forma"/></g><path class="fio" d="M60 92q-7 14 4 26t12 27"/><g class="bl"><use href="#balao-forma"/></g><use class="bicho" href="#a-ovelha" x="10" y="118" width="80" height="84"/></svg></span>
+      </button>
+      <button type="button" class="balao" data-i="4" style="--cor:#9B7BEA;--x:71%;--y:4%;--dur:3.8s;--atraso:-2.4s" aria-label="Estourar o balão roxo do pintinho">
+        <span class="flutua"><svg viewBox="0 0 100 206" aria-hidden="true" focusable="false"><g class="pq"><use href="#paraquedas-forma"/></g><path class="fio" d="M60 92q-7 14 4 26t12 27"/><g class="bl"><use href="#balao-forma"/></g><use class="bicho" href="#a-pintinho" x="10" y="118" width="80" height="84"/></svg></span>
+      </button>
+      <button type="button" class="balao" data-i="1" style="--cor:#4D9DE0;--x:19%;--y:47%;--dur:4.3s;--atraso:-1s" aria-label="Estourar o balão azul do porquinho">
+        <span class="flutua"><svg viewBox="0 0 100 206" aria-hidden="true" focusable="false"><g class="pq"><use href="#paraquedas-forma"/></g><path class="fio" d="M60 92q-7 14 4 26t12 27"/><g class="bl"><use href="#balao-forma"/></g><use class="bicho" href="#a-porco" x="10" y="118" width="80" height="84"/></svg></span>
+      </button>
+      <button type="button" class="balao" data-i="3" style="--cor:#FF7EB6;--x:55%;--y:45%;--dur:3.4s;--atraso:-2s" aria-label="Estourar o balão rosa do cavalinho">
+        <span class="flutua"><svg viewBox="0 0 100 206" aria-hidden="true" focusable="false"><g class="pq"><use href="#paraquedas-forma"/></g><path class="fio" d="M60 92q-7 14 4 26t12 27"/><g class="bl"><use href="#balao-forma"/></g><use class="bicho" href="#a-cavalo" x="10" y="118" width="80" height="84"/></svg></span>
+      </button>
+
+      <!-- final: balão dourado do 1 aninho -->
+      <div class="final" data-final hidden>
+        <div class="final-linha">
+        <svg class="um" viewBox="0 0 140 236" aria-hidden="true" focusable="false">
+          <path d="M70 180q-9 14 0 26t0 28" stroke="#4A3426" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+          <path d="M70 174l-6 7h12z" fill="#F2A21F" stroke="#B7791F" stroke-width="2" stroke-linejoin="round"/>
+          <path d="M46 32L74 15Q84 9 91 14Q96 18 96 27V148H106Q115 148 115 157V165Q115 174 106 174H36Q27 174 27 165V157Q27 148 36 148H54V62L49 65Q38 71 34 60L32 53Q29 41 46 32Z" fill="url(#ouro)" stroke="#B7791F" stroke-width="3.2" stroke-linejoin="round"/>
+          <path d="M83 25V140" stroke="#fff" stroke-width="6" stroke-linecap="round" opacity=".55"/>
+          <path d="M42 41l12-7" stroke="#fff" stroke-width="5" stroke-linecap="round" opacity=".55"/>
+        </svg>
+        <p class="final-txt"><span class="sr-only">1 </span>aninho!</p>
+        </div>
+        <button type="button" class="botao-final" data-ver>Ver o convite</button>
+      </div>
+    </div>
+
+    <div class="chao">
+      <svg class="fazenda" viewBox="0 0 390 230" preserveAspectRatio="xMidYMax slice" aria-hidden="true" focusable="false">
+        <path d="M-10 118C60 72 140 78 210 104C270 126 330 78 400 92V230H-10Z" fill="#DDF1C4"/>
+        <g transform="translate(306 34)">
+          <path d="M6 32L34 10L62 32V76H6Z" fill="#E8573A" stroke="#4A3426" stroke-width="2.4" stroke-linejoin="round"/>
+          <path d="M1 34L34 6L67 34" fill="none" stroke="#4A3426" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M1 34L34 6L67 34" fill="none" stroke="#FFF8EC" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+          <rect x="23" y="48" width="22" height="28" fill="#C2402A" stroke="#FFF8EC" stroke-width="2.6"/>
+          <path d="M23 48l22 28m0-28L23 76" stroke="#FFF8EC" stroke-width="2.4"/>
+          <circle cx="34" cy="29" r="5.5" fill="#FFE7A8" stroke="#FFF8EC" stroke-width="2.4"/>
+        </g>
+        <g transform="translate(14 46)">
+          <rect x="22" y="40" width="10" height="38" rx="4" fill="#A0673A" stroke="#4A3426" stroke-width="2.2"/>
+          <g fill="#8FD07A" stroke="#4A3426" stroke-width="2.2"><circle cx="15" cy="34" r="16"/><circle cx="40" cy="32" r="17"/><circle cx="27" cy="16" r="17"/></g>
+          <g fill="#8FD07A"><circle cx="15" cy="34" r="14.6"/><circle cx="40" cy="32" r="15.6"/><circle cx="27" cy="16" r="15.6"/><circle cx="28" cy="30" r="14"/></g>
+          <circle cx="20" cy="22" r="3" fill="#FF5A5F"/><circle cx="38" cy="28" r="3" fill="#FF5A5F"/><circle cx="30" cy="10" r="3" fill="#FF5A5F"/>
+        </g>
+        <g transform="translate(36 104)" fill="none" stroke-linecap="round">
+          <ellipse rx="9" ry="7" stroke="#4A3426" stroke-width="4.6"/><ellipse rx="9" ry="7" stroke="#D7A764" stroke-width="2.6"/>
+          <ellipse cx="1.5" cy="1.5" rx="6.5" ry="5" stroke="#B07F45" stroke-width="2"/>
+          <path d="M5 6q5 9-1 16" stroke="#4A3426" stroke-width="4.4"/><path d="M5 6q5 9-1 16" stroke="#D7A764" stroke-width="2.4"/>
+        </g>
+        <g transform="translate(262 112)">
+          <circle r="18" fill="#F4C95D" stroke="#4A3426" stroke-width="2.2"/>
+          <path d="M0 0m-11 0a11 11 0 1 1 11 11a7 7 0 1 1-7-7a3.5 3.5 0 1 1 3.5 3.5" fill="none" stroke="#D39A2E" stroke-width="2" stroke-linecap="round"/>
+        </g>
+        <path d="M-10 150C80 118 170 126 250 142C310 155 350 126 400 132V230H-10Z" fill="#C3E7A0"/>
+        <g transform="translate(74 112)">
+          <rect width="46" height="27" rx="5" fill="#F4C95D" stroke="#4A3426" stroke-width="2.2"/>
+          <path d="M5 8h9M20 6h7M7 18h10M28 15h9M34 22h6M39 9h3" stroke="#D39A2E" stroke-width="1.8" stroke-linecap="round"/>
+          <path d="M14 1v25M32 1v25" stroke="#B5651D" stroke-width="2.6"/>
+        </g>
+        <g stroke="#B98552" stroke-width="5" stroke-linecap="round"><path d="M-4 150H60M6 140v26M30 138v26M54 138v26"/><path d="M330 143H396M340 132v26M364 131v26M388 131v26"/></g>
+      </svg>
+
+      <div class="poleiro" aria-hidden="true">
+        <span class="vaga" data-vaga="0" style="--cor:#FF5A5F"><svg viewBox="0 0 80 84"><use href="#a-vaca"/></svg></span>
+        <span class="vaga" data-vaga="1" style="--cor:#4D9DE0"><svg viewBox="0 0 80 84"><use href="#a-porco"/></svg></span>
+        <span class="vaga" data-vaga="2" style="--cor:#FFC93C"><svg viewBox="0 0 80 84"><use href="#a-ovelha"/></svg></span>
+        <span class="vaga" data-vaga="3" style="--cor:#FF7EB6"><svg viewBox="0 0 80 84"><use href="#a-cavalo"/></svg></span>
+        <span class="vaga" data-vaga="4" style="--cor:#9B7BEA"><svg viewBox="0 0 80 84"><use href="#a-pintinho"/></svg></span>
+      </div>
+
+      <section class="placa" aria-labelledby="placa-titulo" tabindex="-1">
+        <span class="toalha" aria-hidden="true"></span>
+        <div class="papel">
+          <h2 class="placa-topo" id="placa-titulo">Recados <span class="contador"><span data-contador>0</span> de 5</span></h2>
+          <ol class="recados">
+            <li class="recado" data-recado="0" style="--cor:#FF5A5F">
+              <span class="mini" aria-hidden="true"></span>
+              <span class="r-texto"><span class="pergunta">Quantos aninhos?</span><span class="resposta">Arthur faz <strong>1 aninho</strong>!</span><span class="vazio" aria-hidden="true"></span></span>
+            </li>
+            <li class="recado" data-recado="1" style="--cor:#4D9DE0">
+              <span class="mini" aria-hidden="true"></span>
+              <span class="r-texto"><span class="pergunta">Quando?</span><span class="resposta"><strong>Domingo, 29 de novembro de 2026</strong></span><span class="vazio" aria-hidden="true"></span></span>
+            </li>
+            <li class="recado" data-recado="2" style="--cor:#FFC93C">
+              <span class="mini" aria-hidden="true"></span>
+              <span class="r-texto"><span class="pergunta">Que horas?</span><span class="resposta">Às <strong>15h</strong></span><span class="vazio" aria-hidden="true"></span></span>
+            </li>
+            <li class="recado" data-recado="3" style="--cor:#FF7EB6">
+              <span class="mini" aria-hidden="true"></span>
+              <span class="r-texto"><span class="pergunta">Onde?</span><span class="resposta"><strong>Casa da Árvore</strong><small>Cidade Nova, Santana do Paraíso</small></span><span class="vazio" aria-hidden="true"></span></span>
+            </li>
+            <li class="recado" data-recado="4" style="--cor:#9B7BEA">
+              <span class="mini" aria-hidden="true"></span>
+              <span class="r-texto"><span class="pergunta">Como vir?</span><span class="resposta">Venha caracterizado: <strong>country/fazendinha</strong></span><span class="vazio" aria-hidden="true"></span></span>
+            </li>
+          </ol>
+        </div>
+      </section>
+    </div>
+    <p class="sr-only" aria-live="polite" data-anuncio></p>
+  </section>
+
+  <main id="convite" class="convite" tabindex="-1">
+    <svg class="bandeirinhas" viewBox="0 0 390 40" aria-hidden="true" focusable="false"><path d="M0 4Q195 48 390 4" fill="none" stroke="#7A4A22" stroke-width="2"/><path d="M4.0 5.6L26.0 5.6L15.0 25.6Z" fill="url(#xadrez-v)" stroke="#4A3426" stroke-width="1.8" stroke-linejoin="round"/><path d="M34.0 8.5L56.0 8.5L45.0 28.5Z" fill="#FFC93C" stroke="#4A3426" stroke-width="1.8" stroke-linejoin="round"/><path d="M64.0 10.8L86.0 10.8L75.0 30.8Z" fill="url(#xadrez-a)" stroke="#4A3426" stroke-width="1.8" stroke-linejoin="round"/><path d="M94.0 12.7L116.0 12.7L105.0 32.7Z" fill="#FF7EB6" stroke="#4A3426" stroke-width="1.8" stroke-linejoin="round"/><path d="M124.0 14.0L146.0 14.0L135.0 34.0Z" fill="url(#xadrez-v)" stroke="#4A3426" stroke-width="1.8" stroke-linejoin="round"/><path d="M154.0 14.7L176.0 14.7L165.0 34.7Z" fill="#9B7BEA" stroke="#4A3426" stroke-width="1.8" stroke-linejoin="round"/><path d="M184.0 15.0L206.0 15.0L195.0 35.0Z" fill="url(#xadrez-a)" stroke="#4A3426" stroke-width="1.8" stroke-linejoin="round"/><path d="M214.0 14.7L236.0 14.7L225.0 34.7Z" fill="#FFC93C" stroke="#4A3426" stroke-width="1.8" stroke-linejoin="round"/><path d="M244.0 14.0L266.0 14.0L255.0 34.0Z" fill="url(#xadrez-v)" stroke="#4A3426" stroke-width="1.8" stroke-linejoin="round"/><path d="M274.0 12.7L296.0 12.7L285.0 32.7Z" fill="#FF7EB6" stroke="#4A3426" stroke-width="1.8" stroke-linejoin="round"/><path d="M304.0 10.8L326.0 10.8L315.0 30.8Z" fill="url(#xadrez-a)" stroke="#4A3426" stroke-width="1.8" stroke-linejoin="round"/><path d="M334.0 8.5L356.0 8.5L345.0 28.5Z" fill="#9B7BEA" stroke="#4A3426" stroke-width="1.8" stroke-linejoin="round"/><path d="M364.0 5.6L386.0 5.6L375.0 25.6Z" fill="url(#xadrez-v)" stroke="#4A3426" stroke-width="1.8" stroke-linejoin="round"/></svg>
+    <h2 class="convite-titulo">Você está convidado!</h2>
+    <p class="convite-sub">Arthur faz <strong>1 aninho</strong></p>
+
+    <div class="cartoes">
+      <section class="cartao" style="--cor:#4D9DE0">
+        <h3>Quando</h3>
+        <p class="grande">Domingo, 29 de novembro de 2026</p>
+        <p class="hora">às <strong>15h</strong></p>
+        <a class="btn-agenda" href="../comum/arthur-1-ano.ics" download="aniversario-arthur-1-aninho.ics">
+          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="3.5" y="5" width="17" height="15" rx="3" fill="none" stroke="currentColor" stroke-width="2"/><path d="M3.5 10h17M8 3v4M16 3v4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><circle cx="12" cy="15" r="2" fill="currentColor"/></svg>
+          Adicionar à agenda
+        </a>
+      </section>
+
+      <section class="cartao" style="--cor:#FF7EB6">
+        <h3>Onde</h3>
+        <p class="grande">Casa da Árvore</p>
+        <p class="sub">Rua Castelo Branco, nº 31<br>Cidade Nova, Santana do Paraíso</p>
+        <p class="mapas" data-mapas><a class="mapa" data-mapa="google" href="https://www.google.com/maps/search/?api=1&amp;query=Casa%20da%20%C3%81rvore%2C%20Rua%20Castelo%20Branco%2C%2031%2C%20Cidade%20Nova%2C%20Santana%20do%20Para%C3%ADso%20-%20MG" target="_blank" rel="noopener noreferrer" aria-label="Abrir o endereço da festa no Google Maps (abre em nova aba)">Abrir no Google Maps</a><a class="mapa" data-mapa="apple" href="https://maps.apple.com/?q=Casa%20da%20%C3%81rvore%2C%20Rua%20Castelo%20Branco%2C%2031%2C%20Cidade%20Nova%2C%20Santana%20do%20Para%C3%ADso%20-%20MG" target="_blank" rel="noopener noreferrer" aria-label="Abrir o endereço da festa no Apple Maps (abre em nova aba)">Abrir no Apple Maps</a><a class="mapa" data-mapa="waze" href="https://waze.com/ul?q=Casa%20da%20%C3%81rvore%2C%20Rua%20Castelo%20Branco%2C%2031%2C%20Cidade%20Nova%2C%20Santana%20do%20Para%C3%ADso%20-%20MG&amp;navigate=yes" target="_blank" rel="noopener noreferrer" aria-label="Abrir o endereço da festa no Waze (abre em nova aba)">Abrir no Waze</a></p>
+      </section>
+
+      <section class="cartao" style="--cor:#9B7BEA">
+        <h3>Tema</h3>
+        <p class="grande">Venha caracterizado: country/fazendinha</p>
+      </section>
+    </div>
+
+    <section class="rsvp" id="rsvp" aria-labelledby="rsvp-titulo">
+      <div class="rsvp-intro">
+        <h2 id="rsvp-titulo">Você vem?</h2>
+        <p class="rsvp-sub">Confirme sua presença<span class="so-desktop"><br>para o aniversário do Arthur.</span></p>
+        <div class="rsvp-bicho" aria-hidden="true"><svg viewBox="0 0 100 206" focusable="false" style="color:#4D9DE0"><path class="fio-fixo" d="M60 92q-7 14 4 26t12 27"/><use href="#balao-forma"/><use href="#a-porco" x="10" y="118" width="80" height="84"/></svg></div>
+      </div>
+      <form class="rsvp-form" data-rsvp novalidate onsubmit="return false">
+        <p class="rsvp-sem-js" data-sem-js>Para confirmar presença, o JavaScript precisa estar ativo. Se o botão não funcionar, recarregue a página.</p>
+        <fieldset data-rsvp-campos disabled>
+        <legend class="sr-only">Confirmação de presença</legend>
+        <div class="campo">
+          <label for="nome">Nome</label>
+          <input id="nome" name="nome" type="text" autocomplete="name" placeholder="Seu nome" maxlength="80" aria-describedby="erro-nome">
+          <p class="erro" id="erro-nome" data-erro="nome"></p>
+        </div>
+        <div class="campos-2">
+          <div class="campo">
+            <label for="adultos">Nº de adultos</label>
+            <input id="adultos" name="adultos" type="number" inputmode="numeric" min="0" max="20" step="1" placeholder="0" aria-describedby="erro-adultos">
+            <p class="erro" id="erro-adultos" data-erro="adultos"></p>
+          </div>
+          <div class="campo">
+            <label for="criancas">Nº de crianças</label>
+            <input id="criancas" name="criancas" type="number" inputmode="numeric" min="0" max="20" step="1" placeholder="0" aria-describedby="erro-criancas">
+            <p class="erro" id="erro-criancas" data-erro="criancas"></p>
+          </div>
+        </div>
+        <div class="isca" aria-hidden="true"><label for="website">Não preencha este campo</label><input id="website" name="website" type="text" tabindex="-1" autocomplete="off"></div>
+        <button type="button" class="botao" data-enviar>Confirmar presença</button>
+        <p class="rsvp-nota" data-nota>Sua confirmação vai para uma<br>planilha privada.</p>
+        <div class="erro-geral" data-erro="total" aria-live="polite"></div>
+        <div class="caixa caixa-sucesso" data-sucesso role="status" aria-live="polite" hidden></div>
+        <div class="caixa caixa-erro" data-alerta role="alert" hidden></div>
+        <p class="sr-only" data-status aria-live="polite"></p>
+        </fieldset>
+      </form>
+    </section>
+  </main>
+
+  <footer class="rodape">
+    <p>Arthur · 1 aninho · 29/11/2026 · 15h</p>
+    <p class="rotulo">Versão 09 · Claude Opus 5.5 · esforço xhigh</p>
+  </footer>
+</div>
+</body>
+</html>

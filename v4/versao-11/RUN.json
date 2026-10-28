@@ -1,0 +1,39 @@
+{
+  "versao": "11",
+  "modelo_autodeclarado": "claude-opus-5-5",
+  "esforco_autodeclarado": "max",
+  "esforco_fonte": "runtime: CLAUDE_EFFORT=max (printenv CLAUDE_EFFORT); o contexto do modelo também informa reasoning_effort=max",
+  "retomada": true,
+  "retomada_detalhe": "A execução anterior parou antes do RUN.json, com a página funcional. Nesta retomada, pelo reforço de tema: perninhas de botinha country nos 5 fantoches (sentam na beira do palco, balançam, chutam ao falar), dança das botinhas com sapateado no final, lenço xadrez no pintinho, cerca do cenário visível, progresso em remendo com botões na saia, botinhas no cartão do tema; verificar.cjs ampliado (botinhas, 390x667).",
+  "conceito": "Teatrinho de fantoches country (fazendinha)",
+  "mecanica": "Tocar no palco abre a cortina de chita; a cada toque sobe um fantoche (vaquinha, porquinho, pintinho, ovelhinha, cavalinho, de chapéu de cowboy, lencinho e botinhas), que senta na beira do palco balançando as botinhas e anuncia um dado da festa; no fim os 5 fazem a dança das botinhas com 'Parabéns' em caixinha de música, sapateado e confete; depois, tocar num bichinho repete a fala; 'Bis' recomeça.",
+  "ajuste_country": true,
+  "ajuste_detalhe": "Bichinhos com chapéu de cowboy, lenço (bolinha e xadrez) e botinhas coloridas com estrela; cortina de chita, sanefa e saia em xadrez, bandeirinhas xadrez, ferradura, cerca no cenário e no chão, fardos de feno, laço de corda e amarras de corda; nada de saloon.",
+  "verificacao": {
+    "console_erros": 0,
+    "interacao": "ok",
+    "rsvp_inativo": true,
+    "mapas": 3,
+    "ferramenta": "Playwright 1.64.1 (Chromium) em http://127.0.0.1:4711/versao-11/ via verificar.cjs",
+    "falhas_rede": 0,
+    "botinhas": "ok: perninhas visíveis abaixo da beira do palco no solo; dança das botinhas ativa no final com as 5 de pé",
+    "reduced_motion": "ok: 0 animações CSS rodando; o show funciona com fades e as botinhas aparecem paradas",
+    "teclado": "ok: Tab → som → palco (foco visível), Enter abre; bichinhos da fila focáveis com aria-label e Enter fala",
+    "pular": "ok: leva ao #convite com foco",
+    "som": "mudo até o 1º toque (0 AudioContext antes); botão de som com aria-pressed",
+    "contraste_aa": "ok: 23 textos conferidos",
+    "viewport_390x667": "ok: palco e 'Pular' cabem na primeira tela, sem rolagem horizontal",
+    "agenda": "../comum/arthur-1-ano.ics (HTTP 200)"
+  },
+  "arquivos": [
+    "index.html",
+    "teatrinho.css",
+    "teatrinho.js",
+    "bandeirinhas.svg",
+    "cerca.svg",
+    "verificar.cjs",
+    "RUN.json",
+    "print-390.png",
+    "print-390-interacao.png"
+  ]
+}
