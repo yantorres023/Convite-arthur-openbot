@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Bom dia, bichinhos! — Arthur, 1 aninho</title>
+<meta name="description" content="Aniversário de 1 aninho do Arthur: domingo, 29/11/2026, às 15h, na Casa da Árvore. Toque nos bichinhos para acordar a fazendinha!">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Bom dia, bichinhos! — Arthur, 1 aninho">
+<meta property="og:description" content="Domingo, 29/11, às 15h · Casa da Árvore · Venha caracterizado de country/fazendinha">
+<meta property="og:image" content="https://yantorres023.github.io/Convite-arthur-openbot/conceito-4/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="theme-color" content="#C0DFFA">
+<link rel="stylesheet" href="../comum/v2.css">
+<link rel="stylesheet" href="../comum/festa.css">
+<link rel="stylesheet" href="estilo.css">
+<script src="../comum/vendor/canvas-confetti-1.9.3.min.js" defer></script>
+<script type="module" src="../comum/pagina.js"></script>
+<script type="module" src="bichinhos.js"></script>
+</head>
+<body class="festa">
+<div class="barra">
+  <button type="button" class="btn-som" data-som aria-pressed="false" aria-label="Ligar o som">🔇</button>
+  <a class="btn-pular" href="#convite" data-pular>Pular e ver o convite</a>
+</div>
+
+<header class="cena cena-v3" data-cena data-estado="inicio">
+  <div class="palco-v3">
+    <!--SVG design/v3/conceito-4/assets/cena-interativa.svg cena-arte c4-->
+    <div class="titulo">
+      <p class="chamada">Shhh… a fazendinha ainda está dormindo</p>
+      <h1>Arthur</h1>
+      <p class="idade">1 aninho</p>
+      <p class="nome-brincadeira">Bom dia, bichinhos!</p>
+    </div>
+    <button type="button" class="alvo" data-bicho="vaca" data-alvo="vaca" style="left:2.31%;top:43.71%;width:34.36%;height:20.00%" aria-label="Acordar a vaquinha"><span class="zz" aria-hidden="true">Zzz</span><span class="fala" aria-hidden="true">Muuu!</span></button>
+    <button type="button" class="alvo" data-bicho="galinha" data-alvo="galinha" style="left:35.64%;top:46.71%;width:27.44%;height:16.00%" aria-label="Acordar a galinha"><span class="zz" aria-hidden="true">Zzz</span><span class="fala" aria-hidden="true">Có-có!</span></button>
+    <button type="button" class="alvo" data-bicho="porco" data-alvo="porco" style="left:64.87%;top:43.86%;width:34.36%;height:20.00%" aria-label="Acordar o porquinho"><span class="zz" aria-hidden="true">Zzz</span><span class="fala" aria-hidden="true">Oinc!</span></button>
+    <button type="button" class="alvo" data-bicho="ovelha" data-alvo="ovelha" style="left:14.62%;top:67.57%;width:34.87%;height:20.29%" aria-label="Acordar a ovelhinha"><span class="zz" aria-hidden="true">Zzz</span><span class="fala" aria-hidden="true">Méé!</span></button>
+    <button type="button" class="alvo" data-bicho="cavalo" data-alvo="cavalo" style="left:53.08%;top:67.57%;width:34.87%;height:20.29%" aria-label="Acordar o cavalinho"><span class="zz" aria-hidden="true">Zzz</span><span class="fala" aria-hidden="true">Iiirrí!</span></button>
+    <p class="atual" data-atual hidden aria-hidden="true"></p>
+  </div>
+
+  <p class="dica" data-dica role="status">👆 Toque nos bichinhos para acordar! <span class="dica-contador" data-contador>0/5</span></p>
+  <ol class="revelados" data-revelados aria-live="polite" aria-label="O que a brincadeira revelou"></ol>
+  <a class="seta-baixo" href="#convite" data-ver>Ver o convite completo ↓</a>
+</header>
+
+<!--DETALHES-->
+</body>
+</html>

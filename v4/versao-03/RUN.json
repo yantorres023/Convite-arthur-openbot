@@ -1,0 +1,23 @@
+{
+ "versao": "03",
+ "modelo_autodeclarado": "claude-opus-5-5",
+ "esforco_autodeclarado": "10",
+ "conceito": "Noite de vaga-lumes na fazendinha country",
+ "mecanica": "Tocar nos 6 vaga-lumes faz cada um voar até uma letra pontilhada de ARTHUR, acendê-la (com o varal da cerca) e revelar um dado; com as 6 acesas, amanhece com o sol sorrindo e confete.",
+ "verificacao": {
+  "console_erros": 0,
+  "interacao": "ok",
+  "rsvp_inativo": true,
+  "mapas": 3
+ },
+ "arquivos": [
+  "index.html",
+  "estilo.css",
+  "app.js",
+  "RUN.json",
+  "print-390.png",
+  "print-390-interacao.png"
+ ],
+ "ajuste_country": true,
+ "ajuste_detalhe": "Bichos com chapéu de cowboy, botinhas e lenço xadrez; bandeirinhas xadrez, fardos de feno, laço de corda na árvore, cerca; friso xadrez nos cartões."
+}

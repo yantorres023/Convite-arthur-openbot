@@ -1,0 +1,8 @@
+/* Conceito 6 — Um bolinho pro Arthur (arte e paleta v3 da Deidara: design/v3/conceito-6/). Contraste: contraste.json. */
+:root{--ceu-1:#DCD5F4;--ceu-2:#DCD5F4;--tinta:#493652;--tinta-sec:#5E4A68;--destaque:#97435E;--papel:#FFF1F0;
+  --fonte-titulo:"Fredoka","Lilita One",system-ui,sans-serif;--fonte-texto:"Fredoka",system-ui,sans-serif;
+  --fundo:#FFF1F0;--texto:#493652;--acento:#97435E;--sec:#5E4A68;--apoio:#F7E2EA;--campo:#FFFFFF;--titulo:"Fredoka",system-ui,sans-serif}
+.titulo h1{font-weight:700}
+/* Quando a vela "1" entra, o selo "1 aninho" e o nome da brincadeira saem da frente dela. */
+.palco-v3 .idade,.palco-v3 .nome-brincadeira{transition:opacity .3s}
+.cena-v3[data-etapa="5"] .idade,.cena-v3[data-etapa=assoprou] .idade,.cena-v3[data-etapa="5"] .nome-brincadeira,.cena-v3[data-etapa=assoprou] .nome-brincadeira{opacity:0}

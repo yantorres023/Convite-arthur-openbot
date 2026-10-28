@@ -1,0 +1,462 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Arthur · 1 aninho — Versão 07 · Claude Opus 5.5 · esforço xhigh</title>
+<meta name="description" content="Convite: Arthur, 1 aninho. Domingo, 29 de novembro de 2026, às 15h, na Casa da Árvore.">
+<meta name="theme-color" content="#C9ECFA">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='30' fill='%23FFC93C'/%3E%3Cpath d='M28 16h10v32h-10z M28 16l-10 8 4 6 8-6z' fill='%23C8412F'/%3E%3C/svg%3E">
+<link rel="preload" href="../comum/fontes-festa/LilitaOne.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../comum/fontes-festa/Baloo2.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="estilo.css">
+<script>document.documentElement.classList.add("js")</script>
+<script src="../comum/vendor/canvas-confetti-1.9.3.min.js" defer></script>
+<script type="module" src="cena.js"></script>
+</head>
+<body>
+<!-- Filtros de papel recortado (borda branca de recorte + sombra) usados por todos os desenhos -->
+<svg class="defs" aria-hidden="true" focusable="false" width="0" height="0">
+  <defs>
+    <filter id="recorte" x="-20%" y="-20%" width="140%" height="145%" color-interpolation-filters="sRGB">
+      <feMorphology in="SourceAlpha" operator="dilate" radius="2.8" result="dil"/>
+      <feFlood flood-color="#FFFDF7" result="branco"/>
+      <feComposite in="branco" in2="dil" operator="in" result="borda"/>
+      <feGaussianBlur in="dil" stdDeviation="2.2" result="desf"/>
+      <feOffset in="desf" dx="0" dy="3.4" result="desl"/>
+      <feFlood flood-color="#5B3A1E" flood-opacity="0.34" result="cor"/>
+      <feComposite in="cor" in2="desl" operator="in" result="sombra"/>
+      <feMerge><feMergeNode in="sombra"/><feMergeNode in="borda"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="peca" x="-15%" y="-15%" width="130%" height="140%" color-interpolation-filters="sRGB">
+      <feDropShadow dx="0" dy="1.6" stdDeviation="0.9" flood-color="#5B3A1E" flood-opacity="0.32"/>
+    </filter>
+    <!-- xadrez country (gingham) -->
+    <pattern id="xadrez-vermelho" width="8" height="8" patternUnits="userSpaceOnUse">
+      <rect width="8" height="8" fill="#FFF6EA"/><rect width="4" height="8" fill="#E2553F" opacity=".6"/><rect width="8" height="4" fill="#E2553F" opacity=".6"/>
+    </pattern>
+    <pattern id="xadrez-azul" width="8" height="8" patternUnits="userSpaceOnUse">
+      <rect width="8" height="8" fill="#F4FAFF"/><rect width="4" height="8" fill="#3E8DD0" opacity=".6"/><rect width="8" height="4" fill="#3E8DD0" opacity=".6"/>
+    </pattern>
+    <pattern id="xadrez-rosa" width="7" height="7" patternUnits="userSpaceOnUse">
+      <rect width="7" height="7" fill="#FFF6F8"/><rect width="3.5" height="7" fill="#E8708E" opacity=".6"/><rect width="7" height="3.5" fill="#E8708E" opacity=".6"/>
+    </pattern>
+    <!-- fardo de feno -->
+    <symbol id="feno" viewBox="0 0 90 40">
+      <g filter="url(#peca)">
+        <rect x="2" y="6" width="86" height="32" rx="7" fill="#F2C14E"/>
+        <path d="M8 16 H82 M8 24 H82 M8 32 H82" stroke="#DCA73A" stroke-width="2" stroke-linecap="round"/>
+        <rect x="20" y="6" width="5" height="32" fill="#C8412F"/><rect x="65" y="6" width="5" height="32" fill="#C8412F"/>
+        <path d="M10 7 L6 1 M18 6 L17 0 M40 6 L43 0 M52 6 L50 1 M74 6 L78 0 M84 8 L89 3" stroke="#E2B13F" stroke-width="2" stroke-linecap="round"/>
+      </g>
+    </symbol>
+  </defs>
+</svg>
+
+<a class="pular" id="pular" href="#convite">Pular e ver o convite</a>
+<button class="som" id="som" type="button" aria-pressed="true" aria-label="Som">
+  <svg class="som-on" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9h4l5-4v14l-5-4H4z" fill="currentColor"/><path d="M16 8.5a5 5 0 0 1 0 7M18.6 6a8.5 8.5 0 0 1 0 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+  <svg class="som-off" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9h4l5-4v14l-5-4H4z" fill="currentColor"/><path d="M16.5 9.5l5 5M21.5 9.5l-5 5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+</button>
+
+<div class="pagina">
+<header class="palco" id="palco">
+  <svg class="varal" viewBox="0 0 390 120" preserveAspectRatio="xMidYMin meet" aria-hidden="true" focusable="false">
+    <path d="M-10 58 Q195 118 400 58" fill="none" stroke="#9A6A3C" stroke-width="2.2" stroke-linecap="round"/>
+    <g filter="url(#peca)">
+      <path class="bandeira" style="--i:0" d="M2.3 61.5 L25.4 67.5 L13.9 90.6 Z" fill="#E85A4F"/>
+      <path class="bandeira" style="--i:1" d="M31.9 69.0 L55.1 74.0 L43.5 97.6 Z" fill="#FFC93C"/>
+      <path class="bandeira" style="--i:2" d="M61.6 75.3 L84.7 79.3 L73.2 103.4 Z" fill="url(#xadrez-azul)"/>
+      <path class="bandeira" style="--i:3" d="M91.2 80.3 L114.4 83.4 L102.8 107.9 Z" fill="#F7A8BA"/>
+      <path class="bandeira" style="--i:4" d="M120.9 84.1 L144.0 86.1 L132.4 111.2 Z" fill="#8ACF8E"/>
+      <path class="bandeira" style="--i:5" d="M150.5 86.6 L173.7 87.7 L162.1 113.2 Z" fill="url(#xadrez-vermelho)"/>
+      <path class="bandeira" style="--i:6" d="M180.2 87.8 L203.3 88.0 L191.7 114.0 Z" fill="#E85A4F"/>
+      <path class="bandeira" style="--i:7" d="M209.8 87.8 L232.9 87.0 L221.4 113.5 Z" fill="#FFC93C"/>
+      <path class="bandeira" style="--i:8" d="M239.5 86.6 L262.6 84.7 L251.0 111.8 Z" fill="url(#xadrez-azul)"/>
+      <path class="bandeira" style="--i:9" d="M269.1 84.1 L292.2 81.3 L280.7 108.8 Z" fill="#F7A8BA"/>
+      <path class="bandeira" style="--i:10" d="M298.8 80.3 L321.9 76.5 L310.3 104.5 Z" fill="#8ACF8E"/>
+      <path class="bandeira" style="--i:11" d="M328.4 75.3 L351.5 70.5 L340.0 99.0 Z" fill="url(#xadrez-vermelho)"/>
+      <path class="bandeira" style="--i:12" d="M358.1 69.0 L381.2 63.3 L369.6 92.2 Z" fill="#E85A4F"/>
+    </g>
+  </svg>
+
+  <div class="passaros" aria-hidden="true">
+    <svg class="passaro passaro-1" viewBox="0 0 30 12" focusable="false"><path d="M2 8 Q8 0 15 8 Q22 0 28 8" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    <svg class="passaro passaro-2" viewBox="0 0 30 12" focusable="false"><path d="M2 8 Q8 0 15 8 Q22 0 28 8" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  </div>
+
+  <div class="titulo">
+    <p class="convidado">Você está convidado para o aniversário de</p>
+    <h1 class="nome">
+      <span class="sr-only">Arthur, 1 aninho</span>
+      <span class="letras" aria-hidden="true"><span style="--i:0" class="letra-a">A<svg class="chapeu-a" viewBox="0 0 80 44" focusable="false"><g filter="url(#peca)"><path d="M22 32 Q20 4 40 5 Q60 4 58 32 Q40 36 22 32 Z" fill="#C2834A"/><path d="M22 24 Q40 28 58 24 L58 31 Q40 35 22 31 Z" fill="url(#xadrez-vermelho)"/><path d="M3 32 Q40 20 77 32 Q70 42 40 42 Q10 42 3 32 Z" fill="#A86A34"/></g><path d="M34 8 Q40 14 46 8" fill="none" stroke="#A86A34" stroke-width="2.4" stroke-linecap="round"/></svg></span><span style="--i:1">r</span><span style="--i:2">t</span><span style="--i:3">h</span><span style="--i:4">u</span><span style="--i:5">r</span></span>
+    </h1>
+  </div>
+
+  <div class="diorama" id="diorama">
+    <!-- céu de fundo (painel de trás do cartão) -->
+    <svg class="nuvem nuvem-1" data-prof="-3" viewBox="0 0 120 60" aria-hidden="true" focusable="false"><path filter="url(#peca)" d="M14 52 Q2 52 4 40 Q6 28 20 30 Q22 12 42 14 Q52 0 70 8 Q88 4 92 22 Q112 20 114 38 Q116 52 102 52 Z" fill="#FFFFFF"/></svg>
+    <svg class="nuvem nuvem-2" data-prof="-2" viewBox="0 0 120 60" aria-hidden="true" focusable="false"><path filter="url(#peca)" d="M14 52 Q2 52 4 40 Q6 28 20 30 Q22 12 42 14 Q52 0 70 8 Q88 4 92 22 Q112 20 114 38 Q116 52 102 52 Z" fill="#FFFFFF"/></svg>
+    <svg class="sol" data-prof="-4" viewBox="0 0 120 120" aria-hidden="true" focusable="false">
+      <g class="raios" filter="url(#peca)" fill="#FFB020" stroke="#FFB020" stroke-width="5" stroke-linejoin="round">
+        <path d="M60 6 L67 22 L53 22 Z"/><path d="M60 6 L67 22 L53 22 Z" transform="rotate(30 60 60)"/><path d="M60 6 L67 22 L53 22 Z" transform="rotate(60 60 60)"/><path d="M60 6 L67 22 L53 22 Z" transform="rotate(90 60 60)"/><path d="M60 6 L67 22 L53 22 Z" transform="rotate(120 60 60)"/><path d="M60 6 L67 22 L53 22 Z" transform="rotate(150 60 60)"/><path d="M60 6 L67 22 L53 22 Z" transform="rotate(180 60 60)"/><path d="M60 6 L67 22 L53 22 Z" transform="rotate(210 60 60)"/><path d="M60 6 L67 22 L53 22 Z" transform="rotate(240 60 60)"/><path d="M60 6 L67 22 L53 22 Z" transform="rotate(270 60 60)"/><path d="M60 6 L67 22 L53 22 Z" transform="rotate(300 60 60)"/><path d="M60 6 L67 22 L53 22 Z" transform="rotate(330 60 60)"/>
+      </g>
+      <circle cx="60" cy="60" r="37" fill="#FFC93C" filter="url(#peca)"/>
+      <circle cx="60" cy="60" r="29" fill="#FFD866" filter="url(#peca)"/>
+      <path d="M45 57 q5 -6 10 0 M65 57 q5 -6 10 0" fill="none" stroke="#8A4B1C" stroke-width="3" stroke-linecap="round"/>
+      <circle cx="43" cy="66" r="5" fill="#FF9E7A" opacity=".75"/><circle cx="77" cy="66" r="5" fill="#FF9E7A" opacity=".75"/>
+      <path d="M52 67 q8 8 16 0" fill="none" stroke="#8A4B1C" stroke-width="3" stroke-linecap="round"/>
+    </svg>
+
+    <div class="chao" data-prof="2" aria-hidden="true"></div>
+
+    <!-- 1) morros, plantação e moinho -->
+    <div class="camada c-morros" data-camada data-a="0" data-b=".34" data-prof="4" aria-hidden="true">
+      <svg viewBox="0 -30 430 180" focusable="false">
+        <g filter="url(#peca)"><path d="M0 150 V62 Q70 18 150 38 Q215 54 270 30 Q350 0 430 34 V150 Z" fill="#B7E3BB"/></g>
+        <g filter="url(#peca)">
+          <rect x="57" y="28" width="7" height="20" rx="3.5" fill="#9A6A3C"/><circle cx="60" cy="20" r="15" fill="#7CC487"/><circle cx="49" cy="28" r="9" fill="#7CC487"/>
+          <rect x="297" y="10" width="6" height="16" rx="3" fill="#9A6A3C"/><circle cx="300" cy="4" r="12" fill="#7CC487"/><circle cx="310" cy="11" r="7" fill="#7CC487"/>
+          <circle cx="18" cy="58" r="10" fill="#9BD3A0"/><circle cx="30" cy="62" r="7" fill="#9BD3A0"/>
+        </g>
+        <g class="moinho">
+          <g filter="url(#peca)">
+            <path d="M376 46 L381 2 L389 2 L394 46 Z" fill="#FFFDF7"/>
+            <path d="M377 4 L385 -9 L393 4 Z" fill="#E85A4F"/>
+            <rect x="382" y="30" width="6" height="12" rx="3" fill="#C2834A"/>
+          </g>
+          <g class="pas" filter="url(#peca)">
+            <path d="M383.5 -2 V-30 H387 V-2 Z M387 -28 H395 V-10 H387 Z" fill="#FFFDF7"/>
+            <path d="M383.5 -2 V-30 H387 V-2 Z M387 -28 H395 V-10 H387 Z" fill="#FFFDF7" transform="rotate(90 385 -2)"/>
+            <path d="M383.5 -2 V-30 H387 V-2 Z M387 -28 H395 V-10 H387 Z" fill="#FFFDF7" transform="rotate(180 385 -2)"/>
+            <path d="M383.5 -2 V-30 H387 V-2 Z M387 -28 H395 V-10 H387 Z" fill="#FFFDF7" transform="rotate(270 385 -2)"/>
+            <circle cx="385" cy="-2" r="3.5" fill="#E85A4F"/>
+          </g>
+        </g>
+        <g filter="url(#peca)"><path d="M0 150 V100 Q90 66 200 86 Q300 104 430 74 V150 Z" fill="#F6D178"/></g>
+        <path d="M14 116 Q112 90 210 106 Q312 122 420 96 M0 136 Q120 112 220 126 Q322 138 430 116" fill="none" stroke="#E9BA4C" stroke-width="3.2" stroke-linecap="round"/>
+      </svg>
+    </div>
+
+    <!-- 2) o número 1 de chapéu e bandana, com a faixa "aninho" -->
+    <div class="camada c-um" data-camada data-a=".12" data-b=".48" data-prof="7">
+      <button class="bicho bicho-um" type="button" data-bicho="um" aria-label="Número 1 de chapéu: toque para comemorar">
+        <svg viewBox="0 0 130 230" aria-hidden="true" focusable="false">
+          <g filter="url(#recorte)">
+            <rect x="44" y="44" width="48" height="170" rx="16" fill="#FFC93C"/>
+            <rect x="24" y="188" width="86" height="32" rx="14" fill="#FFC93C"/>
+            <path d="M52 50 L16 76 Q8 84 16 92 Q22 98 32 92 L54 78 Z" fill="#FFC93C"/>
+          </g>
+          <rect x="51" y="62" width="34" height="146" rx="12" fill="#FFD866" filter="url(#peca)"/>
+          <g class="olhos"><circle cx="59" cy="100" r="5" fill="#2E211B"/><circle cx="78" cy="100" r="5" fill="#2E211B"/><circle cx="60.8" cy="98.2" r="1.7" fill="#fff"/><circle cx="79.8" cy="98.2" r="1.7" fill="#fff"/></g>
+          <circle cx="52" cy="113" r="5" fill="#FF9E7A" opacity=".75"/><circle cx="85" cy="113" r="5" fill="#FF9E7A" opacity=".75"/>
+          <path d="M61 112 q7.5 7 15 0" fill="none" stroke="#8A4B1C" stroke-width="2.8" stroke-linecap="round"/>
+          <g filter="url(#peca)">
+            <path d="M40 128 L96 128 L68 153 Z" fill="url(#xadrez-vermelho)" stroke="#C8412F" stroke-width="1.6" stroke-linejoin="round"/>
+            <path d="M88 126 L100 120 L99 132 Z M88 126 L96 136 L86 134 Z" fill="#E2553F"/>
+          </g>
+          <g class="chapeu" filter="url(#peca)">
+            <path d="M36 48 Q32 8 68 10 Q102 8 98 48 Q66 54 36 48 Z" fill="#C2834A"/>
+            <path d="M36 38 Q66 44 98 38 L98 46 Q66 52 36 46 Z" fill="#E2553F"/>
+            <path d="M6 50 Q68 32 126 50 Q116 63 66 63 Q16 63 6 50 Z" fill="#A86A34"/>
+            <path d="M58 13 Q68 21 78 13" fill="none" stroke="#A86A34" stroke-width="2.6" stroke-linecap="round"/>
+          </g>
+          <g filter="url(#peca)">
+            <path d="M2 164 L18 164 L18 196 L2 196 L10 180 Z" fill="#A8352A"/>
+            <path d="M128 164 L112 164 L112 196 L128 196 L120 180 Z" fill="#A8352A"/>
+            <rect x="10" y="158" width="110" height="34" rx="6" fill="#D24A35"/>
+          </g>
+          <text x="65" y="183.5" text-anchor="middle" class="faixa-texto">aninho</text>
+        </svg>
+        <span class="balao" aria-hidden="true">Parabéns!</span>
+      </button>
+    </div>
+
+    <!-- 3) cavalo e ovelha espiando por trás da cerca -->
+    <div class="camada c-espia" data-camada data-a=".26" data-b=".6" data-prof="10">
+      <button class="bicho bicho-cavalo" type="button" data-bicho="cavalo" aria-label="Cavalinho de chapéu: toque para ouvir">
+        <svg viewBox="0 0 120 160" aria-hidden="true" focusable="false">
+          <g filter="url(#recorte)">
+            <path d="M34 160 L38 104 Q40 92 60 92 Q80 92 82 104 L86 160 Z" fill="#C98A4B"/>
+            <path d="M38 48 L31 15 L55 36 Z" fill="#C98A4B"/>
+            <path d="M82 48 L89 15 L65 36 Z" fill="#C98A4B"/>
+            <path d="M60 30 C82 30 90 48 88 70 C87 86 84 100 60 104 C36 100 33 86 32 70 C30 48 38 30 60 30 Z" fill="#C98A4B"/>
+          </g>
+          <path d="M38 40 L34 22 L49 35 Z M82 40 L86 22 L71 35 Z" fill="#E8B27A"/>
+          <path d="M36 86 Q26 104 34 124 Q30 140 36 160 L46 160 L46 92 Z" fill="#6B4024" filter="url(#peca)"/>
+          <path d="M57 50 Q60 47 63 50 L62 72 Q60 75 58 72 Z" fill="#FFF3E0"/>
+          <path d="M45 46 Q50 35 60 39 Q70 33 76 46 Q68 51 60 47 Q52 53 45 46 Z" fill="#6B4024" filter="url(#peca)"/>
+          <ellipse cx="60" cy="87" rx="22" ry="16" fill="#E8B27A" filter="url(#peca)"/>
+          <ellipse cx="52" cy="85" rx="3" ry="4" fill="#7A4B26"/><ellipse cx="68" cy="85" rx="3" ry="4" fill="#7A4B26"/>
+          <path d="M53 95 q7 5 14 0" fill="none" stroke="#7A4B26" stroke-width="2.4" stroke-linecap="round"/>
+          <g class="olhos"><circle cx="48" cy="62" r="5" fill="#2E211B"/><circle cx="72" cy="62" r="5" fill="#2E211B"/><circle cx="49.8" cy="60.2" r="1.7" fill="#fff"/><circle cx="73.8" cy="60.2" r="1.7" fill="#fff"/></g>
+          <circle cx="40" cy="74" r="5" fill="#F29A86" opacity=".7"/><circle cx="80" cy="74" r="5" fill="#F29A86" opacity=".7"/>
+          <g class="chapeu" filter="url(#peca)">
+            <path d="M38 30 Q36 4 60 6 Q84 4 82 30 Q60 34 38 30 Z" fill="#C2834A"/>
+            <path d="M38 23 Q60 27 82 23 L82 29 Q60 33 38 29 Z" fill="#E2553F"/>
+            <path d="M22 30 Q60 18 98 30 Q92 39 60 39 Q28 39 22 30 Z" fill="#A86A34"/>
+            <path d="M54 9 Q60 15 66 9" fill="none" stroke="#A86A34" stroke-width="2.4" stroke-linecap="round"/>
+          </g>
+        </svg>
+        <span class="balao" aria-hidden="true">Hiiinn!</span>
+      </button>
+      <button class="bicho bicho-ovelha" type="button" data-bicho="ovelha" aria-label="Ovelhinha: toque para ouvir">
+        <svg viewBox="0 0 120 128" aria-hidden="true" focusable="false">
+          <g filter="url(#recorte)" fill="#FFFDF7">
+            <circle cx="30" cy="84" r="22"/><circle cx="56" cy="76" r="24"/><circle cx="84" cy="82" r="22"/><circle cx="94" cy="106" r="20"/><circle cx="26" cy="108" r="20"/><circle cx="60" cy="106" r="26"/>
+            <ellipse cx="31" cy="44" rx="13" ry="6" transform="rotate(18 31 44)" fill="#6B5244"/>
+            <ellipse cx="89" cy="44" rx="13" ry="6" transform="rotate(-18 89 44)" fill="#6B5244"/>
+            <ellipse cx="60" cy="46" rx="21" ry="24" fill="#6B5244"/>
+            <circle cx="47" cy="25" r="10"/><circle cx="60" cy="20" r="11"/><circle cx="73" cy="25" r="10"/>
+          </g>
+          <ellipse cx="30" cy="45" rx="7" ry="3" transform="rotate(18 30 45)" fill="#F6A9B5"/><ellipse cx="90" cy="45" rx="7" ry="3" transform="rotate(-18 90 45)" fill="#F6A9B5"/>
+          <g class="olhos"><circle cx="51" cy="45" r="6" fill="#fff"/><circle cx="69" cy="45" r="6" fill="#fff"/><circle cx="52" cy="46" r="3.4" fill="#2E211B"/><circle cx="68" cy="46" r="3.4" fill="#2E211B"/></g>
+          <ellipse cx="60" cy="58" rx="6" ry="4" fill="#F6A9B5" filter="url(#peca)"/>
+          <path d="M56 64 q4 3.5 8 0" fill="none" stroke="#F6A9B5" stroke-width="2.2" stroke-linecap="round"/>
+          <circle cx="44" cy="56" r="4" fill="#F59AAE" opacity=".8"/><circle cx="76" cy="56" r="4" fill="#F59AAE" opacity=".8"/>
+          <g class="laco" filter="url(#peca)">
+            <path d="M80 20 L66 11 Q62 20 66 29 Z M80 20 L94 11 Q98 20 94 29 Z" fill="url(#xadrez-rosa)" stroke="#D2557A" stroke-width="1.5" stroke-linejoin="round"/>
+            <circle cx="80" cy="20" r="4.6" fill="#E8708E"/>
+          </g>
+        </svg>
+        <span class="balao" aria-hidden="true">Béééé!</span>
+      </button>
+    </div>
+
+    <!-- 4) cerca com a plaquinha -->
+    <div class="camada c-cerca" data-camada data-a=".38" data-b=".72" data-prof="13" aria-hidden="true">
+      <svg viewBox="0 0 410 70" focusable="false">
+        <g filter="url(#peca)">
+          <rect x="0" y="25" width="410" height="9" rx="4.5" fill="#EAD3AE"/>
+          <rect x="0" y="48" width="410" height="9" rx="4.5" fill="#EAD3AE"/>
+        </g>
+        <path filter="url(#peca)" fill="#FFFDF7" d="M4 70 V17 Q12 3 20 17 V70 Z M27 70 V17 Q35 3 43 17 V70 Z M50 70 V17 Q58 3 66 17 V70 Z M73 70 V17 Q81 3 89 17 V70 Z M96 70 V17 Q104 3 112 17 V70 Z M119 70 V17 Q127 3 135 17 V70 Z M142 70 V17 Q150 3 158 17 V70 Z M165 70 V17 Q173 3 181 17 V70 Z M188 70 V17 Q196 3 204 17 V70 Z M211 70 V17 Q219 3 227 17 V70 Z M234 70 V17 Q242 3 250 17 V70 Z M257 70 V17 Q265 3 273 17 V70 Z M280 70 V17 Q288 3 296 17 V70 Z M303 70 V17 Q311 3 319 17 V70 Z M326 70 V17 Q334 3 342 17 V70 Z M349 70 V17 Q357 3 365 17 V70 Z M372 70 V17 Q380 3 388 17 V70 Z M395 70 V17 Q403 3 411 17 V70 Z"/>
+        <g filter="url(#peca)">
+          <rect x="140" y="8" width="130" height="54" rx="11" fill="#D9A86A"/>
+          <rect x="145" y="13" width="120" height="44" rx="8" fill="#F8E2B8"/>
+        </g>
+        <rect x="141.5" y="9.5" width="127" height="51" rx="10" fill="none" stroke="#B9854E" stroke-width="3" stroke-dasharray="4 2.5" stroke-linecap="round"/>
+        <path filter="url(#peca)" d="M196 6 Q196 -6 205 -6 Q214 -6 214 6 L209 6 Q209 -1 205 -1 Q201 -1 201 6 Z" fill="#9AA5AE"/>
+        <circle cx="198.5" cy="1" r="1" fill="#5E6870"/><circle cx="211.5" cy="1" r="1" fill="#5E6870"/>
+        <circle cx="152" cy="19" r="2.4" fill="#8A5A2B"/><circle cx="258" cy="19" r="2.4" fill="#8A5A2B"/>
+        <text x="205" y="32" text-anchor="middle" class="placa-1">domingo, 29/11</text>
+        <text x="205" y="52" text-anchor="middle" class="placa-2">às 15h</text>
+      </svg>
+    </div>
+
+    <!-- 5) vaca e porquinho na frente da cerca -->
+    <div class="camada c-frente1" data-camada data-a=".52" data-b=".86" data-prof="17">
+      <button class="bicho bicho-vaca" type="button" data-bicho="vaca" aria-label="Vaquinha de bandana: toque para ouvir">
+        <svg viewBox="0 0 136 150" aria-hidden="true" focusable="false">
+          <g filter="url(#recorte)" fill="#FFF9EE">
+            <rect x="44" y="118" width="17" height="28" rx="7"/><rect x="75" y="118" width="17" height="28" rx="7"/>
+            <rect x="30" y="84" width="76" height="50" rx="24"/>
+            <ellipse cx="22" cy="50" rx="17" ry="8.5" transform="rotate(-22 22 50)"/>
+            <ellipse cx="114" cy="50" rx="17" ry="8.5" transform="rotate(22 114 50)"/>
+            <path d="M46 30 Q40 14 50 10 Q48 20 56 26 Z M90 30 Q96 14 86 10 Q88 20 80 26 Z" fill="#F4D98B"/>
+            <ellipse cx="68" cy="56" rx="38" ry="33"/>
+          </g>
+          <g class="botas" filter="url(#peca)">
+            <path d="M42 124 H63 V140 H67 Q70 140 70 144 V148 H42 Z" fill="#A86A34"/>
+            <path d="M94 124 H73 V140 H69 Q66 140 66 144 V148 H94 Z" fill="#A86A34"/>
+            <rect x="41" y="122" width="23" height="6" rx="3" fill="#C2834A"/><rect x="72" y="122" width="23" height="6" rx="3" fill="#C2834A"/>
+            <path d="M52.5 131 l1.4 2.9 3.1 .4 -2.3 2.1 .6 3.1 -2.8 -1.5 -2.8 1.5 .6 -3.1 -2.3 -2.1 3.1 -.4 Z M83.5 131 l1.4 2.9 3.1 .4 -2.3 2.1 .6 3.1 -2.8 -1.5 -2.8 1.5 .6 -3.1 -2.3 -2.1 3.1 -.4 Z" fill="#FFC93C"/>
+          </g>
+          <ellipse cx="92" cy="110" rx="10" ry="8" fill="#7A5138" filter="url(#peca)"/>
+          <ellipse cx="22" cy="50" rx="10" ry="4.5" transform="rotate(-22 22 50)" fill="#F6A9B5"/><ellipse cx="114" cy="50" rx="10" ry="4.5" transform="rotate(22 114 50)" fill="#F6A9B5"/>
+          <g filter="url(#peca)">
+            <ellipse cx="48" cy="45" rx="15" ry="13" transform="rotate(-15 48 45)" fill="#7A5138"/>
+            <circle cx="93" cy="36" r="7" fill="#7A5138"/>
+            <path d="M60 25 Q66 14 75 22 Q68 20 64 27 Z" fill="#7A5138"/>
+          </g>
+          <ellipse cx="68" cy="72" rx="28" ry="16" fill="#F6B3BE" filter="url(#peca)"/>
+          <ellipse cx="58" cy="71" rx="3.6" ry="5" fill="#C9677A"/><ellipse cx="78" cy="71" rx="3.6" ry="5" fill="#C9677A"/>
+          <path d="M61 80 q7 6 14 0" fill="none" stroke="#C9677A" stroke-width="2.4" stroke-linecap="round"/>
+          <circle cx="50" cy="48" r="7.8" fill="#FFF9EE"/>
+          <g class="olhos"><circle cx="50" cy="48" r="5.5" fill="#2E211B"/><circle cx="86" cy="48" r="5.5" fill="#2E211B"/><circle cx="52" cy="46" r="1.8" fill="#fff"/><circle cx="88" cy="46" r="1.8" fill="#fff"/></g>
+          <circle cx="35" cy="63" r="5.5" fill="#F59AAE" opacity=".6"/><circle cx="101" cy="63" r="5.5" fill="#F59AAE" opacity=".6"/>
+          <g filter="url(#peca)">
+            <path d="M38 88 L98 88 L68 114 Z" fill="url(#xadrez-vermelho)" stroke="#C8412F" stroke-width="1.6" stroke-linejoin="round"/>
+            <path d="M92 86 L104 80 L103 92 Z M92 86 L100 96 L90 94 Z" fill="#E2553F"/>
+          </g>
+        </svg>
+        <span class="balao" aria-hidden="true">Muuuu!</span>
+      </button>
+      <button class="bicho bicho-porco" type="button" data-bicho="porco" aria-label="Porquinho de bandana: toque para ouvir">
+        <svg viewBox="0 0 130 120" aria-hidden="true" focusable="false">
+          <g filter="url(#recorte)" fill="#F7A8BA">
+            <rect x="40" y="96" width="16" height="21" rx="6"/><rect x="74" y="96" width="16" height="21" rx="6"/>
+            <path d="M100 86 Q116 80 111 70 Q105 63 102 72 Q100 82 114 84" fill="none" stroke="#F28FA6" stroke-width="4.5" stroke-linecap="round"/>
+            <ellipse cx="65" cy="88" rx="37" ry="24"/>
+            <path d="M34 30 L22 4 Q40 4 52 18 Z M96 30 L108 4 Q90 4 78 18 Z" fill="#F28FA6"/>
+            <circle cx="65" cy="48" r="34"/>
+          </g>
+          <g class="botas" filter="url(#peca)">
+            <path d="M38 102 H58 V113 H61 Q64 113 64 116 V119 H38 Z" fill="#C8412F"/>
+            <path d="M92 102 H72 V113 H69 Q66 113 66 116 V119 H92 Z" fill="#C8412F"/>
+            <rect x="37" y="100" width="22" height="5" rx="2.5" fill="#E85A4F"/><rect x="71" y="100" width="22" height="5" rx="2.5" fill="#E85A4F"/>
+            <path d="M42 109 h12 M76 109 h12" stroke="#FFC93C" stroke-width="2" stroke-linecap="round"/>
+          </g>
+          <g filter="url(#peca)">
+            <path d="M38 79 L92 79 L65 101 Z" fill="url(#xadrez-azul)" stroke="#2F6FA8" stroke-width="1.6" stroke-linejoin="round"/>
+          </g>
+          <ellipse cx="65" cy="58" rx="16" ry="11.5" fill="#F28FA6" filter="url(#peca)"/>
+          <ellipse cx="59" cy="58" rx="2.6" ry="4" fill="#C25A76"/><ellipse cx="71" cy="58" rx="2.6" ry="4" fill="#C25A76"/>
+          <g class="olhos"><circle cx="50" cy="42" r="5" fill="#2E211B"/><circle cx="80" cy="42" r="5" fill="#2E211B"/><circle cx="51.8" cy="40.2" r="1.7" fill="#fff"/><circle cx="81.8" cy="40.2" r="1.7" fill="#fff"/></g>
+          <circle cx="40" cy="58" r="5.5" fill="#F27C98" opacity=".55"/><circle cx="90" cy="58" r="5.5" fill="#F27C98" opacity=".55"/>
+          <path d="M58 72 q7 5 14 0" fill="none" stroke="#C25A76" stroke-width="2.4" stroke-linecap="round"/>
+          <g class="chapeu" filter="url(#peca)" transform="rotate(10 65 18)">
+            <path d="M47 20 Q45 0 65 2 Q85 0 83 20 Q65 24 47 20 Z" fill="#C2834A"/>
+            <path d="M47 14 Q65 18 83 14 L83 19 Q65 23 47 19 Z" fill="url(#xadrez-azul)"/>
+            <path d="M33 21 Q65 11 97 21 Q91 28 65 28 Q39 28 33 21 Z" fill="#A86A34"/>
+            <path d="M60 4 Q65 9 70 4" fill="none" stroke="#A86A34" stroke-width="2.2" stroke-linecap="round"/>
+          </g>
+        </svg>
+        <span class="balao" aria-hidden="true">Óinc óinc!</span>
+      </button>
+    </div>
+
+    <!-- 6) gramado da frente, florzinhas e o pintinho -->
+    <div class="camada c-frente2" data-camada data-a=".64" data-b="1" data-prof="22">
+      <svg class="grama" viewBox="0 0 450 64" aria-hidden="true" focusable="false">
+        <path filter="url(#peca)" fill="#A5DBA6" d="M0 64 V28 Q15.0 12 30 27 Q45.0 24 60 29 Q75.0 12 90 27 Q105.0 24 120 29 Q135.0 12 150 27 Q165.0 24 180 29 Q195.0 12 210 27 Q225.0 24 240 29 Q255.0 12 270 27 Q285.0 24 300 29 Q315.0 12 330 27 Q345.0 24 360 29 Q375.0 12 390 27 Q405.0 24 420 29 Q435.0 12 450 27 V64 Z"/>
+        <g stroke="#5FAF6C" stroke-width="3" stroke-linecap="round"><path d="M60 50 V22 M140 50 V26 M310 50 V24 M405 50 V22 M100 50 V30 M352 50 V30"/></g>
+        <g filter="url(#peca)">
+          <g fill="#FFFDF7"><ellipse cx="60" cy="13" rx="4" ry="6.5"/><ellipse cx="60" cy="13" rx="4" ry="6.5" transform="rotate(60 60 19)"/><ellipse cx="60" cy="13" rx="4" ry="6.5" transform="rotate(120 60 19)"/><ellipse cx="60" cy="13" rx="4" ry="6.5" transform="rotate(180 60 19)"/><ellipse cx="60" cy="13" rx="4" ry="6.5" transform="rotate(240 60 19)"/><ellipse cx="60" cy="13" rx="4" ry="6.5" transform="rotate(300 60 19)"/></g><circle cx="60" cy="19" r="4.5" fill="#FFC93C"/>
+          <g fill="#FFFDF7"><ellipse cx="405" cy="13" rx="4" ry="6.5"/><ellipse cx="405" cy="13" rx="4" ry="6.5" transform="rotate(60 405 19)"/><ellipse cx="405" cy="13" rx="4" ry="6.5" transform="rotate(120 405 19)"/><ellipse cx="405" cy="13" rx="4" ry="6.5" transform="rotate(180 405 19)"/><ellipse cx="405" cy="13" rx="4" ry="6.5" transform="rotate(240 405 19)"/><ellipse cx="405" cy="13" rx="4" ry="6.5" transform="rotate(300 405 19)"/></g><circle cx="405" cy="19" r="4.5" fill="#FFC93C"/>
+          <g fill="#FFC93C"><ellipse cx="140" cy="17" rx="3.6" ry="6"/><ellipse cx="140" cy="17" rx="3.6" ry="6" transform="rotate(72 140 23)"/><ellipse cx="140" cy="17" rx="3.6" ry="6" transform="rotate(144 140 23)"/><ellipse cx="140" cy="17" rx="3.6" ry="6" transform="rotate(216 140 23)"/><ellipse cx="140" cy="17" rx="3.6" ry="6" transform="rotate(288 140 23)"/></g><circle cx="140" cy="23" r="4" fill="#C2834A"/>
+          <g fill="#FFC93C"><ellipse cx="310" cy="15" rx="3.6" ry="6"/><ellipse cx="310" cy="15" rx="3.6" ry="6" transform="rotate(72 310 21)"/><ellipse cx="310" cy="15" rx="3.6" ry="6" transform="rotate(144 310 21)"/><ellipse cx="310" cy="15" rx="3.6" ry="6" transform="rotate(216 310 21)"/><ellipse cx="310" cy="15" rx="3.6" ry="6" transform="rotate(288 310 21)"/></g><circle cx="310" cy="21" r="4" fill="#C2834A"/>
+          <path d="M93 31 Q92 20 96 18 L100 23 L104 18 Q108 20 107 31 Q100 36 93 31 Z" fill="#E85A4F"/>
+          <path d="M345 31 Q344 20 348 18 L352 23 L356 18 Q360 20 359 31 Q352 36 345 31 Z" fill="#F7A8BA"/>
+        </g>
+        <use href="#feno" x="6" y="8" width="62" height="28"/>
+        <use href="#feno" x="384" y="8" width="62" height="28"/>
+        <path filter="url(#peca)" fill="#8ACF8E" d="M0 64 V36 Q12.5 20 25 34 Q37.5 30 50 36 Q62.5 20 75 34 Q87.5 30 100 36 Q112.5 20 125 34 Q137.5 30 150 36 Q162.5 20 175 34 Q187.5 30 200 36 Q212.5 20 225 34 Q237.5 30 250 36 Q262.5 20 275 34 Q287.5 30 300 36 Q312.5 20 325 34 Q337.5 30 350 36 Q362.5 20 375 34 Q387.5 30 400 36 Q412.5 20 425 34 Q437.5 30 450 36 V64 Z"/>
+      </svg>
+      <svg class="feno-pintinho" viewBox="0 0 90 40" aria-hidden="true" focusable="false"><use href="#feno"/></svg>
+      <button class="bicho bicho-pintinho" type="button" data-bicho="pintinho" aria-label="Pintinho de chapéu: toque para ouvir">
+        <svg viewBox="0 0 80 84" aria-hidden="true" focusable="false">
+          <g filter="url(#recorte)">
+            <path d="M26 70 H36 V78 H39 Q41 78 41 80 V83 H26 Z M54 70 H44 V78 H41 Q39 78 39 80 V83 H54 Z" fill="#C8412F"/>
+            <circle cx="40" cy="47" r="29" fill="#FFD54A"/>
+          </g>
+          <ellipse cx="13" cy="52" rx="7" ry="12" transform="rotate(22 13 52)" fill="#F7C02E" filter="url(#peca)"/>
+          <ellipse cx="67" cy="52" rx="7" ry="12" transform="rotate(-22 67 52)" fill="#F7C02E" filter="url(#peca)"/>
+          <g class="olhos"><circle cx="30" cy="42" r="4" fill="#2E211B"/><circle cx="50" cy="42" r="4" fill="#2E211B"/><circle cx="31.4" cy="40.6" r="1.4" fill="#fff"/><circle cx="51.4" cy="40.6" r="1.4" fill="#fff"/></g>
+          <path d="M35 50 L45 50 L40 57 Z" fill="#F28C28" stroke="#F28C28" stroke-width="2.5" stroke-linejoin="round"/>
+          <circle cx="23" cy="52" r="4" fill="#FF9E7A" opacity=".75"/><circle cx="57" cy="52" r="4" fill="#FF9E7A" opacity=".75"/>
+          <g class="chapeu" filter="url(#peca)" transform="rotate(-8 40 18)">
+            <path d="M29 20 Q29 5 40 6 Q51 5 51 20 Z" fill="#C2834A"/>
+            <rect x="29" y="15" width="22" height="4" fill="#E2553F"/>
+            <path d="M20 20 Q40 14 60 20 Q56 25 40 25 Q24 25 20 20 Z" fill="#A86A34"/>
+          </g>
+        </svg>
+        <span class="balao" aria-hidden="true">Piu piu!</span>
+      </button>
+    </div>
+  </div>
+
+  <div class="base">
+    <p class="dica" id="dica" aria-live="polite">Puxe a lingueta <span aria-hidden="true">→</span></p>
+    <div class="trilho" id="trilho">
+      <span class="fenda" aria-hidden="true"><span class="fenda-cheia" id="fendaCheia"></span><span class="setas"><i></i><i></i><i></i></span></span>
+      <button class="lingueta" id="lingueta" type="button" aria-describedby="dica" aria-label="Lingueta do cartão pop-up: toque ou puxe para montar a cena (setas também funcionam)">
+        <span aria-hidden="true">Puxe</span>
+        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h12M12 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+    </div>
+    <a class="ver-convite" id="verConvite" href="#convite" hidden>Ver o convite
+      <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 5v13M6 12l6 6 6-6" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </a>
+  </div>
+</header>
+
+<main id="convite" class="convite" tabindex="-1">
+  <h2>Você está convidado!</h2>
+  <p class="convite-sub">Arthur · 1 aninho</p>
+  <div class="cartoes">
+    <section class="cartao" style="--cor:#F7A8BA" data-entrada>
+      <svg class="icone" viewBox="0 0 64 64" aria-hidden="true" focusable="false"><g filter="url(#peca)"><rect x="8" y="12" width="48" height="44" rx="10" fill="#FFFDF7"/><path d="M8 22 Q8 12 18 12 H46 Q56 12 56 22 V26 H8 Z" fill="#E85A4F"/><rect x="18" y="6" width="6" height="12" rx="3" fill="#A8352A"/><rect x="40" y="6" width="6" height="12" rx="3" fill="#A8352A"/></g><text x="32" y="50" text-anchor="middle" class="icone-num">29</text></svg>
+      <h3>Quando</h3><p>Domingo, 29 de novembro de 2026</p>
+    </section>
+    <section class="cartao" style="--cor:#FFC93C" data-entrada>
+      <svg class="icone" viewBox="0 0 64 64" aria-hidden="true" focusable="false"><g filter="url(#peca)"><circle cx="32" cy="34" r="24" fill="#FFC93C"/><circle cx="32" cy="34" r="18" fill="#FFFDF7"/></g><path d="M32 22 V34 L40 38" fill="none" stroke="#A8352A" stroke-width="4" stroke-linecap="round"/><circle cx="32" cy="34" r="3" fill="#A8352A"/></svg>
+      <h3>Horário</h3><p>15h</p>
+    </section>
+    <section class="cartao cartao-onde" style="--cor:#9FD6F2" data-entrada>
+      <svg class="icone" viewBox="0 0 64 64" aria-hidden="true" focusable="false"><g filter="url(#peca)"><rect x="29" y="30" width="7" height="28" rx="3" fill="#9A6A3C"/><circle cx="32" cy="20" r="16" fill="#7CC487"/><circle cx="18" cy="28" r="10" fill="#7CC487"/><circle cx="46" cy="28" r="10" fill="#7CC487"/><path d="M20 38 L32 28 L44 38 Z" fill="#E85A4F"/><rect x="23" y="37" width="18" height="12" rx="2" fill="#F6D178"/><rect x="29" y="41" width="6" height="8" fill="#9A6A3C"/></g></svg>
+      <h3>Onde</h3><p>Casa da Árvore</p><p class="sub">Rua Castelo Branco, nº 31<br>Cidade Nova, Santana do Paraíso</p>
+      <p class="mapas" data-mapas><a class="mapa" data-mapa="google" href="https://www.google.com/maps/search/?api=1&amp;query=Casa%20da%20%C3%81rvore%2C%20Rua%20Castelo%20Branco%2C%2031%2C%20Cidade%20Nova%2C%20Santana%20do%20Para%C3%ADso%20-%20MG" target="_blank" rel="noopener noreferrer" aria-label="Abrir o endereço da festa no Google Maps (abre em nova aba)">Abrir no Google Maps</a><a class="mapa" data-mapa="apple" href="https://maps.apple.com/?q=Casa%20da%20%C3%81rvore%2C%20Rua%20Castelo%20Branco%2C%2031%2C%20Cidade%20Nova%2C%20Santana%20do%20Para%C3%ADso%20-%20MG" target="_blank" rel="noopener noreferrer" aria-label="Abrir o endereço da festa no Apple Maps (abre em nova aba)">Abrir no Apple Maps</a><a class="mapa" data-mapa="waze" href="https://waze.com/ul?q=Casa%20da%20%C3%81rvore%2C%20Rua%20Castelo%20Branco%2C%2031%2C%20Cidade%20Nova%2C%20Santana%20do%20Para%C3%ADso%20-%20MG&amp;navigate=yes" target="_blank" rel="noopener noreferrer" aria-label="Abrir o endereço da festa no Waze (abre em nova aba)">Abrir no Waze</a></p>
+    </section>
+    <section class="cartao" style="--cor:#B9E3B9" data-entrada>
+      <svg class="icone" viewBox="0 0 64 64" aria-hidden="true" focusable="false"><g filter="url(#peca)"><path d="M18 40 Q14 12 32 14 Q50 12 46 40 Q32 44 18 40 Z" fill="#C2834A"/><path d="M18 33 Q32 37 46 33 L46 39 Q32 43 18 39 Z" fill="#E2553F"/><path d="M4 42 Q32 30 60 42 Q54 52 32 52 Q10 52 4 42 Z" fill="#A86A34"/></g><path d="M27 17 Q32 22 37 17" fill="none" stroke="#A86A34" stroke-width="2.5" stroke-linecap="round"/></svg>
+      <h3>Tema</h3><p>Venha caracterizado: country/fazendinha</p>
+    </section>
+    <section class="cartao" style="--cor:#E9C796" data-entrada>
+      <svg class="icone" viewBox="0 0 64 64" aria-hidden="true" focusable="false"><g filter="url(#peca)"><rect x="8" y="12" width="48" height="44" rx="10" fill="#FFFDF7"/><path d="M8 22 Q8 12 18 12 H46 Q56 12 56 22 V26 H8 Z" fill="#3E8DD0"/><rect x="18" y="6" width="6" height="12" rx="3" fill="#24435A"/><rect x="40" y="6" width="6" height="12" rx="3" fill="#24435A"/></g><path d="M24 41 l6 6 l11 -12" fill="none" stroke="#3E9A57" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <h3>Agenda</h3><p class="sub">Domingo, 29/11/2026, às 15h</p>
+      <a class="btn-agenda" data-agenda href="../comum/arthur-1-ano.ics" download="aniversario-arthur-1-aninho.ics">Adicionar à agenda</a>
+    </section>
+  </div>
+
+  <section class="rsvp" id="rsvp" aria-labelledby="rsvp-titulo">
+    <div class="rsvp-intro">
+      <h2 id="rsvp-titulo">Você vem?</h2>
+      <p class="rsvp-sub">Confirme sua presença<span class="so-desktop"><br>para o aniversário do Arthur.</span></p>
+      <div class="rsvp-bicho">
+        <svg viewBox="0 0 130 120" aria-hidden="true" focusable="false">
+          <g filter="url(#recorte)" fill="#F7A8BA">
+            <rect x="40" y="96" width="16" height="21" rx="6"/><rect x="74" y="96" width="16" height="21" rx="6"/>
+            <ellipse cx="65" cy="88" rx="37" ry="24"/>
+            <path d="M34 30 L22 4 Q40 4 52 18 Z M96 30 L108 4 Q90 4 78 18 Z" fill="#F28FA6"/>
+            <circle cx="65" cy="48" r="34"/>
+          </g>
+          <g filter="url(#peca)"><path d="M38 79 L92 79 L65 101 Z" fill="url(#xadrez-vermelho)" stroke="#C8412F" stroke-width="1.6" stroke-linejoin="round"/></g>
+          <ellipse cx="65" cy="58" rx="16" ry="11.5" fill="#F28FA6" filter="url(#peca)"/>
+          <ellipse cx="59" cy="58" rx="2.6" ry="4" fill="#C25A76"/><ellipse cx="71" cy="58" rx="2.6" ry="4" fill="#C25A76"/>
+          <g class="olhos"><circle cx="50" cy="42" r="5" fill="#2E211B"/><circle cx="80" cy="42" r="5" fill="#2E211B"/><circle cx="51.8" cy="40.2" r="1.7" fill="#fff"/><circle cx="81.8" cy="40.2" r="1.7" fill="#fff"/></g>
+          <circle cx="40" cy="58" r="5.5" fill="#F27C98" opacity=".55"/><circle cx="90" cy="58" r="5.5" fill="#F27C98" opacity=".55"/>
+          <path d="M58 72 q7 5 14 0" fill="none" stroke="#C25A76" stroke-width="2.4" stroke-linecap="round"/>
+        </svg>
+      </div>
+    </div>
+    <form class="rsvp-form" data-rsvp novalidate onsubmit="return false">
+      <p class="rsvp-sem-js" data-sem-js>Para confirmar presença, o JavaScript precisa estar ativo. Se o botão não funcionar, recarregue a página.</p>
+      <fieldset data-rsvp-campos disabled>
+      <legend class="sr-only">Confirmação de presença</legend>
+      <div class="campo">
+        <label for="nome">Nome</label>
+        <input id="nome" name="nome" type="text" autocomplete="name" placeholder="Seu nome" maxlength="80" aria-describedby="erro-nome">
+        <p class="erro" id="erro-nome" data-erro="nome"></p>
+      </div>
+      <div class="campos-2">
+        <div class="campo">
+          <label for="adultos">Nº de adultos</label>
+          <input id="adultos" name="adultos" type="number" inputmode="numeric" min="0" max="20" step="1" placeholder="0" aria-describedby="erro-adultos">
+          <p class="erro" id="erro-adultos" data-erro="adultos"></p>
+        </div>
+        <div class="campo">
+          <label for="criancas">Nº de crianças</label>
+          <input id="criancas" name="criancas" type="number" inputmode="numeric" min="0" max="20" step="1" placeholder="0" aria-describedby="erro-criancas">
+          <p class="erro" id="erro-criancas" data-erro="criancas"></p>
+        </div>
+      </div>
+      <div class="isca" aria-hidden="true"><label for="website">Não preencha este campo</label><input id="website" name="website" type="text" tabindex="-1" autocomplete="off"></div>
+      <button type="button" class="botao" data-enviar>Confirmar presença</button>
+      <p class="rsvp-nota" data-nota>Sua confirmação vai para uma<br>planilha privada.</p>
+      <div class="erro-geral" data-erro="total" aria-live="polite"></div>
+      <div class="caixa caixa-sucesso" data-sucesso role="status" aria-live="polite" hidden></div>
+      <div class="caixa caixa-erro" data-alerta role="alert" hidden></div>
+      <p class="sr-only" data-status aria-live="polite"></p>
+      </fieldset>
+    </form>
+  </section>
+</main>
+
+<footer class="rodape">
+  <p>Arthur · 1 aninho · 29/11/2026 · 15h</p>
+  <p class="versao">Versão 07 · Claude Opus 5.5 · esforço xhigh</p>
+</footer>
+</div>
+</body>
+</html>

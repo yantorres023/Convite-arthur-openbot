@@ -1,0 +1,23 @@
+{
+  "versao": "09",
+  "modelo_autodeclarado": "claude-opus-5-5",
+  "esforco_autodeclarado": "xhigh",
+  "esforco_fonte": "runtime: variável de ambiente CLAUDE_EFFORT=xhigh; o contexto do modelo traz também reasoning_effort=40",
+  "conceito": "Balões da festa (fazendinha country)",
+  "mecanica": "Tocar estoura (pop suave) o balão de cada um dos 5 bichinhos country (chapéu, botinhas, lencinho); ele desce de paraquedinha xadrez até a placa de madeira e revela um recado (idade, data, hora, local, traje); com os 5, sobe o balão dourado \"1 aninho!\" com confete.",
+  "verificacao": {
+    "console_erros": 0,
+    "interacao": "ok",
+    "rsvp_inativo": true,
+    "mapas": 3,
+    "detalhes": "Playwright 390x844 (toque, teclado e prefers-reduced-motion): 5/5 recados revelados, foco balão→balão→placa→botão final, botão Pular leva ao #convite com foco, som alterna aria-pressed, links de mapa idênticos a comum/mapas.html com target _blank e rel noopener noreferrer, agenda aponta para ../comum/arthur-1-ano.ics"
+  },
+  "arquivos": [
+    "index.html",
+    "estilo.css",
+    "app.js",
+    "RUN.json",
+    "print-390.png",
+    "print-390-interacao.png"
+  ]
+}

@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Um bolinho pro Arthur — Arthur, 1 aninho</title>
+<meta name="description" content="Aniversário de 1 aninho do Arthur: domingo, 29/11/2026, às 15h, na Casa da Árvore. Monte o bolinho da fazendinha e assopre a vela!">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Um bolinho pro Arthur — Arthur, 1 aninho">
+<meta property="og:description" content="Domingo, 29/11, às 15h · Casa da Árvore · Venha caracterizado de country/fazendinha">
+<meta property="og:image" content="https://yantorres023.github.io/Convite-arthur-openbot/conceito-6/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="theme-color" content="#DCD5F4">
+<link rel="stylesheet" href="../comum/v2.css">
+<link rel="stylesheet" href="../comum/festa.css">
+<link rel="stylesheet" href="estilo.css">
+<script src="../comum/vendor/canvas-confetti-1.9.3.min.js" defer></script>
+<script type="module" src="../comum/pagina.js"></script>
+<script type="module" src="bolo.js"></script>
+</head>
+<body class="festa">
+<div class="barra">
+  <button type="button" class="btn-som" data-som aria-pressed="false" aria-label="Ligar o som">🔇</button>
+  <a class="btn-pular" href="#convite" data-pular>Pular e ver o convite</a>
+</div>
+
+<header class="cena cena-v3" data-cena data-estado="inicio">
+  <div class="palco-v3">
+    <!--SVG design/v3/conceito-6/assets/cena-interativa.svg cena-arte c6-->
+    <div class="titulo">
+      <p class="chamada">Vamos montar o bolo do</p>
+      <h1>Arthur</h1>
+      <p class="idade">1 aninho</p>
+      <p class="nome-brincadeira">Um bolinho pro Arthur</p>
+    </div>
+    <button type="button" class="acao" data-acao>🍰 Colocar a 1ª camada</button>
+    <p class="atual" data-atual hidden aria-hidden="true"></p>
+  </div>
+
+  <p class="dica" data-dica role="status">👆 Toque no botão para montar o bolo! <span class="dica-contador" data-contador>0/5</span></p>
+  <ol class="revelados" data-revelados aria-live="polite" aria-label="O que a brincadeira revelou"></ol>
+  <a class="seta-baixo" href="#convite" data-ver>Ver o convite completo ↓</a>
+</header>
+
+<!--DETALHES-->
+</body>
+</html>

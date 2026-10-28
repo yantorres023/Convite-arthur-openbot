@@ -40,8 +40,8 @@ async function abrir(url, { largura = 390, reduzir = false, js = true, bloquear 
   await ctx.route(() => true, async (r) => {
     const u = new URL(r.request().url());
     if (bloquear && bloquear.test(u.pathname)) return r.fulfill({ status: 404, body: "" });
-    if (u.origin === ORIGEM && u.pathname === "/comum/rsvp-config.local.js")
-      return servidor ? r.fulfill({ status: 200, contentType: "text/javascript", body: `export const RSVP_ENDPOINT = ${JSON.stringify(ENDPOINT)};` }) : r.fulfill({ status: 404, body: "" });
+    if (u.origin === ORIGEM && u.pathname === "/comum/rsvp-config.js")
+      return servidor ? r.fulfill({ status: 200, contentType: "text/javascript", body: `export const RSVP_ENDPOINT = ${JSON.stringify(ENDPOINT)};` }) : r.continue(); // sem servidor: o arquivo real (null)
     if (u.origin === ORIGEM) return r.continue();
     if (servidor && u.origin === new URL(ENDPOINT).origin) {
       envios.push({ metodo: r.request().method(), tipo: r.request().headers()["content-type"], corpo: r.request().postData() });
@@ -62,7 +62,8 @@ async function abrir(url, { largura = 390, reduzir = false, js = true, bloquear 
   });
   const p = await ctx.newPage();
   // Avisos esperados do próprio navegador: config ausente / módulo bloqueado de propósito; 429 simulado.
-  const ignorar = (t) => (/404|Failed to load|rsvp-config\.local\.js/i.test(t) && (!servidor || bloquear)) || (servidor === "limite429" && /status of 429/.test(t));
+  // Avisos esperados do próprio navegador: módulo bloqueado de propósito; 429 simulado. (Nenhum 404 de config.)
+  const ignorar = (t) => (/404|Failed to load/i.test(t) && bloquear) || (servidor === "limite429" && /status of 429/.test(t));
   p.on("pageerror", (e) => { if (!ignorar(String(e))) erros.push(String(e)); });
   p.on("console", (m) => { if (m.type() === "error" && !ignorar(m.text())) erros.push(m.text()); });
   await p.goto(url, { waitUntil: "networkidle" });
@@ -87,6 +88,32 @@ test("comparativo: index com link para os 3 conceitos", async () => {
     for (const c of CONCEITOS) assert.equal(await p.locator(`a[href$="${c}/"]`).count() >= 1, true, `link para ${c}`);
     await p.screenshot({ path: `${PRINTS}/${w}-comparativo.png`, fullPage: true });
     await fim();
+  }
+});
+
+const ENDERECO_BUSCA = "Casa da Árvore, Rua Castelo Branco, 31, Cidade Nova, Santana do Paraíso - MG";
+const MAPAS = { google: ["https://www.google.com", "/maps/search/", "query"], apple: ["https://maps.apple.com", "/", "q"], waze: ["https://waze.com", "/ul", "q"] };
+async function conferirMapas(p, onde) {
+  for (const [k, [origem, caminho, param]] of Object.entries(MAPAS)) {
+    const a = p.locator(`[data-mapa=${k}]`);
+    assert.equal(await a.count(), 1, `${onde}: botão ${k}`);
+    const u = new URL(await a.getAttribute("href"));
+    assert.equal(u.origin, origem, `${onde}: domínio oficial do ${k}`); assert.equal(u.pathname, caminho);
+    assert.equal(u.searchParams.get(param), ENDERECO_BUSCA, `${onde}: endereço decodificado do ${k}`);
+    if (k === "google") assert.equal(u.searchParams.get("api"), "1");
+    if (k === "waze") assert.equal(u.searchParams.get("navigate"), "yes");
+    assert.equal(await a.getAttribute("target"), "_blank"); assert.equal(await a.getAttribute("rel"), "noopener noreferrer");
+    assert.match(await a.getAttribute("aria-label"), /Abrir o endereço da festa no .+ \(abre em nova aba\)/);
+    const box = await a.boundingBox(); assert.ok(box.height >= 44, `${onde}: alvo do ${k} ≥ 44 px`);
+  }
+}
+
+test("botões de mapa (Google Maps, Apple Maps, Waze): 3 páginas e comparativo, 390 e 1440, sem requisição externa no carregamento", async () => {
+  for (const pagina of ["", ...CONCEITOS.map((c) => `${c}/`)]) for (const w of LARGURAS) {
+    const { p, fim } = await abrir(`${BASE}/${pagina}`, { largura: w });
+    await conferirMapas(p, `${pagina || "comparativo"} ${w}`);
+    assert.ok(await p.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 1), "sem rolagem horizontal");
+    await fim(); // fim() falha se houve qualquer requisição a outra origem
   }
 });
 
@@ -322,3 +349,48 @@ test("conceito-1: servidor mudo → prazo de 15 s esgota → 'não conseguimos c
   assert.equal(await p.isDisabled("[data-enviar]"), false); assert.equal(envios.length, 1);
   await fim();
 });
+
+// ---------- Conceitos interativos 4–6 (e2e mínimo) ----------
+const INTERATIVOS = [
+  { c: "conceito-4", alvos: "[data-bicho]", estado: ["data-estado", "fim"] },
+  { c: "conceito-5", alvos: "[data-ovo]", estado: ["data-estado", "fim"] },
+  { c: "conceito-6", alvos: null, estado: ["data-etapa", "assoprou"] },
+];
+for (const { c, alvos, estado } of INTERATIVOS) {
+  test(`${c}: carrega sem erro, a interação principal revela os 5 dados e termina; mapas, .ics e RSVP inativo (390, print)`, async () => {
+    const { p, fim } = await abrir(`${BASE}/${c}/`, { servidor: null });
+    assert.equal(await p.getAttribute("[data-som]", "aria-pressed"), "false", "som desligado por padrão");
+    if (alvos) { for (const el of await p.locator(alvos).all()) { await el.click(); await sleep(150); } }
+    else { for (let i = 0; i < 6; i++) { await p.click("[data-acao]"); await sleep(150); } }
+    await p.waitForFunction(([a, v]) => document.querySelector("[data-cena]").getAttribute(a) === v, estado, { timeout: 5000 });
+    assert.equal(await p.locator("[data-revelados] li").count(), 5, "5 dados revelados");
+    const rev = (await p.textContent("[data-revelados]")).replace(/\s+/g, " ");
+    for (const s of ["29 de novembro de 2026", "15h", "Casa da Árvore", "country/fazendinha"]) assert.ok(rev.includes(s), `${c}: revelação sem "${s}"`);
+    assert.equal(await p.isVisible("[data-ver]"), true, "link para o convite completo");
+    // a arte v3 trocou os estados no SVG (nada de dormindo/inteiro/fechado visível no fim)
+    const estadosIniciais = await p.evaluate(() => [...document.querySelectorAll('[id$="-dormindo"],[id$="-inteiro"]')].filter((e) => getComputedStyle(e).display !== "none").length);
+    assert.equal(estadosIniciais, 0, "estado inicial ainda visível no SVG");
+    await p.screenshot({ path: `${PRINTS}/390-${c}-interacao.png` });
+    const txt = (await p.textContent("#convite")).replace(/\s+/g, " ");
+    for (const s of ["Domingo, 29 de novembro de 2026", "15h", "Casa da Árvore", "Rua Castelo Branco, nº 31", "country/fazendinha"]) assert.ok(txt.includes(s), `${c}: convite sem "${s}"`);
+    await conferirMapas(p, c);
+    assert.equal(await p.getAttribute("[data-agenda]", "href"), "../comum/arthur-1-ano.ics");
+    const ics = await (await fetch(`${BASE}/comum/arthur-1-ano.ics`)).text();
+    assert.match(ics, /DTSTART;TZID=America\/Sao_Paulo:20261129T150000/); assert.match(ics, /LOCATION:Casa da Árvore/);
+    assert.deepEqual(await status(p), { estado: "inativo", texto: "Confirmação ainda não ativada." }, "RSVP inativo");
+    assert.match(await p.getAttribute('meta[property="og:image"]', "content"), new RegExp(`/${c}/og\\.png$`));
+    await p.screenshot({ path: `${PRINTS}/390-${c}.png`, fullPage: true });
+    await fim();
+  });
+
+  test(`${c}: "Pular" revela tudo de uma vez (e movimento reduzido sem animações)`, async () => {
+    const { p, fim } = await abrir(`${BASE}/${c}/`, { servidor: null, reduzir: true });
+    await p.click("[data-pular]");
+    await p.waitForFunction(([a, v]) => document.querySelector("[data-cena]").getAttribute(a) === v, estado, { timeout: 5000 });
+    assert.equal(await p.locator("[data-revelados] li").count(), 5);
+    const lentas = await p.evaluate(() => [...document.querySelectorAll("*")].filter((e) => { const s = getComputedStyle(e);
+      return s.animationName !== "none" && parseFloat(s.animationDuration) > 0.01; }).length);
+    assert.equal(lentas, 0, "sem animações com movimento reduzido");
+    await fim();
+  });
+}

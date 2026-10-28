@@ -82,7 +82,9 @@ export function ligarRSVP(form, endpoint) {
   const somenteLeitura = (sim) => inputs.forEach((i) => { i.readOnly = sim; });
   const limparCaixas = () => { sucesso.hidden = true; sucesso.replaceChildren(); alerta.hidden = true; alerta.textContent = ""; };
   $("[data-sem-js]").hidden = true;
-  if (!endpoint) { estado("inativo", MSG.inativo); nota.textContent = MSG.inativo; return; } // tudo continua desabilitado
+  if (!endpoint) { // tudo continua desabilitado; o aviso vai ACIMA do botão
+    estado("inativo", MSG.inativo); nota.textContent = MSG.inativo; botao.before(nota); form.classList.add("inativo"); return;
+  }
   campos.disabled = false;
   let enviando = false, concluido = false;
   const marcarErros = (erros) => {

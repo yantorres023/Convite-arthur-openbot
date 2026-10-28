@@ -1,0 +1,58 @@
+[
+  {
+    "uso": "Texto sobre céu",
+    "fg": "#3B3649",
+    "bg": "#C0DFFA",
+    "ratio": 8.39,
+    "AA": true
+  },
+  {
+    "uso": "Texto normal",
+    "fg": "#3B3649",
+    "bg": "#FFF7D9",
+    "ratio": 10.81,
+    "AA": true
+  },
+  {
+    "uso": "Apoio",
+    "fg": "#60546B",
+    "bg": "#FFF7D9",
+    "ratio": 6.57,
+    "AA": true
+  },
+  {
+    "uso": "Botões",
+    "fg": "#FFF7D9",
+    "bg": "#7043A5",
+    "ratio": 6.44,
+    "AA": true
+  },
+  {
+    "uso": "Texto no painel",
+    "fg": "#3B3649",
+    "bg": "#EEE4FA",
+    "ratio": 9.46,
+    "AA": true
+  },
+  {
+    "uso": "Céu passe de arte",
+    "fg": "#3B3649",
+    "bg": "#CAC6EB",
+    "ratio": 7.07,
+    "AA": true
+  },
+  {
+    "uso": "Céu passe de arte",
+    "fg": "#3B3649",
+    "bg": "#F4D1CC",
+    "ratio": 8.2,
+    "AA": true
+  },
+  {
+    "uso": "Céu passe de arte",
+    "fg": "#3B3649",
+    "bg": "#FFF2D5",
+    "ratio": 10.45,
+    "AA": true
+  }
+]

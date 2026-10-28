@@ -1,0 +1,23 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Convite do Arthur//1 aninho//PT-BR
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VTIMEZONE
+TZID:America/Sao_Paulo
+BEGIN:STANDARD
+DTSTART:19700101T000000
+TZOFFSETFROM:-0300
+TZOFFSETTO:-0300
+TZNAME:-03
+END:STANDARD
+END:VTIMEZONE
+BEGIN:VEVENT
+UID:aniversario-arthur-1-ano-20261129@convite-arthur-openbot
+DTSTAMP:20261027T000000Z
+DTSTART;TZID=America/Sao_Paulo:20261129T150000
+SUMMARY:Aniversário de 1 aninho do Arthur
+LOCATION:Casa da Árvore\, Rua Castelo Branco\, nº 31\, Cidade Nova\, Santana do Paraíso - MG
+DESCRIPTION:Venha caracterizado: country/fazendinha.
+END:VEVENT
+END:VCALENDAR

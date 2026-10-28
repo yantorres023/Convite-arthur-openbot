@@ -1,0 +1,14 @@
+{
+  "versao": "07",
+  "modelo_autodeclarado": "claude-opus-5-5",
+  "esforco_autodeclarado": "xhigh",
+  "conceito": "Pop-up de cartolina — fazendinha country",
+  "mecanica": "Puxar a lingueta de papel (ou tocar na cena) levanta em 3D, com mola e em cascata, as camadas de papel recortado (morros, o 1 de chapéu, cavalo e ovelha atrás da cerca, plaquinha com data/hora, vaca e porquinho de botinhas, pintinho no feno); depois paralaxe por inclinação/arraste e bichinhos tocáveis com voz, balão e confete.",
+  "verificacao": {
+    "console_erros": 0,
+    "interacao": "ok",
+    "rsvp_inativo": true,
+    "mapas": 3
+  },
+  "arquivos": ["index.html", "estilo.css", "cena.js", "RUN.json", "print-390.png", "print-390-interacao.png"]
+}

@@ -1,0 +1,18 @@
+{
+  "data": "2026-10-27",
+  "viewport_css_largura": 390,
+  "browser": "OpenBot embedded browser",
+  "paginas": {
+    "4": "https://yantorres023.github.io/Convite-arthur-openbot/conceito-4/",
+    "5": "https://yantorres023.github.io/Convite-arthur-openbot/conceito-5/",
+    "6": "https://yantorres023.github.io/Convite-arthur-openbot/conceito-6/"
+  },
+  "live_testado": {
+    "4": "Acordar a vaquinha: progresso 0/5→1/5, data revelada e estado Acordado; som passa a ligado no gesto.",
+    "5": "Procurar ovo 1: progresso 0/5→1/5, dado revelado e estado Ovo 1 achado.",
+    "6": "Colocar a 1ª camada: progresso 0/5→1/5, camada e data reveladas; botão vira Colocar a 2ª camada."
+  },
+  "capturas": "PNG de Edward copiados do worktree convite-pr/prints, 390 px reais; conferidos com snapshots ao vivo. GIFs completos de Edward foram examinados por quadros e os próprios WebMs do primeiro toque foram gravados por Deidara.",
+  "limites": "Não fiz e2e completo de mapas/agenda, teste completo de som nem de reduced-motion neste passe. Não declarei aprovação final; publicação e integração continuam com Edward. Os SVGs novos foram revisados localmente, ainda não aplicados à página publicada.",
+  "ocorrencias": "As três páginas retornaram HTTP200 no navegador; nas três houve GET404 de comum/rsvp-config.local.js. Fontes tiveram ERR_CACHE_MISS inicial e depois HTTP200."
+}

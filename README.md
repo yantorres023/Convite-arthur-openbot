@@ -11,12 +11,31 @@ Páginas estáticas (HTML, CSS e JS, sem dependências externas) com os 3 concei
 ## Status real
 - **Integração preparada; o Web App não está publicado.** A publicação depende de aprovação do Yan; veja `INTEGRACAO-PLANILHA.md`.
 - **Sem endpoint configurado,** a página mostra "Confirmação ainda não ativada" e não envia nada. Ela nunca simula sucesso.
-- **Repositório público:** não contém ID de planilha, URL do Web App, credencial nem dado de convidado. O endpoint fica em `comum/rsvp-config.local.js`, que está no `.gitignore`.
+- **Repositório público:** não contém ID de planilha, URL do Web App, credencial nem dado de convidado. O endpoint fica em `comum/rsvp-config.js` com `RSVP_ENDPOINT = null` (inativo).
 - **GitHub Pages:** não está ativo. A prévia é local.
+
+## Conceitos interativos (4–6)
+
+| Pasta | Mecânica |
+|---|---|
+| `conceito-4/` | **Bom dia, bichinhos!**: cada toque acorda um bichinho, que faz o som e conta um dado da festa. Com os 5 acordados, o sol nasce sorrindo e sai confete. |
+| `conceito-5/` | **Cadê os ovinhos?**: 5 ovos meio escondidos no feno. Cada toque racha um ovo e solta um pintinho com um dado da festa. Com os 5 achados, sai confete. |
+| `conceito-6/` | **Um bolinho pro Arthur**: o botão põe 3 camadas, os bichinhos e a vela "1". "Assopre a vela!" apaga a vela e solta confete. |
+
+- **Som:** começa desligado e é gerado por WebAudio, sem arquivos de áudio. O 1º toque liga o som, e o botão 🔇/🔊 alterna.
+- **Pular:** "Pular e ver o convite" revela tudo e leva ao convite completo.
+- **Movimento reduzido:** com `prefers-reduced-motion`, nada anima e não há confete.
+- **Agenda:** "Adicionar à agenda" baixa `comum/arthur-1-ano.ics` (29/11/2026, 15h, America/Sao_Paulo).
+- **Prévia no WhatsApp:** og:image por conceito em `conceito-N/og.png`, gerado por `scripts/og.mjs`.
+- **Fontes:** Baloo 2, Fredoka e Lilita One (OFL) e Chewy (Apache 2.0), locais em `comum/fontes-festa/` com as licenças.
+- **Confete:** canvas-confetti 1.9.3 (ISC), copiado em `comum/vendor/` com a licença; sem CDN.
+- **Arte:** v3 da Deidara (`design/v3/conceito-N/`). A `cena-interativa.svg` é embutida pelo `scripts/montar.py` e os alvos de toque viram botões HTML gerados de `hotspots.json` por `scripts/modelos-v3.py`. O og:image é o `og-image.png` dela.
 
 ## Dados do convite
 
 Arthur, 1 ano ("1 aninho" na capa) · **domingo, 29/11/2026, 15h** · venha caracterizado: **country/fazendinha** · **Casa da Árvore — Rua Castelo Branco, nº 31, Cidade Nova, Santana do Paraíso** · sem foto.
+
+**Como chegar:** junto ao endereço há 3 botões, "Abrir no Google Maps", "Abrir no Apple Maps" e "Abrir no Waze". São links oficiais de **busca** pelo endereço "Casa da Árvore, Rua Castelo Branco, 31, Cidade Nova, Santana do Paraíso - MG", sem coordenadas, e abrem numa nova aba (`noopener noreferrer`).
 
 ## Prévia local
 
@@ -30,7 +49,7 @@ Na pasta do projeto, abra http://127.0.0.1:4300/. O GitHub Pages não está ativ
 
 O destino é uma planilha privada do Yan, autorizado por ele. A integração e o contrato são do Rocky: `INTEGRACAO-PLANILHA.md`.
 
-- **Endpoint:** fica fora do repositório. O arquivo `comum/rsvp-config.local.js` está no `.gitignore` e segue o modelo `comum/rsvp-config.exemplo.js`. Nenhum ID de planilha, URL do Apps Script ou credencial entra no git.
+- **Endpoint:** `comum/rsvp-config.js`, hoje `null`. Para ativar (só com aprovação do Yan), ponha a URL do Web App nesse arquivo. Como o GitHub Pages publica a partir desta branch, a URL fica pública; o navegador a vê de qualquer forma ao enviar.
 - **Sem endpoint configurado:** a página mostra "Confirmação ainda não ativada" com o botão desabilitado, e **nunca simula sucesso**.
 - **Campos:**
   - **Nome:** 2 a 80 caracteres.
@@ -91,7 +110,7 @@ npm test                    # regras do RSVP (node --test)
 npm run test:e2e            # Playwright em 390 e 1440: dados, rede, RSVP (servidor simulado), teclado, reduced-motion, contraste; prints em prints/
 ```
 
-O e2e (53 testes) falha se a página fizer requisição para outra origem que não o endpoint **falso** configurado no teste. Esse endpoint é atendido por um servidor simulado. Em todos os cenários exige nenhum erro de console.
+O e2e (54 testes) falha se a página fizer requisição para outra origem que não o endpoint **falso** configurado no teste. Esse endpoint é atendido por um servidor simulado. Em todos os cenários exige nenhum erro de console.
 
 Cobre:
 - **Dados e páginas:** dados exatos, sem foto, sem rolagem horizontal.

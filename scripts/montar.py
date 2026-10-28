@@ -8,22 +8,32 @@ Uso: python3 scripts/montar.py   (rodar de novo depois de editar um modelo)."""
 import re, pathlib
 RAIZ = pathlib.Path(__file__).resolve().parent.parent
 rsvp = (RAIZ / "comum/rsvp.html").read_text(encoding="utf-8").strip()
+detalhes = (RAIZ / "comum/detalhes.html").read_text(encoding="utf-8").strip()
+mapas = (RAIZ / "comum/mapas.html").read_text(encoding="utf-8").strip()
 
 def svg(caminho, classe, prefixo):
     s = (RAIZ / caminho).read_text(encoding="utf-8")
     s = re.sub(r"<title[^>]*>.*?</title>", "", s, flags=re.S)
-    s = s.replace('role="img" aria-labelledby="title"', f'class="{classe}" aria-hidden="true" focusable="false"', 1)
+    if 'role="img" aria-labelledby="title"' in s:
+        s = s.replace('role="img" aria-labelledby="title"', f'class="{classe}" aria-hidden="true" focusable="false"', 1)
+    else:  # outros cabeçalhos (ex.: arte v3): acrescenta os atributos na raiz <svg>, tirando role/aria antigos
+        s = re.sub(r'<svg\b([^>]*)>', lambda m: "<svg" + re.sub(r'\s(role|aria-label|aria-labelledby|class)="[^"]*"', "", m.group(1)) + f' class="{classe}" aria-hidden="true" focusable="false">', s, count=1)
+    s = re.sub(r"<\?xml[^>]*\?>", "", s)
     assert 'aria-hidden="true"' in s, caminho
-    assert "url(#" not in s and 'href="#' not in s, f"{caminho}: referência interna; prefixar ids quebraria"
+    # Referências internas (<use href="#x">, url(#x)) acompanham o prefixo dos ids.
+    s = re.sub(r'href="#([^"]+)"', lambda m: f'href="#{prefixo}-{m.group(1)}"', s)
+    s = re.sub(r"url\(#([^)]+)\)", lambda m: f"url(#{prefixo}-{m.group(1)})", s)
     vistos = {}
     def novo(m):  # prefixa e numera repetições (o SVG original pode repetir um id, ex.: "remendos")
         i = m.group(1); vistos[i] = vistos.get(i, 0) + 1
         return f' id="{prefixo}-{i}"' if vistos[i] == 1 else f' id="{prefixo}-{i}-{vistos[i]}"'
     return re.sub(r' id="([^"]+)"', novo, s)
 
-for n in (1, 2, 3):
+for n in sorted(int(p.stem.split("-")[1]) for p in (RAIZ / "modelos").glob("conceito-*.html")):
     m = (RAIZ / f"modelos/conceito-{n}.html").read_text(encoding="utf-8")
-    m = m.replace("<!--RSVP-->", rsvp.replace("{N}", str(n)))
+    m = m.replace("<!--DETALHES-->", detalhes).replace("<!--MAPAS-->", mapas)
+    porco = f"design/v2/conceito-{n if n <= 3 else 1}/assets/pig.svg"
+    m = m.replace("<!--RSVP-->", rsvp.replace("{N}", str(n)).replace("{PORCO}", porco))
     m = re.sub(r"<!--SVG (\S+) (\S+) (\S+)-->", lambda x: svg(x.group(1), x.group(2), x.group(3)), m)
     assert "<!--" not in m, f"marcador sobrando em conceito-{n}"
     ids = re.findall(r' id="([^"]+)"', m)

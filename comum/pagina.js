@@ -1,11 +1,11 @@
-// Comum às páginas: carrega a configuração LOCAL do endpoint (comum/rsvp-config.local.js, fora do git), liga o RSVP
+// Comum às páginas: carrega a configuração do endpoint (comum/rsvp-config.js; null = inativo), liga o RSVP
 // e dispara a entrada uma vez, quando o bloco aparece na tela. Sem config: "Confirmação ainda não ativada".
 // Sem JavaScript tudo fica visível (o estado inicial escondido só vale com html.js e sem movimento reduzido).
 import { ligarRSVP } from "./rsvp.js";
 document.documentElement.classList.add("js");
 let endpoint = null;
 try {
-  const cfg = await import("./rsvp-config.local.js");
+  const cfg = await import("./rsvp-config.js"); // comprometido no repo; null enquanto o RSVP não for ativado
   const u = new URL(cfg.RSVP_ENDPOINT);
   if (u.protocol === "https:") endpoint = u.href;
 } catch { endpoint = null; }

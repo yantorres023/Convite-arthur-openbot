@@ -1,0 +1,50 @@
+{
+  "viewBox": [
+    0,
+    0,
+    390,
+    700
+  ],
+  "id_ceu": "ceu",
+  "id_chao": "chao",
+  "hotspots": [
+    {
+      "id": "camada-1",
+      "bounds": [
+        81,
+        502,
+        309,
+        599
+      ],
+      "revela": "Domingo, 29 de novembro de 2026 · Às 15h"
+    },
+    {
+      "id": "camada-2",
+      "bounds": [
+        112,
+        436,
+        278,
+        525
+      ],
+      "revela": "Casa da Árvore — Rua Castelo Branco, nº 31, Cidade Nova, Santana do Paraíso"
+    },
+    {
+      "id": "camada-3",
+      "bounds": [
+        145,
+        381,
+        245,
+        459
+      ],
+      "revela": "Venha caracterizado de country/fazendinha"
+    }
+  ],
+  "clicavel": "Botões HTML com alvo >=48×48 e texto acessível. Coordenadas guiam a composição, não travam a liberdade de Edward. No bolo usar um botão sequencial e depois Assoprar a vela.",
+  "passe_arte_01": true,
+  "header_safe_zone": [
+    24,
+    70,
+    342,
+    238
+  ]
+}

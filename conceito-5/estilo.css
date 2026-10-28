@@ -1,0 +1,6 @@
+/* Conceito 5 — Cadê os ovinhos? (arte e paleta v3 da Deidara: design/v3/conceito-5/). Contraste: contraste.json. */
+:root{--ceu-1:#FFE9AF;--ceu-2:#FFE9AF;--tinta:#54392F;--tinta-sec:#6B4E42;--destaque:#A24925;--papel:#FFF6E9;
+  --fonte-titulo:"Baloo 2","Fredoka",system-ui,sans-serif;--fonte-texto:"Fredoka",system-ui,sans-serif;
+  --fundo:#FFF6E9;--texto:#54392F;--acento:#A24925;--sec:#6B4E42;--apoio:#FCE7D6;--campo:#FFFFFF;--titulo:"Baloo 2",system-ui,sans-serif}
+.titulo h1{font-weight:800}
+.alvo{border-radius:50%/42%}

@@ -1,0 +1,272 @@
+/* Versão 12 — Pescaria dos patinhos (convite do Arthur, 1 aninho). Fazendinha country infantil, mobile 390 primeiro. */
+@font-face{font-family:"Lilita One";src:url(../comum/fontes-festa/LilitaOne.woff2) format("woff2");font-weight:400;font-display:swap}
+@font-face{font-family:"Baloo 2";src:url(../comum/fontes-festa/Baloo2.woff2) format("woff2");font-weight:400 800;font-display:swap}
+
+:root{
+  --tinta:#1E3A5F;
+  --tinta-2:#2C4868;
+  --creme:#FFF8EC;
+  --amarelo:#FFD23F;
+  --coral:#E8574A;
+  --coral-esc:#C23B30;
+  --azul:#3D8FD6;
+  --titulo:"Lilita One","Baloo 2",system-ui,sans-serif;
+  --texto:"Baloo 2",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  --topo:284px;
+  --lago-w:min(100vw, 540px, max(280px, calc((100vh - var(--topo)) * .6964)));
+  --xadrez:linear-gradient(90deg,rgba(232,87,74,.62) 50%,transparent 0),linear-gradient(rgba(232,87,74,.62) 50%,transparent 0);
+}
+@supports (height:100svh){:root{--lago-w:min(100vw, 540px, max(280px, calc((100svh - var(--topo)) * .6964)))}}
+
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
+body{margin:0;background:var(--creme);color:var(--tinta);font-family:var(--texto);font-size:17px;line-height:1.45;font-weight:500;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+svg{display:block}
+button{font:inherit}
+[hidden]{display:none!important}
+.defs{position:absolute;width:0;height:0;overflow:hidden;pointer-events:none}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+:focus-visible{outline:3px solid var(--tinta);outline-offset:3px}
+
+/* ---------- palco (cena em tela cheia) ---------- */
+.palco{position:relative;isolation:isolate;overflow:hidden;min-height:100vh;min-height:100svh;display:flex;flex-direction:column;align-items:center;
+  background:linear-gradient(180deg,#7CC8FF 0%,#A3DAFF 34%,#CDEDFF 62%,#E6F7FF 100%)}
+.barra{position:absolute;z-index:30;top:max(10px,env(safe-area-inset-top));left:max(12px,env(safe-area-inset-left));right:max(12px,env(safe-area-inset-right));
+  display:flex;justify-content:space-between;align-items:center;gap:10px;pointer-events:none}
+.barra>*{pointer-events:auto}
+.pular{display:inline-flex;align-items:center;gap:6px;min-height:44px;padding:8px 14px 8px 18px;border-radius:999px;background:rgba(255,255,255,.95);color:var(--tinta);
+  font-weight:800;font-size:15px;line-height:1.1;text-decoration:none;box-shadow:0 3px 0 rgba(30,58,95,.16),0 6px 14px rgba(30,58,95,.12)}
+.pular svg{width:18px;height:18px}
+.pular:hover{background:#fff}
+.som{flex:none;width:46px;height:46px;padding:0;border:0;border-radius:50%;background:rgba(255,255,255,.95);color:var(--tinta);display:grid;place-items:center;cursor:pointer;
+  box-shadow:0 3px 0 rgba(30,58,95,.16),0 6px 14px rgba(30,58,95,.12);-webkit-tap-highlight-color:transparent}
+.som svg{width:24px;height:24px}
+.som .som-on{display:none}
+.som[aria-pressed="true"] .som-on{display:inline}
+.som[aria-pressed="true"] .som-off{display:none}
+
+.bandeirinhas{position:absolute;z-index:1;top:58px;left:50%;width:min(100%,620px);height:auto;transform:translateX(-50%)}
+.nuvens{position:absolute;inset:0;z-index:0;pointer-events:none}
+.nuvem{position:absolute;height:auto}
+.nuvem-a{left:-30px;top:122px;width:124px;animation:nuvem 17s ease-in-out infinite alternate}
+.nuvem-b{right:-34px;top:196px;width:104px;animation:nuvem 21s ease-in-out infinite alternate-reverse}
+@keyframes nuvem{to{transform:translateX(24px)}}
+
+/* ---------- título ---------- */
+.titulo{position:relative;z-index:5;margin-top:86px;text-align:center}
+.titulo h1{margin:0;display:flex;flex-direction:column;align-items:center;font-weight:400;line-height:1}
+.nome{position:relative;display:inline-block;padding:0 .05em;font-family:var(--titulo);font-size:clamp(62px,21vw,100px);line-height:.92;letter-spacing:.01em;color:var(--amarelo);
+  -webkit-text-stroke:10px var(--tinta);paint-order:stroke fill;text-shadow:0 6px 0 var(--tinta);animation:entraTitulo .75s cubic-bezier(.3,1.5,.5,1) both}
+.nome-chapeu{position:absolute;left:-.17em;top:-.38em;width:.88em;height:auto;transform:rotate(-17deg);filter:drop-shadow(0 3px 0 rgba(30,58,95,.35))}
+.idade{position:relative;z-index:1;margin-top:-9px;display:inline-block;padding:3px 18px 5px;border-radius:999px;border:3px solid #fff;background:var(--coral-esc);color:#fff;
+  font-family:var(--titulo);font-size:25px;line-height:1.1;box-shadow:0 4px 0 #8E2620;transform:rotate(-4deg);animation:entraSelo .6s .3s cubic-bezier(.3,1.6,.5,1) both}
+.idade::before,.idade::after{content:"";position:absolute;top:50%;width:6px;height:6px;margin-top:-3px;border-radius:50%;background:#fff}
+.idade::before{left:7px}.idade::after{right:7px}
+@keyframes entraTitulo{from{transform:scale(.4) rotate(-6deg);opacity:0}}
+@keyframes entraSelo{from{transform:rotate(-4deg) scale(0)}}
+
+/* ---------- placar (vaguinhas dos patinhos pescados) ---------- */
+.placar{position:relative;z-index:5;margin-top:7px;padding:0 12px;display:flex;flex-direction:column;align-items:center;gap:6px}
+.placar-titulo{margin:0;padding:5px 14px 4px;border-radius:999px;background:rgba(255,255,255,.85);color:var(--tinta);font:800 15.5px/1.2 var(--texto);text-align:center}
+/* as vaguinhas são argolas de corda (laço) presas numa cordinha */
+.vagas{position:relative;display:flex;gap:9px;margin:0;padding:0;list-style:none}
+.vagas::before{content:"";position:absolute;left:16px;right:16px;top:50%;height:6px;margin-top:-3px;border-radius:3px;
+  background:repeating-linear-gradient(118deg,#E5B675 0 2.4px,#B98243 2.4px 3.8px);box-shadow:0 0 0 1.2px #8E5A2B;animation:estica .5s .1s cubic-bezier(.3,1.3,.5,1) both}
+@keyframes estica{from{transform:scaleX(0)}}
+.vagas li{position:relative;z-index:1}
+.vaga{width:44px;height:44px;padding:0;display:grid;place-items:center;border-radius:50%;border:0;color:var(--tinta);font:400 21px/1 var(--titulo);cursor:default;
+  background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 44 44'%3E%3Cg fill='none'%3E%3Ccircle cx='22' cy='22' r='19.4' stroke='%238E5A2B' stroke-width='5'/%3E%3Ccircle cx='22' cy='22' r='19.4' stroke='%23E5B675' stroke-width='3'/%3E%3Ccircle cx='22' cy='22' r='19.4' stroke='%23B98243' stroke-width='3' stroke-dasharray='1.3 2.6'/%3E%3C/g%3E%3C/svg%3E") center/100% 100% no-repeat #EAF6FF;
+  animation:entraSelo2 .45s cubic-bezier(.3,1.6,.5,1) both}
+.vagas li:nth-child(2) .vaga{animation-delay:.06s}.vagas li:nth-child(3) .vaga{animation-delay:.12s}.vagas li:nth-child(4) .vaga{animation-delay:.18s}.vagas li:nth-child(5) .vaga{animation-delay:.24s}
+@keyframes entraSelo2{from{transform:scale(0)}}
+.vaga.cheia{background-color:#fff;cursor:pointer;box-shadow:0 3px 0 rgba(30,58,95,.2)}
+.vaga.cheia svg{width:38px;height:auto}
+.vaga:focus-visible{outline-offset:2px}
+
+/* ---------- cena do laguinho ---------- */
+.cena{position:relative;z-index:10;margin-top:auto;width:100%;display:flex;justify-content:center}
+.lago{position:relative;flex:none;width:var(--lago-w);aspect-ratio:390/560;container-type:inline-size}
+.lago-fundo,.ilha{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
+.lago-fundo{z-index:0;-webkit-tap-highlight-color:transparent}
+.ilha{z-index:392;pointer-events:none}
+.sol-raios{transform-box:fill-box;transform-origin:center;animation:gira 36s linear infinite}
+@keyframes gira{to{transform:rotate(360deg)}}
+.nuvem-c{animation:nuvem 14s ease-in-out infinite alternate}
+.bandeira{transform-box:fill-box;transform-origin:0 50%;animation:tremula 1.7s ease-in-out infinite alternate}
+@keyframes tremula{from{transform:skewY(-7deg) scaleX(.92)}to{transform:skewY(6deg) scaleX(1)}}
+.bandeira-num{font:400 11px var(--titulo);fill:var(--tinta);text-anchor:middle;dominant-baseline:central}
+.brilhos path{animation:brilho 3.2s ease-in-out infinite alternate}
+.brilhos .b2{animation-delay:-1.1s}.brilhos .b3{animation-delay:-2.2s}
+@keyframes brilho{from{opacity:.15;transform:translateX(-4px)}to{opacity:1;transform:translateX(4px)}}
+.vaca-rabo{transform-box:fill-box;transform-origin:100% 0;animation:rabo 2.4s ease-in-out infinite alternate}
+@keyframes rabo{from{transform:rotate(-12deg)}to{transform:rotate(12deg)}}
+.piscar{transform-box:fill-box;transform-origin:center;animation:piscar 4.8s infinite}
+.ovelha .piscar{animation-delay:-1.7s}.sapinho .piscar{animation-delay:-3.1s}
+@keyframes piscar{0%,91%,100%{transform:scaleY(1)}94%{transform:scaleY(.1)}}
+.ondas ellipse{fill:none;stroke:#fff;stroke-width:2.4;vector-effect:non-scaling-stroke;transform-box:fill-box;transform-origin:center;pointer-events:none}
+
+/* dica */
+.dica{position:absolute;z-index:600;left:5%;top:2.6%;margin:0;padding:8px 15px 9px;border-radius:18px;background:#fff;color:var(--tinta);font:800 16px/1.2 var(--texto);
+  box-shadow:0 4px 0 rgba(30,58,95,.15),0 8px 18px rgba(30,58,95,.15);pointer-events:none;opacity:0;transform:translateY(8px) scale(.9);
+  transition:opacity .35s,transform .45s cubic-bezier(.3,1.5,.5,1)}
+.dica::after{content:"";position:absolute;left:28px;bottom:-9px;border:10px solid transparent;border-top-color:#fff;border-bottom:0}
+.dica.mostra{opacity:1;transform:none;animation:balanca 1.6s ease-in-out .5s infinite}
+@keyframes balanca{50%{transform:translateY(-4px)}}
+
+/* patinhos (botões que boiam) */
+.pato{position:absolute;left:0;top:0;width:21.54%;aspect-ratio:124/140;margin:0;padding:0;border:0;border-radius:42%;background:none;cursor:pointer;
+  -webkit-tap-highlight-color:transparent;touch-action:manipulation;
+  transform:translate(calc(var(--x) * 100cqw / 390), calc(var(--y) * 100cqw / 390)) translate(-50%,-88.6%) scale(var(--k,1));
+  transform-origin:50% 88.6%;transition:opacity .25s}
+.pato:focus-visible{outline:3px solid var(--tinta);outline-offset:1px;box-shadow:0 0 0 1px #fff,0 0 0 7px rgba(255,255,255,.9)}
+.pato.escondido{opacity:0;pointer-events:none}
+.pato-agua,.pato-onda{transition:opacity .2s}
+.pato.no-ar .pato-agua,.pato.no-ar .pato-onda{opacity:0}
+.pato.pescado{visibility:hidden;pointer-events:none}
+.pato-mov{position:absolute;inset:0;transform:rotate(calc(var(--r,0) * 1deg));transform-origin:50% 88.6%}
+.pato-corpo{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
+.pato-espelho{transform-box:view-box;transform-origin:62px 0;transition:transform .4s cubic-bezier(.3,1.5,.5,1)}
+.pato.esq .pato-espelho,.voo-frente.esq .pato-espelho{transform:scaleX(-1)}
+.argola{fill:none;stroke:#E8574A;stroke-width:3.6}
+.pato-agua{position:absolute;left:5%;right:5%;top:85.4%;height:15%;border-radius:50%;pointer-events:none;
+  background:radial-gradient(ellipse at 50% 25%,rgba(160,226,250,.95),rgba(88,192,236,.92) 72%);border-top:2px solid rgba(255,255,255,.8)}
+.pato-onda{position:absolute;left:-12%;width:124%;top:88.6%;height:auto;transform:translateY(-50%);overflow:visible;pointer-events:none}
+.pato-onda ellipse{fill:none;stroke:#fff;stroke-width:2.2;transform-box:fill-box;transform-origin:center}
+.pato-onda .o0{stroke-opacity:.5}
+.pato-onda .o1,.pato-onda .o2{opacity:0;animation:ondinha 2.6s ease-out infinite}
+.pato-onda .o2{animation-delay:1.3s}
+@keyframes ondinha{0%{transform:scale(.7);opacity:.85}100%{transform:scale(1.5);opacity:0}}
+
+/* patinho pescado (voa por cima de tudo e vira para mostrar o número) */
+.voo{position:absolute;inset:0;z-index:42;pointer-events:none}
+.pato-voo{position:absolute;left:0;top:0;will-change:transform;filter:drop-shadow(0 10px 10px rgba(30,58,95,.25))}
+.voo-giro{position:absolute;inset:0;transform-style:preserve-3d}
+.voo-frente,.voo-verso{position:absolute;inset:0;width:100%;height:100%;overflow:visible;backface-visibility:hidden;-webkit-backface-visibility:hidden}
+.voo-verso{transform:rotateX(180deg)}
+/* botinhas que aparecem quando o patinho sai da água */
+.voo-botas{transform-box:fill-box;transform-origin:50% 0;animation:surgeBotas .34s cubic-bezier(.3,1.6,.5,1) both}
+@keyframes surgeBotas{from{transform:translateY(-12px) scaleY(.25)}}
+.voo-bota{transform-box:fill-box;transform-origin:50% 0;animation:balancaBota .36s ease-in-out infinite alternate}
+.voo-bota+.voo-bota{animation-delay:-.18s}
+@keyframes balancaBota{from{transform:rotate(-13deg)}to{transform:rotate(13deg)}}
+.para-cima,.para-cima .voo-bota{transform-origin:50% 100%}
+.para-cima{animation:none}
+.para-cima .voo-bota{animation-duration:.42s}
+.verso-num{font-family:var(--titulo);font-size:30px;fill:var(--tinta);text-anchor:middle;dominant-baseline:central}
+.verso-num.um{font-size:38px}
+
+/* varinha de bambu */
+.vara{position:absolute;inset:0;z-index:41;width:100%;height:100%;overflow:visible;pointer-events:none}
+.vara-cana{fill:#EAC07A;stroke:#B9833F;stroke-width:1.2;stroke-linejoin:round}
+.vara-nos{fill:none;stroke:#B07A38;stroke-width:2.4;stroke-linecap:round}
+.vara-cabo{fill:none;stroke:#E8574A;stroke-linecap:round;stroke-dasharray:6 3}
+.vara-linha{fill:none;stroke:#34465E;stroke-width:1.5;stroke-linecap:round}
+
+/* bilhete com o dado da festa */
+.bilhete{position:absolute;z-index:50;left:50%;bottom:max(14px,env(safe-area-inset-bottom));width:min(calc(100% - 28px),390px);max-height:calc(100% - 120px);overflow:auto;
+  transform:translateX(-50%);padding:0 18px 16px;border-radius:26px;border:3px solid #fff;background:#fff;text-align:center;
+  box-shadow:0 6px 0 rgba(30,58,95,.12),0 18px 40px rgba(30,58,95,.3)}
+.bilhete.medindo{visibility:hidden}
+.bilhete.entra{animation:entraBilhete .42s cubic-bezier(.3,1.4,.5,1)}
+@keyframes entraBilhete{from{opacity:0;transform:translateX(-50%) translateY(26px) scale(.96)}}
+.bilhete-faixa{height:16px;margin:0 -18px 12px;background-color:#fff;background-image:var(--xadrez);background-size:16px 16px}
+.bilhete-rotulo{display:inline-block;margin:0;padding:3px 12px;border-radius:999px;background:#FFE7E2;color:#AD3329;font:800 14px/1.2 var(--texto);letter-spacing:.03em}
+.bilhete-titulo{margin:8px 0 2px;font:400 30px/1.08 var(--titulo);color:var(--tinta)}
+.bilhete-texto{margin:0 0 14px;font:700 18px/1.35 var(--texto);color:var(--tinta-2)}
+.bilhete-lista{display:grid;gap:7px;margin:8px 0 14px;padding:0;list-style:none;text-align:left}
+.bilhete-lista li{display:flex;gap:10px;align-items:center;font:700 15.5px/1.3 var(--texto);color:var(--tinta)}
+.bilhete-lista svg{flex:none;width:36px;height:auto}
+.bilhete-acoes{display:grid;gap:8px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:50px;padding:10px 20px;border:0;border-radius:999px;font:800 18px/1.15 var(--texto);
+  text-decoration:none;cursor:pointer;-webkit-tap-highlight-color:transparent}
+.btn-prim{background:var(--tinta);color:#fff;box-shadow:0 4px 0 #0E2340}
+.btn-prim:active{transform:translateY(2px);box-shadow:0 2px 0 #0E2340}
+.btn-sec{background:#fff;color:var(--tinta);box-shadow:inset 0 0 0 2.5px var(--tinta)}
+
+/* ---------- convite (detalhes) ---------- */
+.convite{position:relative;padding:44px 18px 30px;background:var(--creme)}
+.convite:focus{outline:none}
+.convite::before{content:"";position:absolute;left:0;right:0;top:0;height:16px;background-color:#fff;background-image:var(--xadrez);background-size:16px 16px}
+.convite::after{content:"";position:absolute;left:0;right:0;top:16px;height:9px;background:radial-gradient(circle at 8px 0,#F3B3AB 7.5px,transparent 8px) 0 0/16px 9px repeat-x}
+.convite-in{max-width:580px;margin:0 auto}
+.convite-pre{margin:4px 0 0;text-align:center;color:var(--coral-esc);font:800 15px/1.2 var(--texto);letter-spacing:.08em;text-transform:uppercase}
+#convite-titulo{margin:2px 0 18px;text-align:center;color:var(--tinta);font:400 clamp(34px,10vw,46px)/1.05 var(--titulo)}
+.cartoes{display:grid;gap:12px;margin:0;padding:0;list-style:none}
+.cartao{display:grid;grid-template-columns:62px 1fr;gap:4px 14px;align-items:center;padding:14px 16px;border-radius:22px;border:2px solid #F1E3C6;background:#fff;box-shadow:0 3px 0 #EBDDBF}
+.cartao .selo{width:62px;height:auto}
+.cartao h3{margin:0;color:var(--coral-esc);font:800 13.5px/1.2 var(--texto);letter-spacing:.08em;text-transform:uppercase}
+.cartao p{margin:2px 0 0;color:var(--tinta);font:700 19px/1.3 var(--texto)}
+.cartao .sub{color:var(--tinta-2);font-weight:600;font-size:16px}
+.cartao .mapas{grid-column:1/-1;display:grid;gap:8px;margin:10px 0 2px}
+.mapa{display:flex;align-items:center;gap:10px;min-height:48px;padding:10px 16px;border-radius:16px;background:var(--tinta);color:#fff;font:800 16.5px/1.2 var(--texto);
+  text-decoration:none;box-shadow:0 3px 0 #0E2340}
+.mapa::before{content:"";flex:none;width:22px;height:22px;background:center/contain no-repeat url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 22s7-6.6 7-12a7 7 0 0 0-14 0c0 5.4 7 12 7 12z' fill='%23FFD23F'/%3E%3Ccircle cx='12' cy='10' r='2.8' fill='%231E3A5F'/%3E%3C/svg%3E")}
+.mapa::after{content:"";flex:none;width:16px;height:16px;margin-left:auto;background:center/contain no-repeat url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M6 3h7v7M13 3 4 12' fill='none' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E")}
+.mapa:hover{background:#294C78}
+.traje-icones{display:flex;align-items:flex-end;gap:12px;margin-top:8px!important}
+.traje-icones svg{width:auto;height:28px}
+.agenda{margin:18px 0 0;text-align:center}
+.btn-agenda{display:inline-flex;align-items:center;gap:10px;min-height:52px;padding:12px 24px;border-radius:999px;background:var(--coral-esc);color:#fff;font:800 18px/1.2 var(--texto);
+  text-decoration:none;box-shadow:0 4px 0 #8E2620}
+.btn-agenda svg{width:22px;height:22px}
+.btn-agenda:hover{background:#AD3329}
+
+/* RSVP (estrutura de comum/rsvp.html) */
+.rsvp{position:relative;margin:26px 0 0;padding:26px 18px 22px;border-radius:26px;border:2px solid #F1E3C6;background:#fff;box-shadow:0 3px 0 #EBDDBF;overflow:hidden}
+.rsvp::before{content:"";position:absolute;left:0;right:0;top:0;height:12px;background-color:#fff;background-image:linear-gradient(90deg,rgba(61,143,214,.55) 50%,transparent 0),linear-gradient(rgba(61,143,214,.55) 50%,transparent 0);background-size:12px 12px}
+.rsvp-intro{display:grid;grid-template-columns:1fr auto;align-items:center;gap:0 12px}
+.rsvp-intro h2{grid-column:1;margin:0;color:var(--tinta);font:400 34px/1.05 var(--titulo)}
+.rsvp-sub{grid-column:1;margin:2px 0 0;color:var(--tinta-2);font-weight:700}
+.rsvp-bicho{grid-column:2;grid-row:1/span 2;width:96px}
+.so-desktop{display:none}
+.rsvp-form{margin-top:12px}
+.rsvp-form fieldset{display:grid;gap:10px;min-width:0;margin:0;padding:0;border:0}
+.rsvp-sem-js{margin:0 0 8px;font-weight:700}
+.campo label{display:block;margin:0 0 4px;color:var(--tinta);font:800 16px/1.2 var(--texto)}
+.campo input{width:100%;min-height:50px;padding:10px 14px;border-radius:16px;border:2px solid #C9B78C;background:#FFFDF6;color:var(--tinta);font:600 18px/1.2 var(--texto)}
+.campo input::placeholder{color:#6B6455;opacity:1}
+.campo input:focus-visible{outline:3px solid var(--tinta);outline-offset:2px;border-color:var(--tinta)}
+.campo input:disabled{background:#F4EFE4;border-color:#D7CCB4;color:#4F4A40;-webkit-text-fill-color:#4F4A40;opacity:1}
+.campos-2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.erro{margin:4px 0 0;color:#B3261E;font-weight:700;font-size:15px}
+.erro:empty{display:none}
+.isca{position:absolute!important;left:-10000px!important;top:auto;width:1px;height:1px;overflow:hidden}
+.botao{min-height:54px;padding:10px 20px;border:0;border-radius:999px;background:var(--coral-esc);color:#fff;font:800 19px/1.2 var(--texto);cursor:pointer;box-shadow:0 4px 0 #8E2620}
+.botao:disabled{background:#E5DECF;color:#4A4539;box-shadow:none;cursor:not-allowed}
+.botao.confirmado{background:#2E7D4F;box-shadow:0 4px 0 #1C5534}
+.rsvp-nota{margin:0;text-align:center;color:var(--tinta-2);font-size:15px;font-weight:600}
+.rsvp-form.inativo .rsvp-nota{padding:10px 14px;border-radius:14px;border:2px dashed #D9AC2F;background:#FFF2C6;color:#553F00;font-size:16.5px;font-weight:800}
+.erro-geral p{margin:0;color:#B3261E;font-weight:700}
+.caixa{padding:12px 14px;border-radius:14px;font-weight:700}
+.caixa p{margin:2px 0 0}
+.caixa-sucesso{background:#E4F5E9;color:#1B5A2B}
+.caixa-erro{background:#FDE8E6;color:#8E2620}
+
+.rodape{padding:6px 18px max(28px,env(safe-area-inset-bottom));background:var(--creme);text-align:center;color:var(--tinta-2)}
+.rodape p{margin:4px 0}
+.rodape-festa{color:var(--tinta);font-weight:800}
+.versao{color:#566070;font-size:13px;font-weight:600}
+
+/* telas baixas (ex.: 375×667): título menor para a cena inteira caber na primeira tela */
+@media (max-height:760px){
+  :root{--topo:250px}
+  .bandeirinhas{top:54px;width:min(100%,520px)}
+  .titulo{margin-top:78px}
+  .nome{font-size:min(17vw,70px);-webkit-text-stroke-width:8px;text-shadow:0 5px 0 var(--tinta)}
+  .idade{font-size:21px;margin-top:-8px}
+  .placar-titulo{font-size:14.5px}
+  .vaga{width:40px;height:40px;font-size:19px}
+  .vaga.cheia svg{width:34px}
+}
+
+@media (min-width:720px){
+  .so-desktop{display:inline}
+  .convite{padding-top:58px}
+  .cartoes{grid-template-columns:1fr 1fr}
+  .cartao-onde,.cartao-traje{grid-column:1/-1}
+}
+
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;animation-delay:0s!important;transition-duration:.001ms!important;scroll-behavior:auto!important}
+  .pato-onda .o1,.pato-onda .o2{display:none}
+}
